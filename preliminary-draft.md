@@ -6,7 +6,7 @@
 </div>
 
 <div align="center">
-<img src="../img/imagen-descriptiva-si-existe.png" />
+<img src="../img/work.png" />
 </div>
 
 
@@ -24,31 +24,84 @@
 ### 1. IDENTIFICATION <a name="id1"></a>
 
 
-+ Project name: 'Work it out'
++ Project name: <b>'Work it out'</b>
 + Students: Kelpy Gómez & Andrés González 
 + Course: 2º CFGS DAW
 + Tutor: Alejandro Martín Zarza
 
 ### 2. GOALS <a name="id2"></a>
 
->Se indicará de forma genérica y si entrar en concreciones el objetivo que se pretende alcanzar al realizar el proyecto. Se indicará igualmente dónde será utilizado el proyecto obtenido 
-
+> To deploy a web application focused on the sports field which consists in a workout diary and gym-routine maker, as well as a source of information for users to learn about different exercises and how to implement them in their daily workouts.<br>
+> The main functionalities of <b>Work it Out</b> are: <br>
+>  • A dashboard designed as a calendar where the user tracks its workouts. <br>
+>  • A page that displays different exercises, followed by their description, a quick guide and many other specifications. <br>
+>  • The 'routine maker', a tool that will be used to create routines by adding exercises and their number of series and repetitions. It will also check the compatibility between the chosen exercises. <br>
+>  • Users will have a public profile where they will be able to post their routines and follow (or be followed by) other users. <br>
 
 ### 3. PRELIMINARY ANALYSIS OF THE EXISTING <a name="id3"></a>
 
->Si procede, se informará brevemente sobre el funcionamiento del sistema actual, el que vamos a reemplazar. Este sistema no tiene por qué estar necesariamente automatizado pudiendo realizarse actualmente de forma manual por personas. 
+>There's no footage of similar applications on the internet, mainly because most of them are focused on a specific workout modality, such as running, or they are meant to be used while the user trains.
 
 ### 4. PRELIMINARY ANALYSIS OF THE SYSTEM <a name="id4"></a>
 
->Indicar con brevedad las partes del sistema sobre las que trabajarás, identificando de forma genérica los requisitos que pretendes satisfacer. 
-
+>Dashboard (Training Calendar):<br>
+- Track daily workouts through an intuitive calendar view.
+>Exercise Page:<br>
+- Display detailed exercise descriptions and quick guides.
+>Routine Maker:<br>
+- Enable users to create custom workout routines with exercise sets and repetitions.
+>User Profiles:<br>
+- Provide public profiles for users to share and follow workout routines.
+>Content Management:<br>
+- Manage exercises, routines, and user profiles efficiently.
+>Security and Privacy:<br>
+- Ensure data security and user privacy with authentication and encryption.
+>UI/UX Design:<br>
+- Create a user-friendly interface for seamless navigation and accessibility.
 
 ### 5. PRELIMINARY DESIGN OF THE SYSTEM <a name="id5"></a>
-
->Si el sistema precisa de nuevo material, hardware o software, indicar las características de este: dispositivos hardware, sistemas operativos, lenguajes, bases de datos, etc.
+>Frontend (Angular):<br>
+- Develop a responsive single-page application (SPA) using Angular.
+- Implement components for the dashboard, exercise pages, user profiles, and routine generation.
+>Backend (Django):<br>
+- Use Django framework to build the backend server.
+- Implement RESTful APIs using Django Rest Framework (DRF) for user authentication, exercise management, and routine generation.
+>Database (PostgreSQL):<br>
+- Utilize PostgreSQL for storing structured data.
+- Design normalized database schemas for exercises, user profiles, and routines.
+>Authentication and Authorization:<br>
+- Implement JWT-based authentication with DRF JWT for secure user authentication.
+- Define role-based access control (RBAC) for user permissions.
+>Third-party Integrations:<br>
+- Integrate third-party APIs for additional exercise data or social features.
+>Security Measures:<br>
+- Implement HTTPS encryption and input validation to ensure data security.
 
 ### 6. COST ESTIMATES <a name="id6"></a>
+>Temporal Estimate:
+- Development Time: 
+  - Frontend (Angular): 2-3 weeks
+  - Backend (Django): 3-5 weeks
+  - Database Setup (PostgreSQL): 1 week
+  - Integration and Testing: 2 weeks
+- Documentation Preparation: 1 week
 
->Estimar el coste que representará la creación del proyecto para la empresa. Esta estimación será temporal y económica si procede.
->    • Temporal: Tiempo le llevará la realización del proyecto que propone, incluyendo el tiempo para el desarrollo del proyecto y el tiempo para la preparación de la documentación. 
->    • Económica: Cálculo de la inversión material que se precisaría para realizar el proyecto. En este apartado solo se considerará el material del que aun no disponga la empresa y que por lo tanto precisase comprar. Debemos también considerar el cambio de uso de determinados elementos que también podrían tener un coste. Ejemplo: Dedicar unordenador a la función de servidor, privándolo de la posibilidad de usarlo como escritorio. 
+Total Estimated Time: 12 weeks
+
+>Economic Estimate:
+- Hardware Costs:
+  - Dedicated Server: Free
+
+- Software Costs:
+  - Angular and Django Frameworks: Free (open-source)
+  - Third-party Tools and Libraries: Free (open-source)
+
+- Personnel Costs:
+  - Developer Salaries: not hiring external staff.
+
+- Training Costs: each member dedicates its own time.
+
+- Miscellaneous Costs:
+  - Office Space/Utilities: Work from home
+
+Total Estimated Economic Investment: Variable, depending on specific requirements and circumstances.
