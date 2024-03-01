@@ -6,7 +6,7 @@
 </div>
 
 <div align="center">
-<img src="../img/work.png" />
+<img src="/img/work.png" />
 </div>
 
 
