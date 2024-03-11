@@ -1,0 +1,29 @@
+# Create database migrations for single app or whole project
+makemigrations app="": 
+    python manage.py makemigrations {{ app }}
+
+# Run pending migrations for single app or whole project
+migrate app="": 
+    python manage.py migrate {{ app }}
+
+# Run both makemigrations & migrate commands
+mmigrate app="": 
+    python manage.py makemigrations {{ app }} && python manage.py migrate {{ app }}
+
+# Create a new app (also adding it to INSTALLED_APPS)
+startapp app:
+    #!/usr/bin/env bash
+    python manage.py startapp {{ app }}
+    APP_CLASS={{ app }}
+    APP_CONFIG="{{ app }}.apps.${APP_CLASS^}Config"
+    perl -0pi -e "s/(INSTALLED_APPS *= *\[)(.*?)(\])/\1\2    '$APP_CONFIG',\n\3/smg" $(find . -name settings.py)
+
+# Delete an existing app
+deleteapp app:
+    #!/usr/bin/env bash
+    read -p 'Do you wish to delete "{{ app }}" app? ' -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        rm -fr {{ app }}
+    fi
