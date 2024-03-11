@@ -222,7 +222,12 @@ The client will have 10 business days to conduct acceptance testing and notify t
 - **Quality assurance testing:** A systematic process of evaluating the quality and correctness of a software product to identify defects or issues that may affect its functionality, reliability, or usability.
 
 ### 13.  ANNEXES. <a name="id13"></a>
+#### *MOCKUPS*
+- <a href="/img/Mockups">Check the project's Mockup designs for each page here!</a>
 
+#### *USE CASE DIAGRAM*
+<img src="img/Diagrams/Use-Case-Diagram.png"></img>
+- 
 Here will be added:
 - External documentation of utility
 - Data models
