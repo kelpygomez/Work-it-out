@@ -15,13 +15,15 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
         help_text="The user linked to this profile",
     )
-    date_of_birth = models.DateField(blank=True, null=True, help_text="User's date of birth")
+    birthdate = models.DateField(blank=True, null=True, help_text="User's date of birth")
     photo = models.ImageField(
         upload_to='users/%Y/%m/%d/',
         blank=True,
         validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
         help_text="User's avatar",
     )
+    weight = models.SmallIntegerField(blank=True, help_text="User's current weight")
+    height = models.SmallIntegerField(blank=True, help_text="User's current height")
     status = models.CharField(
         max_length=10,
         choices=Status.choices,
@@ -41,3 +43,7 @@ class Profile(models.Model):
             self.save()
         else:
             raise ValueError("Invalid status")
+
+    @property
+    def BMI(self):
+        return self.weight / (self.height**2)

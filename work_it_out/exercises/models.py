@@ -15,7 +15,7 @@ class Exercise(models.Model):
         max_length=255,
         help_text="Name of the exercise",
     )
-    status = models.CharField(
+    type = models.CharField(
         max_length=10,
         choices=Type.choices,
         help_text="The muscle the exercise will work on",
@@ -23,10 +23,10 @@ class Exercise(models.Model):
     description = models.TextField(
         help_text="Description how to do the exercise",
     )
-    kcal_burnt = models.IntegerField(
+    kcal = models.IntegerField(
         help_text="The number of kcals burnt per repetition",
     )
-    material_required = models.CharField(
+    required_material = models.CharField(
         max_length=255, help_text="Material you need to do the exercise"
     )
     image = models.ImageField(
