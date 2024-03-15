@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<section class="mt-5 container pt-5 text-center">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-sm-9 col-md-12 col-lg-9 col-xl-9">
+            <div class="popup card">
+            <div class="card-body p-4 p-md-5">
+                <h3 class="text-center mb-4 pb-2 pb-md-0 mb-md-5">Cree su cuenta Bankoo</h3>
+                <form method="post">
+                    {% if user_form.non_field_errors %}
+                        <p class="error">Error! Revise los campos</p>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="{{ user_form.username.id_for_label }}">Usuario:</label>
+                        </div>
+                        <div class="col-8">
+                            {{ user_form.username }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="{{ user_form.first_name.id_for_label }}">Nombre:</label>
+                        </div>
+                        <div class="col-8">
+                            {{ user_form.first_name }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="{{ user_form.last_name.id_for_label }}">Apellidos:</label>
+                        </div>
+                        <div class="col-8">
+                            {{ user_form.last_name }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="{{ user_form.email.id_for_label }}">Email:</label>
+                        </div>
+                        <div class="col-8">
+                            {{ user_form.email }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="{{ user_form.password.id_for_label }}">Contraseña:</label>
+                        </div>
+                        <div class="col-8">
+                            {{ user_form.password }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="{{ user_form.password2.id_for_label }}">Repita Contraseña:</label>
+                        </div>
+                        <div class="col-8">
+                            {{ user_form.password2 }}
+                        </div>
+                    </div>
+                    <br>
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Crear Cuenta">
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!--
+                <form method="post">
+                    {{ user_form.as_p }}
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Registrame">
+                    </div>
+                </form>
+-->

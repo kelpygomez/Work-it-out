@@ -14,6 +14,7 @@ class Profile(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         help_text="The user linked to this profile",
+        related_name="profile",
     )
     birthdate = models.DateField(blank=True, null=True, help_text="User's date of birth")
     photo = models.ImageField(
@@ -22,8 +23,8 @@ class Profile(models.Model):
         validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
         help_text="User's avatar",
     )
-    weight = models.SmallIntegerField(blank=True, help_text="User's current weight")
-    height = models.SmallIntegerField(blank=True, help_text="User's current height")
+    weight = models.SmallIntegerField(blank=True, null=True, help_text="User's current weight")
+    height = models.SmallIntegerField(blank=True, null=True, help_text="User's current height")
     status = models.CharField(
         max_length=10,
         choices=Status.choices,

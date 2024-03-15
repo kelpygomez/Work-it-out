@@ -7,7 +7,7 @@ class Routine(models.Model):
     type = models.CharField(max_length=50)
     description = models.TextField()
     total_kcal = models.IntegerField()
-    exercises = models.ManyToManyField(Exercise, related_name='exercise_routine')
+    exercises = models.ManyToManyField(Exercise, related_name='exercise_routie')
 
     def __str__(self):
         return self.name
