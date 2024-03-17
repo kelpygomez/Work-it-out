@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tracker.apps.TrackerConfig',
     'exercises.apps.ExercisesConfig',
     'routines.apps.RoutinesConfig',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [

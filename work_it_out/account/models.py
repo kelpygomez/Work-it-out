@@ -20,6 +20,7 @@ class Profile(models.Model):
     photo = models.ImageField(
         upload_to='users/%Y/%m/%d/',
         blank=True,
+        null=True,
         validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
         help_text="User's avatar",
     )

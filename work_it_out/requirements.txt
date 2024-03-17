@@ -1,3 +1,4 @@
 django
 justfile
 pillow
+easy_thumbnails

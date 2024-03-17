@@ -1,5 +1,3 @@
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path
 
 from . import views
@@ -8,10 +6,8 @@ app_name = 'account'
 
 urlpatterns = [
     path('register/', views.register, name='register'),
-    path('register_done/', views.register, name='register-done'),
     path('edit/', views.edit, name='edit'),
+    path('register-done/', views.register_done, name='register_done'),
+    path('login/', views.user_login, name="login"),
+    path('profile/', views.view_profile, name='profile'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
