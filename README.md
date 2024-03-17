@@ -86,9 +86,31 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 
 </center>
 
+<center>
+  
+#### *WEEK TWO*
+
+![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/832e2e3a-c74e-4d61-809f-4ed48217a155)
+  
+| Task      | Title                   | Depend  | Duration | Start date| End date  |
+|-----------|-------------------------|---------|----------|-----------|-----------|
+| **Task 4**    | **Implementation of the application**          |         | 19h       | 10/3/24    | 17/3/24   |
+| Task  4.1 | #9 Create new django project   |         | 1 h      | 10/3/24    | 11/3/24    |
+| Task  4.2 | #10 Project apps definiton     |    4.1     | 2 h| 10/3/24    | 11/3/24   |
+| Task  4.3 | #11 Project models definition    |    4.1, 4.2     | 4 h      | 11/3/24    | 13/3/24    |
+| Task  4.4 | #12 Urls schema     |         | 4| 12/3/24    | 16/3/24   |
+| Task  4.5 | #13 'Account App'    |     4.3    | 8 h      | 13/3/24    | 16/3/24    |
+
+</center>
+
+
 ### 6. CHRONOGRAM. <a name="id6"></a>
 #### *WEEK ONE*
  <img src="/img/chronogram-one.png"> 
+ 
+#### *WEEK TWO*
+ ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/144a4c18-77bd-49a8-97ac-8b3b017564c5)
+
 
 ### 7. SUMMARY OF HUMAN AND MATERIAL RESOURCES. <a name="id7"></a>
 
@@ -125,6 +147,19 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 | 3.1 E/R Diagram| Database Administrator: 1 | Database Design Software |
 | 3.2 MR Diagram | Database Administrator: 1 | Database Design Software |
 
+</center>
+
+<center>
+
+  #### *Task 4: Implementation of the application*
+
+| TASK                 | HUMAN RESOURCES                                    | MATERIAL RESOURCES                            |
+|----------------------|----------------------------------------------------|-----------------------------------------------|
+| 4.1 Create new django project | Python developer: 1 | Computer + IDE |
+| 4.2 Project apps definition | Python developer: 1 | Computer +IDE                                        |
+| 4.3 Project Models Definition | Python developer: 1 | Computer + IDE                                       |
+| 4.4 Urls Schema | Python developer: 1 | Computer + IDE                                       |
+| 4.5 'Account' app | Python developer: 1 | Computer + IDE                                      |
 </center>
 
 ### 8. RISK CONTROL. <a name="id8"></a>
