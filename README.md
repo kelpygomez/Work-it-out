@@ -98,11 +98,27 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 | Task  4.1 | #9 Create new django project   |         | 1 h      | 10/3/24    | 11/3/24    |
 | Task  4.2 | #10 Project apps definiton     |    4.1     | 2 h| 10/3/24    | 11/3/24   |
 | Task  4.3 | #11 Project models definition    |    4.1, 4.2     | 4 h      | 11/3/24    | 13/3/24    |
-| Task  4.4 | #12 Urls schema     |         | 4| 12/3/24    | 16/3/24   |
+| Task  4.4 | #12 Urls schema     |         | 4 h | 12/3/24    | 16/3/24   |
 | Task  4.5 | #13 'Account App'    |     4.3    | 8 h      | 13/3/24    | 16/3/24    |
 
 </center>
 
+<center>
+  
+#### *WEEK THREE*
+
+![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/c5fc41c5-f222-478b-879b-1f359ad6a225)
+  
+| Task      | Title                   | Depend  | Duration | Start date| End date  |
+|-----------|-------------------------|---------|----------|-----------|-----------|
+| **Task 4**    | **Implementation of the application**          |         | 19h       | 17/3/24    | 24/3/24   |
+| Task  4.6 | #14 Design the base.html template   |    4.7    | 4 h      | 17/3/24    | 24/3/24    |
+| Task  4.7 | #15 Design the header.html template     |        | 4 h | 17/3/24    | 24/3/24   |
+| Task  4.8 | #16 Design the official CCS file    |    4.6, 4.7    | 6 h      | 17/3/24    | 24/3/24    |
+| Task  4.9 | #17 Improve the existing and 'AUTH' templates     |         | 4 h | 17/3/24    | 24/3/24   |
+| Task  4.10 | #18 Create the 'ACCOUNT' app's API    |        | 1 h      | 17/3/24    | 24/3/24    |
+
+</center>
 
 ### 6. CHRONOGRAM. <a name="id6"></a>
 #### *WEEK ONE*
@@ -111,6 +127,8 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 #### *WEEK TWO*
  ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/144a4c18-77bd-49a8-97ac-8b3b017564c5)
 
+ #### *WEEK THREE*
+ ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/850999bc-12e3-4a80-94ee-43426c645a87)
 
 ### 7. SUMMARY OF HUMAN AND MATERIAL RESOURCES. <a name="id7"></a>
 
@@ -160,6 +178,19 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 | 4.3 Project Models Definition | Python developer: 1 | Computer + IDE                                       |
 | 4.4 Urls Schema | Python developer: 1 | Computer + IDE                                       |
 | 4.5 'Account' app | Python developer: 1 | Computer + IDE                                      |
+</center>
+
+<center>
+
+  #### *Task 4: Implementation of the application*
+
+| TASK                 | HUMAN RESOURCES                                    | MATERIAL RESOURCES                            |
+|----------------------|----------------------------------------------------|-----------------------------------------------|
+| 4.6  Design the base.html templatet | Python developer: 1 | Computer + IDE |
+| 4.7 Design the header.html template | Python developer: 1 | Computer +IDE                                        |
+| 4.8 Project Models Definition | Python developer: 1 | Computer + IDE                                       |
+| 4.9 Improve the existing and 'AUTH' templates | Python developer: 1 | Computer + IDE                                       |
+| 4.10 Create the 'ACCOUNT' app's API | Python developer: 1 | Computer + IDE                                      |
 </center>
 
 ### 8. RISK CONTROL. <a name="id8"></a>
