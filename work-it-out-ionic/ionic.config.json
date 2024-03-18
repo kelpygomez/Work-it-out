@@ -1,0 +1,7 @@
+{
+  "name": "work-it-out-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

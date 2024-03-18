@@ -2,3 +2,6 @@ django
 justfile
 pillow
 easy_thumbnails
+djangorestframework_simplejwt
+djangorestframework
+django-cors-headers

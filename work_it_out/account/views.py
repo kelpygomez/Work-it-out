@@ -1,79 +1,66 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from .serializers import  ProfileSerializer, UserSerializer,LoginFormSerializer
+
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 
 from .forms import LoginForm, ProfileEditForm, UserEditForm, UserRegistrationForm
 from .models import Profile
 
 
-def welcome(request):
-    return render(request, 'account/welcome.html', {'section': 'welcome'})
+class WelcomeAPIView(APIView):
+    def get(self, request):
+        return Response({'section': 'welcome'})
 
 
-def register_done(request):
-    return render(request, 'account/register_done.html')
+
+class RegisterView(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response({'user': user.email}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-def register(request):
-    if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            new_user = user_form.save(commit=False)
-            new_user.set_password(user_form.cleaned_data['password'])
-            new_user.save()
-            Profile.objects.create(user=new_user)
-            return redirect('account:register_done')
-    else:
-        user_form = UserRegistrationForm()
-    return render(request, 'account/register.html', {'user_form': user_form})
-
-
-@login_required
-def edit(request):
-    if request.method == 'POST':
-        user_form = UserEditForm(instance=request.user, data=request.POST)
+class EditAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        user_form = UserEditForm(instance=request.user, data=request.data)
         profile_form = ProfileEditForm(
-            instance=request.user.profile, data=request.POST, files=request.FILES
+            instance=request.user.profile, data=request.data, files=request.FILES
         )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-    else:
-        user_form = UserEditForm(instance=request.user)
-        profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(
-        request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form}
-    )
+            return Response(status=status.HTTP_200_OK)
+        return Response({'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
 
 
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
+class UserLoginAPIView(APIView):
+    def post(self, request):
+        form = LoginForm(request.data)
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(request, username=cd['username'], password=cd['password'])
-        if user is not None:
-            if user.is_active:
+            if user is not None and user.is_active:
                 login(request, user)
                 return redirect('account:profile')
-            else:
-                return HttpResponse('Disabled account')
-        else:
-            return HttpResponse('Invalid login')
-    else:
-        form = LoginForm()
-    return render(request, 'registration/login.html', {'form': form})
+        return Response({'error': 'Invalid login'}, status=status.HTTP_400_BAD_REQUEST)
 
 
-@login_required
-def view_profile(request):
-    user = request.user
-    profile = Profile.objects.get(user=user)
+class ViewProfileAPIView(APIView):
+    permission_classes = [IsAuthenticated]
 
-    context = {
-        'user': user,
-        'profile': profile,
-    }
-
-    return render(request, 'account/profile.html', context)
+    def get(self, request):
+        user = request.user
+        profile = Profile.objects.get(user=user)
+        data = {
+            'user': user.username,
+            'email': user.email,
+            'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+        }
+        return Response(data, status=status.HTTP_200_OK)

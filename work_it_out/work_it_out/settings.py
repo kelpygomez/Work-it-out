@@ -27,7 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +46,9 @@ INSTALLED_APPS = [
     'exercises.apps.ExercisesConfig',
     'routines.apps.RoutinesConfig',
     'easy_thumbnails',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'work_it_out.urls'
@@ -74,6 +83,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'work_it_out.wsgi.application'
 
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8100',
+    "http://localhost:4200",
+
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

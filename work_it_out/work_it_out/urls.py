@@ -17,12 +17,23 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-
+from rest_framework_simplejwt import views as jwt_views
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from account import views as account_views
 
+class Protegida(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        return Response({"content": "Esta vista está protegida"})
+    
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include("account.urls", namespace="account")),
-    path('', account_views.welcome, name="welcome"),
     path('auth/', include('django.contrib.auth.urls')),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('protegida/', Protegida.as_view(), name='protegida'),
 ]
