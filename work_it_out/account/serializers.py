@@ -1,6 +1,8 @@
-from rest_framework import serializers
-from .models import Profile
 from django.contrib.auth.models import User
+from rest_framework import serializers
+
+from .models import Profile
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,13 +15,10 @@ class ProfileSerializer(serializers.ModelSerializer):
         return data
 
 
-
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'email', 'password')
-
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
