@@ -1,0 +1,21 @@
+ion-footer {
+    text-align: center; /* Centra el contenido del footer */
+}
+
+ion-buttons {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si el espacio es insuficiente */
+}
+
+ion-button {
+    margin: 0 5px; /* Añade un pequeño margen entre los botones */
+}
+
+ion-button:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-top: 10px; /* Añade espacio superior al texto */
+}

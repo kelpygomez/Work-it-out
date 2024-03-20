@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderPageModule } from 'src/app/components/header/header.module';
+import { FooterPageModule } from './components/footer/footer.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule ,  IonicModule.forRoot(), AppRoutingModule, HeaderPageModule],
+  imports: [BrowserModule, HttpClientModule ,  IonicModule.forRoot(), AppRoutingModule, HeaderPageModule, FooterPageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

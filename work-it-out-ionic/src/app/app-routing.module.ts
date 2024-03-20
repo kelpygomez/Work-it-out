@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/header/header.module').then( m => m.HeaderPageModule)
   },
   {
+    path: 'footer',
+    loadChildren: () => import('./components/footer/footer.module').then( m => m.FooterPageModule)
+  },
+  {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
