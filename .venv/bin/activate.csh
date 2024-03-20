@@ -17,8 +17,8 @@ setenv PATH "$VIRTUAL_ENV/bin:$PATH"
 set _OLD_VIRTUAL_PROMPT="$prompt"
 
 if (! "$?VIRTUAL_ENV_DISABLE_PROMPT") then
-    set prompt = "(work_it_out) $prompt"
-    setenv VIRTUAL_ENV_PROMPT "(work_it_out) "
+    set prompt = "(.venv) $prompt"
+    setenv VIRTUAL_ENV_PROMPT "(.venv) "
 endif
 
 alias pydoc python -m pydoc

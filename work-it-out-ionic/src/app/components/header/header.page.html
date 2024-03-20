@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Logo -->
+    <ion-title slot="start">
+      <img src="../../../../assets/icon/work.png" type="img/png" alt="Logo">
+    </ion-title>
+
+    <!-- Enlaces de navegación -->
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">Home</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']">Profile</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">Calendar</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">My Routines</ion-button>
+      <ion-button [routerLink]="['#']">Routine Maker</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">Exercises</ion-button>
+      <ion-button [routerLink]="['#']">Community</ion-button>
+    </ion-buttons>
+
+    <!-- Botón de inicio de sesión/registro -->
+    <ion-buttons slot="end">
+      <!-- Se mostrará el botón de inicio de sesión/registro si el usuario no está autenticado -->
+      <ion-button *ngIf="!isLoggedIn()" [routerLink]="['/login']">Login</ion-button>
+      <ion-button *ngIf="!isLoggedIn()" [routerLink]="['/register']">Register</ion-button>
+      <!-- Se mostrará el botón de cerrar sesión si el usuario está autenticado -->
+      <ion-button *ngIf="isLoggedIn()" (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+

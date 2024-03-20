@@ -9,4 +9,5 @@ urlpatterns = [
     path('edit/', views.EditAPIView.as_view(), name='edit'),
     path('login/', views.UserLoginAPIView.as_view(), name="login"),
     path('profile/', views.ViewProfileAPIView.as_view(), name='profile'),
+    path('logout/', views.UserLogoutAPIView.as_view(), name='logout'),
 ]

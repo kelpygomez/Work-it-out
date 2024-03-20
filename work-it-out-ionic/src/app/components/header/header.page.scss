@@ -1,0 +1,38 @@
+/* Estilos para el encabezado */
+ion-header {
+    --background: #ffffff; /* Color de fondo del encabezado */
+    --border-color: #cccccc; /* Color del borde inferior del encabezado */
+  }
+  
+  ion-toolbar {
+    --background: transparent; /* Fondo transparente para que se muestre el color de fondo del encabezado */
+    --box-shadow: none; /* Sin sombra en el encabezado */
+    --border-bottom: 1px solid var(--border-color); /* Borde inferior del encabezado */
+  }
+  
+  ion-title {
+    font-size: 20px; /* Tamaño de fuente del título */
+    font-weight: bold; /* Fuente en negrita para el título */
+    
+    img{
+      max-width: 7em;
+    }
+  }
+
+
+  
+  ion-button {
+    --color: #ffffff; /* Color de texto de los botones */
+    --background: #a8acb1; /* Color de fondo de los botones */
+    --border-radius: 5px; /* Radio de borde para los botones */
+    --padding-end: 15px; /* Espacio interno a la derecha de los botones */
+    --padding-start: 15px; /* Espacio interno a la izquierda de los botones */
+    font-size: 16px; /* Tamaño de fuente de los botones */
+  }
+  
+  ion-button:hover {
+    --background: #a8acb1; /* Color de fondo del botón al pasar el mouse */
+  }
+  
+  /* Estilos adicionales si es necesario */
+  

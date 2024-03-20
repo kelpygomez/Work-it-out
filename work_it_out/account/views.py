@@ -1,11 +1,16 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Profile
-from .serializers import LoginFormSerializer, ProfileSerializer, UserSerializer
+from .serializers import (
+    LoginFormSerializer,
+    ProfileRegisterSerializer,
+    ProfileSerializer,
+    UserSerializer,
+)
 
 '''
 class WelcomeAPIView(APIView):
@@ -16,10 +21,18 @@ class WelcomeAPIView(APIView):
 
 class RegisterView(APIView):
     def post(self, request):
+        print(request.data)
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
-            return Response({'user': user.username}, status=status.HTTP_201_CREATED)
+            profile_data = {'user_id': user.id}
+            profile_serializer = ProfileRegisterSerializer(data=profile_data)
+            if profile_serializer.is_valid():
+                profile_serializer.save()
+                return Response({'user': user.username}, status=status.HTTP_201_CREATED)
+            else:
+                user.delete()
+                return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -49,6 +62,14 @@ class UserLoginAPIView(APIView):
                 login(request, user)
                 return Response({'user': user.username}, status=status.HTTP_201_CREATED)
         return Response({'error': 'Invalid login'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserLogoutAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
 
 
 class ViewProfileAPIView(APIView):

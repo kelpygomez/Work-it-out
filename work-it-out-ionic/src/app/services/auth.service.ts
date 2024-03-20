@@ -13,6 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
   login(user: any): Observable<any>{
+    localStorage.setItem('user', JSON.stringify(user));
     return this.http.post(URLAPI+"account/login/", user);
   }
 
@@ -21,7 +22,12 @@ export class AuthService {
   }
 
   getUser(id: any) {
-    return this.http.get(URLAPI+"accounts/profile/", id)
+    return this.http.get(URLAPI+"account/profile/", id)
+  }
+
+  logout(user: any) {
+    console.log(user)
+    return this.http.post(URLAPI+"account/logout/", user);
   }
 
 }

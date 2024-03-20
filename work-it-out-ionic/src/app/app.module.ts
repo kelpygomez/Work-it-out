@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderPageModule } from 'src/app/pages/components/header/header.module';
+import { HeaderPageModule } from 'src/app/components/header/header.module';
 
 @NgModule({
   declarations: [AppComponent],
