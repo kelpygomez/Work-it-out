@@ -31,6 +31,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'exercise-list',
+    loadChildren: () => import('./pages/exercise-list/exercise-list.module').then( m => m.ExerciseListPageModule)
+  },
+  {
+    path: 'exercise-detail/:id',
+    loadChildren: () => import('./pages/exercise-detail/exercise-detail.module').then( m => m.ExerciseDetailPageModule)
+  },
 ];
 
 @NgModule({

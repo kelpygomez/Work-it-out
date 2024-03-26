@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true">
+  <section class="exercise-detail-container">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large" class="exercise-detail-header">Exercise Detail</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="detail-content">
+      <div class="image-container">
+        <ion-img [src]="'http://localhost:8000/media/exercise_images/open-terminal-vm.png'" alt="Exercise Image"></ion-img>
+      </div>
+      <div class="info-container">
+        <h2 class="exercise-name">{{ exercise.name }}</h2>
+        <ion-label class="exercise-type">{{ exercise.type }}</ion-label>
+        <ion-label class="exercise-kcal"><i class="fas fa-fire"></i> {{ exercise.kcal }}</ion-label>
+        <ion-label class="exercise-required-material"><i class="fas fa-dumbbell"></i> {{ exercise.required_material }}</ion-label>
+        <p class="exercise-description">{{ exercise.description }}</p>
+      </div>
+    </div>
+
+    <button class="return-button" (click)="returnToList()">Return to Exercise List</button>
+  </section>
+</ion-content>
