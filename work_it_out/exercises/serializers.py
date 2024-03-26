@@ -5,6 +5,7 @@ class ExerciseListSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField()
     type = serializers.CharField()
+    required_material = serializers.CharField()
     kcal = serializers.IntegerField()
 
 class ExerciseDetailSerializer(serializers.Serializer):

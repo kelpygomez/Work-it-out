@@ -33,4 +33,5 @@ class Exercise(models.Model):
         blank=True,
         validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
         help_text="Exercise's ilustration",
+        upload_to='exercise_images/'
     )
