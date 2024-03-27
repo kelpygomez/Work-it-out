@@ -25,6 +25,8 @@ export class ExerciseDetailPage implements OnInit {
       // Obtener los detalles del ejercicio usando el servicio
       this.exerciseService.getExerciseDetail(exerciseId).subscribe(
         (data: any) => {
+           // Ajustar la URL de la imagen antes de asignarla a la propiedad exercise
+          data.image = 'http://localhost:8000' + data.image;
           this.exercise = data;
         },
         (error: any) => {
