@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ExerciseDetailPageRoutingModule } from './exercise-detail-routing.module';
 
 import { ExerciseDetailPage } from './exercise-detail.page';
+import { FooterPageModule } from 'src/app/components/footer/footer.module';
 
 @NgModule({
   imports: [

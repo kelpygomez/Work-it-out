@@ -1,17 +1,17 @@
 <ion-content [fullscreen]="true">
   <section class="exercise-list-container">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large" class="exercise-list-header">Exercise List</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
+    <ion-toolbar>
+      <ion-title size="large" class="exercise-list-header">Exercise List</ion-title>
+    </ion-toolbar>
+    <ion-toolbar class="search-bar-container">
+      <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExercises($event.target.value ?? '')"></ion-searchbar>
+    </ion-toolbar>
     <ion-list class="exercise-list">
-      <ion-item class="exercise-item" *ngFor="let exercise of exercises">
+      <ion-item class="exercise-item" *ngFor="let exercise of filteredExercises">
         <a class="exercise-name" [routerLink]="['/exercise-detail', exercise.id]">{{ exercise.name }}</a>
         <ion-label class="exercise-type">{{ exercise.type }}</ion-label>
         <ion-label class="exercise-kcal"><i class="fas fa-fire"></i> {{ exercise.kcal }}</ion-label>
-        <ion-label class="exercise-required-material"><i class="fas fa-dumbbell"></i> {{ exercise.required_material }}</ion-label>
+        <ion-label class="exercise-required-material"> {{ exercise.description }}</ion-label>
       </ion-item>
     </ion-list>
   </section>

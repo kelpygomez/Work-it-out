@@ -5,7 +5,6 @@ ion-header {
   }
   
   ion-toolbar {
-    --background: transparent; /* Fondo transparente para que se muestre el color de fondo del encabezado */
     --box-shadow: none; /* Sin sombra en el encabezado */
     --border-bottom: 1px solid var(--border-color); /* Borde inferior del encabezado */
   }
