@@ -7,6 +7,7 @@ class ExerciseListSerializer(serializers.Serializer):
     type = serializers.CharField()
     kcal = serializers.IntegerField()
     description = serializers.CharField()
+    image = serializers.ImageField()
 
 class ExerciseDetailSerializer(serializers.Serializer):
     id = serializers.IntegerField()
@@ -16,3 +17,4 @@ class ExerciseDetailSerializer(serializers.Serializer):
     kcal = serializers.IntegerField()
     required_material = serializers.CharField()
     image = serializers.ImageField()
+    

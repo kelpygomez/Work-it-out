@@ -1,18 +1,57 @@
 <ion-content [fullscreen]="true">
-  <section class="exercise-list-container">
-    <ion-toolbar>
-      <ion-title size="large" class="exercise-list-header">Exercise List</ion-title>
-    </ion-toolbar>
-    <ion-toolbar class="search-bar-container">
-      <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExercises($event.target.value ?? '')"></ion-searchbar>
-    </ion-toolbar>
-    <ion-list class="exercise-list">
-      <ion-item class="exercise-item" *ngFor="let exercise of filteredExercises">
-        <a class="exercise-name" [routerLink]="['/exercise-detail', exercise.id]">{{ exercise.name }}</a>
-        <ion-label class="exercise-type">{{ exercise.type }}</ion-label>
-        <ion-label class="exercise-kcal"><i class="fas fa-fire"></i> {{ exercise.kcal }}</ion-label>
-        <ion-label class="exercise-required-material"> {{ exercise.description }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </section>
+  <div class="container py-5" style="margin-top: 135px;">
+    <!-- Buscador y filtro por tipos -->
+    <div class="row">
+      <!-- Columna del buscador -->
+      <div class="col-6">
+        <ion-toolbar class="search-bar-container">
+          <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExercises($event.target.value ?? '')"></ion-searchbar>
+
+        </ion-toolbar>
+      </div>
+
+      <!-- Columna del filtro por tipos -->
+      <div class="col-6">
+        <ion-toolbar class="filter-bar-container">
+          <ion-select placeholder="Filter by Type" [(ngModel)]="selectedType" (ionChange)="filterExercisesByType()">
+            <ion-select-option value="LEG">Leg</ion-select-option>
+            <ion-select-option value="BI">Biceps</ion-select-option>
+            <ion-select-option value="TRI">Triceps</ion-select-option>
+            <ion-select-option value="CHE">Chest</ion-select-option>
+            <ion-select-option value="BA">Back</ion-select-option>
+            <ion-select-option value="SHO">Shoulders</ion-select-option>
+          </ion-select>
+        </ion-toolbar>
+      </div>
+    </div>
+    <!-- Lista de ejercicios -->
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+
+        <!-- List group-->
+        <ul class="list-group shadow">
+
+          <!-- Item de la lista -->
+          <ion-item class="list-group-item w-100" *ngFor="let exercise of filteredExercises">
+            <!-- Contenido personalizado-->
+            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+              <div class="media-body order-2 order-lg-1">
+                <h5 class="mt-0 font-weight-bold mb-2"><a class="exercise-name" [routerLink]="['/exercise-detail', exercise.id]">{{ exercise.name }}</a></h5>
+                <p class="font-italic text-muted mb-0 small">{{ exercise.description }}</p>
+                <div class="d-flex align-items-center justify-content-between mt-1">
+                  <h6 class="font-weight-bold my-2"><i class="fas fa-fire" style="color: orange;"></i> {{ exercise.kcal }} KCAL PER REPS</h6>
+                  <ul class="list-inline big">
+                    <li class="list-inline-item mr-5">{{ exercise.type }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div><img [src]="exercise.image" alt="Product Image" width="200" class="ml-lg-5 order-1 order-lg-2">
+          </ion-item>
+        </ul>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+
+
