@@ -33,9 +33,9 @@ export class ExerciseListPage implements OnInit {
 
   viewExerciseDetail(exerciseId: number) {
     // Redirigir a la página de detalle de ejercicio pasando el ID del ejercicio
-    this.router.navigate(['/exercise-detail', exerciseId]);
+    window.location.href = '/exercise-detail/' + exerciseId;
   }
-
+  
   filterExercises(searchTerm: string) {
     this.searchTerm = searchTerm;
     this.filteredExercises = this.exercises.filter(exercise =>
