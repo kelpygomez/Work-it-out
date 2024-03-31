@@ -1,5 +1,3 @@
-// routine-maker.page.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoutineService } from '../../services/routines.service';
@@ -15,7 +13,8 @@ import { ExerciseService } from 'src/app/services/exercise.service';
 export class RoutineMakerPage implements OnInit {
   routineId: number = 0;
   routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', type: '', exercises: [] };
-  exercises: Exercise[] = [];
+  availableExercises: Exercise[] = [];
+  routineExercises: Exercise[] = [];
 
   constructor(private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService) { }
 
@@ -31,6 +30,8 @@ export class RoutineMakerPage implements OnInit {
     this.routineService.getRoutine(this.routineId).subscribe(
       (data: Routine) => {
         this.routine = data;
+        console.log('Routine loaded:', this.routine);
+        this.loadRoutineExercises(); // Cargar detalles completos de ejercicios
       },
       (error: any) => {
         console.error('Error fetching routine:', error);
@@ -41,7 +42,8 @@ export class RoutineMakerPage implements OnInit {
   loadExercises() {
     this.exerciseService.getExerciseList().subscribe(
       (data: Exercise[]) => {
-        this.exercises = data;
+        // Filtrar ejercicios disponibles que no están en la rutina
+        this.availableExercises = data.filter(exercise => !this.routine.exercises.find(e => e.id === exercise.id));
       },
       (error: any) => {
         console.error('Error fetching exercises:', error);
@@ -49,10 +51,28 @@ export class RoutineMakerPage implements OnInit {
     );
   }
 
+  loadRoutineExercises() {
+    // Obtener detalles completos de los ejercicios en la rutina
+    this.routineExercises = [];
+    this.routine.exercises.forEach(exerciseId => {
+        this.exerciseService.getExerciseDetail(exerciseId.toString()).subscribe( // Convertir ID a string
+            (exercise: Exercise) => {
+                this.routineExercises.push(exercise);
+                console.log('Routine exercise:', exercise);
+            },
+            (error: any) => {
+                console.error('Error fetching routine exercise:', error);
+            }
+        );
+    });
+}
+
+
   addExerciseToRoutine(exerciseId: number) {
     this.routineService.addExerciseToRoutine(this.routineId, exerciseId).subscribe(
       () => {
-        this.loadRoutine(); // Reload routine after adding exercise
+        this.loadRoutine(); // Recargar rutina después de agregar ejercicio
+        this.loadExercises(); // Recargar ejercicios disponibles
       },
       (error: any) => {
         console.error('Error adding exercise to routine:', error);
@@ -63,7 +83,8 @@ export class RoutineMakerPage implements OnInit {
   removeExerciseFromRoutine(exerciseId: number) {
     this.routineService.removeExerciseFromRoutine(this.routineId, exerciseId).subscribe(
       () => {
-        this.loadRoutine(); // Reload routine after removing exercise
+        this.loadRoutine(); // Recargar rutina después de quitar ejercicio
+        this.loadExercises(); // Recargar ejercicios disponibles
       },
       (error: any) => {
         console.error('Error removing exercise from routine:', error);

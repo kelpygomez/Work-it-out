@@ -44,10 +44,11 @@ def add_exercise_to_routine(request, routine_id):
 
 @csrf_exempt
 def remove_exercise_from_routine(request, routine_id):
-    if request.method == 'DELETE':
-        exercise_id = request.POST.get('exercise_id')
-        routine = Routine.objects.get(pk=routine_id)
-        exercise = Exercise.objects.get(pk=exercise_id)
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        exercise_id = data.get('exercise_id')
+        routine = Routine.objects.get(id=routine_id)
+        exercise = Exercise.objects.get(id=exercise_id)
         routine.exercises.remove(exercise)
         routine.save()
         return JsonResponse({'message': 'Exercise removed from routine successfully'}, status=200)
