@@ -39,6 +39,14 @@ const routes: Routes = [
     path: 'exercise-detail/:id',
     loadChildren: () => import('./pages/exercise-detail/exercise-detail.module').then( m => m.ExerciseDetailPageModule)
   },
+  {
+    path: 'routines-list',
+    loadChildren: () => import('./pages/routines-list/routines-list.module').then( m => m.RoutinesListPageModule)
+  },
+  {
+    path: 'routine-maker/:id',
+    loadChildren: () => import('./pages/routine-maker/routine-maker.module').then( m => m.RoutineMakerPageModule)
+  },
 ];
 
 @NgModule({
