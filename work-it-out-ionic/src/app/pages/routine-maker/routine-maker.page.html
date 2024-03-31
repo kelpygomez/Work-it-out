@@ -38,9 +38,9 @@
           </ion-card-header>
           <ion-card-content>
             <ion-list lines="full">
-              <ion-item *ngFor="let exercise of routine.exercises">
-                <ion-label>{{ exercise.name }}</ion-label>
-                <ion-button color="danger" (click)="removeExerciseFromRoutine(exercise.id)">Remove</ion-button>
+              <ion-item *ngFor="let exercise_added of routine.exercises">
+                <ion-label>{{ exercise_added.name }}</ion-label>
+                <ion-button color="danger" (click)="removeExerciseFromRoutine(exercise_added.id)">Remove</ion-button>
               </ion-item>
             </ion-list>
           </ion-card-content>

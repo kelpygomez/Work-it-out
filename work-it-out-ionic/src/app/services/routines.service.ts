@@ -3,21 +3,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Routine } from '../interfaces/routine.interface'; // Asegúrate de tener el modelo de rutina definido correctamente
+import { Routine } from '../interfaces/routine.interface'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoutineService {
-  private apiUrl = 'http://localhost:8000/routines/'; // Reemplaza esta URL con la URL de tu API de Django
+  private apiUrl = 'http://localhost:8000/routines/'; 
 
   constructor(private http: HttpClient) { }
 
   getRutinas(): Observable<Routine[]> {
     return this.http.get<Routine[]>(this.apiUrl);
-  }
-  getCurrentRoutine(): Observable<Routine> {
-    return this.http.get<Routine>(this.apiUrl + 'current');
   }
 
   updateRoutine(routine: Routine): Observable<Routine> {
@@ -30,7 +27,7 @@ export class RoutineService {
   }
 
   createRoutine(): Observable<Routine> {
-    return this.http.post<Routine>(this.apiUrl, {});
+    return this.http.post<Routine>(this.apiUrl + 'create/', {});
   }
 
   addExerciseToRoutine(routineId: number, exerciseId: number): Observable<any> {

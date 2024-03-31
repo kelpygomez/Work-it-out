@@ -11,7 +11,7 @@
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']">Profile</ion-button>
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">Calendar</ion-button>
       <ion-button *ngIf="isLoggedIn()" routerLink="/routines-list">My Routines</ion-button>
-      <ion-button [routerLink]="['/routine-maker']">Routine Maker</ion-button>
+      <ion-button (click)="createEmptyRoutine()">Routine Maker</ion-button>
       <!-- Enlace al ejercicio -->
       <ion-button [routerLink]="['/exercise-list']">Exercises</ion-button>
       <ion-button [routerLink]="['#']">Community</ion-button>
