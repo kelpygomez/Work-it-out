@@ -120,6 +120,20 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 
 </center>
 
+#### *WEEK FOUR*
+
+![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/03091390-f925-410d-b796-12f2500fc826)
+
+| Task      | Title                   | Depend  | Duration | Start date| End date  |
+|-----------|-------------------------|---------|----------|-----------|-----------|
+| **Task 4**    | **Implementation of the application**          |         | 29h       | 24/3/24    | 31/3/24   |
+| Task  4.11 | #19 Creating Exercises API   |        | 2 h      | 24/3/24    | 31/3/24    |
+| Task  4.12 | #20 Creating new page for exercise list     |        | 6 h | 24/3/24    | 31/3/24   |
+| Task  4.13 | #21 Creating new page for exercise detail    |        | 6 h      | 24/3/24    | 31/3/24    |
+| Task  4.14 | #22 Creating new page for profile     |         | 4 h | 24/3/24    | 31/3/24   |
+| Task  4.15 | #23 Creating new page for profile edit    |        | 4 h      | 24/3/24    | 31/3/24    |
+| Task  4.16 | #24 Implementing Styles with SCSS in the exercieses VIEWS    |        | 5 h      | 24/3/24    | 31/3/24    |
+
 ### 6. CHRONOGRAM. <a name="id6"></a>
 #### *WEEK ONE*
  <img src="/img/chronogram-one.png"> 
@@ -129,6 +143,11 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 
  #### *WEEK THREE*
  ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/850999bc-12e3-4a80-94ee-43426c645a87)
+
+  #### *WEEK FOUR*
+
+  ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/3b63501c-9e98-4454-abe6-90408cfd983c)
+
 
 ### 7. SUMMARY OF HUMAN AND MATERIAL RESOURCES. <a name="id7"></a>
 
@@ -178,19 +197,17 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 | 4.3 Project Models Definition | Python developer: 1 | Computer + IDE                                       |
 | 4.4 Urls Schema | Python developer: 1 | Computer + IDE                                       |
 | 4.5 'Account' app | Python developer: 1 | Computer + IDE                                      |
-</center>
-
-<center>
-
-  #### *Task 4: Implementation of the application*
-
-| TASK                 | HUMAN RESOURCES                                    | MATERIAL RESOURCES                            |
-|----------------------|----------------------------------------------------|-----------------------------------------------|
 | 4.6  Design the base.html templatet | Python developer: 1 | Computer + IDE |
 | 4.7 Design the header.html template | Python developer: 1 | Computer +IDE                                        |
 | 4.8 Project Models Definition | Python developer: 1 | Computer + IDE                                       |
 | 4.9 Improve the existing and 'AUTH' templates | Python developer: 1 | Computer + IDE                                       |
 | 4.10 Create the 'ACCOUNT' app's API | Python developer: 1 | Computer + IDE                                      |
+| 4.11 Creating Exercises API | Python developer: 1 | Computer + IDE                                      |
+| 4.12  Creating new page for exercise list | Python developer: 1 | Computer + IDE |
+| 4.13 Creating new page for exercise detail | Python developer: 1 | Computer +IDE                                        |
+| 4.14 Creating new page for profile | Python developer: 1 | Computer + IDE                                       |
+| 4.15 Creating new page for profile edit | Python developer: 1 | Computer + IDE                                       |
+| 4.16 Implementing Styles with SCSS in the exercieses VIEWS | Python developer: 1 | Computer + IDE                                      |
 </center>
 
 ### 8. RISK CONTROL. <a name="id8"></a>
