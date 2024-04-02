@@ -22,6 +22,7 @@ from rest_framework_simplejwt import views as jwt_views
 import os
 from django.conf import settings
 from django.conf.urls.static import static
+from account.views import get_user_id
 
 def serve_image(request, image_name):
     image_path = os.path.join(settings.MEDIA_ROOT, 'exercise_images', image_name)
@@ -37,6 +38,7 @@ urlpatterns = [
     path('account/', include("account.urls", namespace="account")),
     path('exercises/', include("exercises.urls", namespace="exercises")),
     path('routines/', include("routines.urls", namespace="routines")),
+    path('get-user-id/', get_user_id, name='get_user_id'),
     path('image/<str:image_name>/', serve_image, name='serve_image'),
     path('auth/', include('django.contrib.auth.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),

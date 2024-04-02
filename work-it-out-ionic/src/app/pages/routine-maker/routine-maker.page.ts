@@ -4,6 +4,7 @@ import { RoutineService } from '../../services/routines.service';
 import { Routine } from '../../interfaces/routine.interface';
 import { Exercise } from '../../interfaces/exercise.interface';
 import { ExerciseService } from 'src/app/services/exercise.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-routine-maker',
@@ -11,19 +12,34 @@ import { ExerciseService } from 'src/app/services/exercise.service';
   styleUrls: ['./routine-maker.page.scss'],
 })
 export class RoutineMakerPage implements OnInit {
+  userId: number= 0;
   routineId: number = 0;
   routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', type: '', exercises: [] };
   availableExercises: Exercise[] = [];
   routineExercises: Exercise[] = [];
 
-  constructor(private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.routineId = params['id'];
       this.loadRoutine();
       this.loadExercises();
+      this.getUserId();
     });
+  }
+
+  getUserId() {
+    this.http.get<any>('/get-user-id/').subscribe(
+      (data) => {
+        this.userId = data.user_id;
+        console.log('User ID:', this.userId);
+        // Aquí puedes hacer otras acciones utilizando el ID del usuario
+      },
+      (error) => {
+        console.error('Error fetching user ID:', error);
+      }
+    );
   }
 
   loadRoutine() {

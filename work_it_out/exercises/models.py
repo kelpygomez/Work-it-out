@@ -4,12 +4,21 @@ from django.db import models
 
 class Exercise(models.Model):
     class Type(models.TextChoices):
-        LEG = "LEG", "Leg"
-        BICEPS = "BI", "Biceps"
-        TRICEPS = "TRI", "Triceps"
-        CHEST = "CHE", "Chest"
-        BACK = "BA", "Back"
-        SHOULDERS = "SHO", "Shoulders"
+        LEG = "Leg"
+        BICEPS = "Biceps"
+        TRICEPS = "Triceps"
+        CHEST = "Chest"
+        BACK = "Back"
+        SHOULDERS = "Shoulders"
+    
+    class RequiredMaterial(models.TextChoices):
+        BARBELL = "Barbell"
+        WEIGHT_PLATES = "Weight Plates"
+        DUMBBELLS = "Dumbbells"
+        CABLE_MACHINE = "Cable Machine"
+        BOSU_BALL = "Bosu Ball"
+        KETTLEBELLS = "Kettlebells"
+        TRX = "TRX"
 
     name = models.CharField(
         max_length=255,
@@ -27,7 +36,7 @@ class Exercise(models.Model):
         help_text="The number of kcals burnt per repetition",
     )
     required_material = models.CharField(
-        max_length=255, help_text="Material you need to do the exercise"
+        max_length=50, help_text="Material you need to do the exercise", choices=RequiredMaterial.choices
     )
     image = models.ImageField(
         blank=True,

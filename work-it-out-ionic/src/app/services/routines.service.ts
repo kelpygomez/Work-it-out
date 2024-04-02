@@ -10,11 +10,16 @@ import { Routine } from '../interfaces/routine.interface';
 })
 export class RoutineService {
   private apiUrl = 'http://localhost:8000/routines/'; 
+  private userIdUrl = 'http://localhost:8000/get-user-id/';
 
   constructor(private http: HttpClient) { }
 
-  getRutinas(): Observable<Routine[]> {
-    return this.http.get<Routine[]>(this.apiUrl);
+  getUserId(): Observable<any> {
+    return this.http.get<any>(this.userIdUrl);
+  }
+
+  getRutinas(userId: number): Observable<Routine[]> {
+    return this.http.get<Routine[]>(`${this.apiUrl}?user_id=${userId}`);
   }
 
   updateRoutine(routine: Routine): Observable<Routine> {
@@ -26,8 +31,8 @@ export class RoutineService {
     return this.http.get<Routine>(url);
   }
 
-  createRoutine(): Observable<Routine> {
-    return this.http.post<Routine>(this.apiUrl + 'create/', {});
+  createRoutine(userId: number): Observable<any> {
+    return this.http.post<Routine>(this.apiUrl + 'create/', { user_id: userId });
   }
 
   addExerciseToRoutine(routineId: number, exerciseId: number): Observable<any> {

@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.http import JsonResponse
 from .models import Profile
 from .serializers import (
     LoginFormSerializer,
@@ -84,3 +84,9 @@ class ViewProfileAPIView(APIView):
             'profile_picture': profile.profile_picture.url if profile.profile_picture else None,
         }
         return Response(data, status=status.HTTP_200_OK)
+
+def get_user_id(request):
+    # Obtener el ID del usuario si está disponible
+    user_id = request.user.id if request.user.is_authenticated else None
+    # Enviar el ID del usuario como respuesta JSON
+    return JsonResponse({'user_id': user_id})

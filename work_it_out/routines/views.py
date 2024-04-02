@@ -3,6 +3,7 @@ from rest_framework import generics, status
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import Routine
+from account.models import Profile
 from exercises.models import Exercise
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -18,12 +19,20 @@ class RoutineDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class RoutineCreateAPIView(APIView):
     def post(self, request, format=None):
-        # Crear una rutina con algunos campos predefinidos
+        user_id = request.data.get('user_id')
+        if user_id is None:
+            return Response({'error': 'User ID is required'}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            user = Profile.objects.get(id=user_id)
+        except Profile.DoesNotExist:
+            return Response({'error': 'User with the provided ID does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
         routine = Routine.objects.create(
+            user=user,
             name='Nombre de rutina',
             type='Tipo de rutina',
             description='Descripción de la rutina',
-            total_kcal=0  # Puedes establecer el valor predeterminado que desees
+            total_kcal=0
         )
         return Response({'id': routine.id}, status=status.HTTP_201_CREATED)
 
