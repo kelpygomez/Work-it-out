@@ -10,6 +10,15 @@
 
 <ion-content [fullscreen]="true">
   <ion-grid>
+    <div>
+      <label for="routine-name">Name of the routine:</label>
+      <input type="text" id="routine-name" [(ngModel)]="routine.name">
+    </div>
+    <div>
+      <label for="routine-description">Routine's description:</label>
+      <textarea id="routine-description" [(ngModel)]="routine.description"></textarea>
+    </div>
+    <button (click)="saveChanges()">Save changes</button>
     <ion-row>
       <ion-col size="6">
         <ion-card>

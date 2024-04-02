@@ -91,4 +91,16 @@ export class RoutineMakerPage implements OnInit {
       }
     );
   }
+
+    // Agrega un método para guardar los cambios en la rutina
+    saveChanges() {
+      this.routineService.updateRoutine(this.routine).subscribe(
+        () => {
+          console.log('Changes saved successfully');
+        },
+        (error: any) => {
+          console.error('Error saving changes:', error);
+        }
+      );
+    }
 }
