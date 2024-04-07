@@ -60,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'work_it_out.urls'
@@ -87,7 +86,6 @@ WSGI_APPLICATION = 'work_it_out.wsgi.application'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8100',
     "http://localhost:4200",
-
 ]
 
 # Database
@@ -144,3 +142,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+LOGIN_REDIRECT_URL = '/home'

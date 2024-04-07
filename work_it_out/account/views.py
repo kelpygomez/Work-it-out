@@ -81,6 +81,6 @@ class ViewProfileAPIView(APIView):
         data = {
             'user': user.username,
             'email': user.email,
-            'profile_picture': profile.profile_picture.url if profile.profile_picture else None,
+            'profile_picture': profile.photo.url if profile.photo else None,
         }
         return Response(data, status=status.HTTP_200_OK)

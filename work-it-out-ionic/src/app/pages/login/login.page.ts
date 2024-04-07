@@ -22,12 +22,12 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       const user = this.loginForm.value;
       this.authService.login(user).subscribe((data) => {
-        console.log(localStorage.getItem('user'))
-        this.router.navigate(['/home']);
+        console.log(localStorage.getItem('user')); 
+        this.router.navigate(['/home']); 
       });
     }
   }
+
   ngOnInit() {
   }
-
 }

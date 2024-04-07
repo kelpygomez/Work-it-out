@@ -15,8 +15,11 @@ import { FooterPageModule } from 'src/app/components/footer/footer.module';
     ReactiveFormsModule,
     IonicModule,
     ProfilePageRoutingModule,
-    FooterPageModule
+    FooterPageModule,
   ],
-  declarations: [ProfilePage]
+  declarations: [ProfilePage],
+  exports: [
+    ReactiveFormsModule
+  ]
 })
 export class ProfilePageModule {}
