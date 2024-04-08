@@ -134,6 +134,19 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 | Task  4.15 | #23 Creating new page for profile edit    |        | 4 h      | 24/3/24    | 31/3/24    |
 | Task  4.16 | #24 Implementing Styles with SCSS in the exercieses VIEWS    |        | 5 h      | 24/3/24    | 31/3/24    |
 
+#### *WEEK FIVE*
+
+![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/66482320-a5d8-4bca-bf3b-9b0d411e4355)
+
+| Task      | Title                   | Depend  | Duration | Start date| End date  |
+|-----------|-------------------------|---------|----------|-----------|-----------|
+| **Task 4**    | **Implementation of the application**          |         | 29h       | 1/4/24    | 8/4/24   |
+| Task  4.17 | #25 Adding exercises to the data base   |        | 2 h      | 1/4/24    | 7/4/24    |
+| Task  4.18 | #26 Creating new page for routines list     |        | 6 h | 1/4/24    | 7/4/24   |
+| Task  4.19 | #27 Creating new page for routine-maker    |        | 6 h      | 1/4/24    | 7/4/24    |
+| Task  4.20 | #28 Creating a paginator in every list view     |         | 4 h | 1/4/24    | 7/4/24   |
+| Task  4.21 | #29 Deploy the application in Azure VPS    |        | 4 h      | 1/4/24   | 7/4/24    |
+
 ### 6. CHRONOGRAM. <a name="id6"></a>
 #### *WEEK ONE*
  <img src="/img/chronogram-one.png"> 
@@ -148,6 +161,9 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 
   ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/3b63501c-9e98-4454-abe6-90408cfd983c)
 
+  #### *WEEK FIVE*
+
+  ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/cccdb8c1-2cac-4bf3-9d85-692302a95fbe)
 
 ### 7. SUMMARY OF HUMAN AND MATERIAL RESOURCES. <a name="id7"></a>
 
