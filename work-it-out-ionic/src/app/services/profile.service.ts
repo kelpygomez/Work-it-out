@@ -11,10 +11,10 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getProfile(): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+    return this.http.get<any>(`${this.baseUrl}profile/`);
   }
 
-  updateProfile(formData: FormData): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'profile/edit/', formData);
+  saveProfile(formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}profile/edit/`, formData);
   }
 }

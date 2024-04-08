@@ -14,17 +14,23 @@ export class AuthService {
 
   login(user: any): Observable<any>{
     localStorage.setItem('user', JSON.stringify(user));
-    return this.http.post(URLAPI+"account/login/", user);
+    return this.http.post(URLAPI+"account/user/login/", user);
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(URLAPI+"account/register/", user);
+    return this.http.post(URLAPI+"account/user/register/", user);
   }
 
-  getUser(id: any) {
-    return this.http.get(URLAPI+"account/profile/", id)
-  }
+  getProfile(profile_id: any): Observable<any> {
+    // Obtener el token de autenticación del localStorage o de donde lo tengas almacenado
+    const authToken = localStorage.getItem('authToken');
 
+    // Crear el encabezado de autorización con el token
+    const headers = { Authorization: `Bearer ${authToken}` };
+
+    // Hacer la solicitud GET para obtener el perfil del usuario
+    return this.http.get(`${URLAPI}account/profile-detail/${profile_id}`, { headers });
+  }
   logout(user: any) {
     console.log(user)
     return this.http.post(URLAPI+"account/logout/", user);

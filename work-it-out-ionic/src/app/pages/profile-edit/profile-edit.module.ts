@@ -4,9 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfilePageRoutingModule } from './profile-routing.module';
+import { ProfileEditPageRoutingModule } from './profile-edit-routing.module';
 
-import { ProfilePage } from './profile.page';
+import { ProfileEditPage } from './profile-edit.page';
 import { FooterPageModule } from 'src/app/components/footer/footer.module';
 
 @NgModule({
@@ -14,12 +14,12 @@ import { FooterPageModule } from 'src/app/components/footer/footer.module';
     CommonModule,
     ReactiveFormsModule,
     IonicModule,
-    ProfilePageRoutingModule,
+    ProfileEditPageRoutingModule,
     FooterPageModule,
   ],
-  declarations: [ProfilePage],
+  declarations: [ProfileEditPage],
   exports: [
     ReactiveFormsModule
   ]
 })
-export class ProfilePageModule {}
+export class ProfileEditPageModule {}

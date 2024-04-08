@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { HeaderPageModule } from 'src/app/components/header/header.module';
 import { FooterPageModule } from './components/footer/footer.module';
-
+import { AuthInterceptor } from '../../auth.interceptor';
 // Importa ExerciseService
 import { ExerciseService } from './services/exercise.service';
 
@@ -25,7 +24,8 @@ import { ExerciseService } from './services/exercise.service';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ExerciseService // Agrega ExerciseService a los providers
+    ExerciseService, // Agrega ExerciseService a los providers,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

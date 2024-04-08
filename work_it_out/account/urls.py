@@ -10,7 +10,7 @@ from .views import (
 
 app_name = 'account'
 urlpatterns = [
-    path('', ViewProfileAPIView.as_view(), name='profile-detail'),
+    path('profile/', ViewProfileAPIView.as_view(), name='profile-detail'),
     path('profile/edit/', EditAPIView.as_view(), name='profile-edit'),
     path('user/register/', RegisterView.as_view(), name='user-register'),
     path('user/login/', UserLoginAPIView.as_view(), name='user-login'),

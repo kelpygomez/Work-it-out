@@ -23,10 +23,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -46,6 +42,14 @@ const routes: Routes = [
   {
     path: 'routine-maker/:id',
     loadChildren: () => import('./pages/routine-maker/routine-maker.module').then( m => m.RoutineMakerPageModule)
+  },
+  {
+    path: 'profile-detail',
+    loadChildren: () => import('./pages/profile-detail/profile-detail.module').then( m => m.ProfileDetailPageModule)
+  },
+  {
+    path: 'profile-edit',
+    loadChildren: () => import('./pages/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
   },
 ];
 

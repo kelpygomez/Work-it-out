@@ -82,5 +82,6 @@ class ViewProfileAPIView(APIView):
             'user': user.username,
             'email': user.email,
             'profile_picture': profile.photo.url if profile.photo else None,
+            'profile_id': profile.pk,
         }
         return Response(data, status=status.HTTP_200_OK)
