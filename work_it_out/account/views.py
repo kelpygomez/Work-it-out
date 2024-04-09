@@ -1,16 +1,12 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, logout
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import BlacklistMixin, RefreshToken
 
 from .models import Profile
-from .serializers import (
-    LoginFormSerializer,
-    ProfileRegisterSerializer,
-    ProfileSerializer,
-    UserSerializer,
-)
+from .serializers import ProfileRegisterSerializer, ProfileSerializer, UserSerializer
 
 '''
 class WelcomeAPIView(APIView):
@@ -52,16 +48,31 @@ class EditAPIView(APIView):
 
 
 class UserLoginAPIView(APIView):
+
+    permission_classes = [AllowAny]
+
     def post(self, request):
-        form = LoginFormSerializer(data=request.data)
-        if form.is_valid():
-            username = form.validated_data.get('username')
-            password = form.validated_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None and user.is_active:
-                login(request, user)
-                return Response({'user': user.username}, status=status.HTTP_201_CREATED)
-        return Response({'error': 'Invalid login'}, status=status.HTTP_400_BAD_REQUEST)
+        user_data = request.data.get('user')
+        if user_data:
+            username = user_data.get('username')
+            password = user_data.get('password')
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                refresh = RefreshToken.for_user(user)
+                return Response(
+                    {
+                        'refresh': str(refresh),
+                        'access': str(refresh.access_token),
+                    },
+                    status=status.HTTP_200_OK,
+                )
+            else:
+                return Response(
+                    {'error': 'Invalid username or password'}, status=status.HTTP_401_UNAUTHORIZED
+                )
+        else:
+            return Response({'error': 'Invalid request data'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserLogoutAPIView(APIView):
@@ -76,12 +87,11 @@ class ViewProfileAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        user = request.user
-        profile = Profile.objects.get(user=user)
-        data = {
-            'user': user.username,
-            'email': user.email,
-            'profile_picture': profile.photo.url if profile.photo else None,
-            'profile_id': profile.pk,
-        }
-        return Response(data, status=status.HTTP_200_OK)
+        if request.user.is_authenticated:
+            profile = Profile.objects.get(user=request.user)
+            serializer = ProfileSerializer(profile)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(
+                {'error': 'Usuario no autenticado'}, status=status.HTTP_401_UNAUTHORIZED
+            )

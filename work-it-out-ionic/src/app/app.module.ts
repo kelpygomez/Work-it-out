@@ -25,7 +25,6 @@ import { ExerciseService } from './services/exercise.service';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ExerciseService, // Agrega ExerciseService a los providers,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -87,6 +88,11 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8100',
     "http://localhost:4200",
 ]
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=50),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=55),
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

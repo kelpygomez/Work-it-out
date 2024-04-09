@@ -1,20 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { Profile } from '../interfaces/profile.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
   private baseUrl = 'http://localhost:8000/account/';
+  private token: string | null;
 
-  constructor(private http: HttpClient) { }
-
-  getProfile(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}profile/`);
+  constructor(private http: HttpClient, private cookies: CookieService) {
+    this.token = localStorage.getItem('token');
   }
 
-  saveProfile(formData: FormData): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}profile/edit/`, formData);
+  getProfile(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = token ? new HttpHeaders({ 'Authorization': `Bearer ${token}` }) : new HttpHeaders();
+    return this.http.get<any>(`${this.baseUrl}profile/`, {headers: this.getHeaders()});
+  }
+
+  saveProfile(profile: Profile): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}profile/`, { profile }, { headers: this.getHeaders() });
+  }
+  private getHeaders(): HttpHeaders {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    if (this.token) {
+      headers = headers.set('Authorization', `Bearer ${this.token}`);
+    }
+    return headers;
   }
 }

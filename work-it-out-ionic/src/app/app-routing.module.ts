@@ -44,12 +44,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/routine-maker/routine-maker.module').then( m => m.RoutineMakerPageModule)
   },
   {
-    path: 'profile-detail',
-    loadChildren: () => import('./pages/profile-detail/profile-detail.module').then( m => m.ProfileDetailPageModule)
-  },
-  {
-    path: 'profile-edit',
-    loadChildren: () => import('./pages/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
 ];
 

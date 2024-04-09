@@ -23,7 +23,6 @@ export class LoginPage implements OnInit {
       const user = this.loginForm.value;
       this.authService.login(user).subscribe((data) => {
         console.log(localStorage.getItem('user'));
-        console.log(localStorage.getItem('profile_id')); 
         this.router.navigate(['/home']); 
       });
     }

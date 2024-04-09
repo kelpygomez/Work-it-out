@@ -10,6 +10,7 @@ class Profile(models.Model):
         DISABLE = "DS", "Disable"
         CANCELLED = "CA", "Cancelled"
 
+    id = models.IntegerField(primary_key=True, unique=True, blank=True)
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -37,7 +38,7 @@ class Profile(models.Model):
         return f'Profile of {self.user}'
 
     def get_absolute_url(self):
-        return reverse("account:dashboard")
+        return reverse("account:profile")
 
     def change_status(self, new_status):
         if new_status in [status[0] for status in self.Status.choices]:
@@ -48,4 +49,5 @@ class Profile(models.Model):
 
     @property
     def BMI(self):
-        return self.weight / (self.height**2)
+        if self.weight:
+            return self.weight / (self.height**2)
