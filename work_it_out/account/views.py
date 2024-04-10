@@ -95,3 +95,19 @@ class ViewProfileAPIView(APIView):
             return Response(
                 {'error': 'Usuario no autenticado'}, status=status.HTTP_401_UNAUTHORIZED
             )
+
+    def put(self, request):
+        if request.user.is_authenticated:
+            profile = Profile.objects.get(user=request.user)
+            serializer = ProfileSerializer(profile, data=request.data)
+            print(request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            return Response(
+                {'error': 'Usuario no autenticado'}, status=status.HTTP_401_UNAUTHORIZED
+            )

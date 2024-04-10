@@ -1,35 +1,37 @@
-<ion-content>
-  <ion-list *ngIf="profile">
-    <ion-item>
-      <ion-label position="stacked">Username</ion-label>
-      <ion-input [(ngModel)]="profile.user.username" clearInput="true" placeholder="Enter your username" aria-label="Username"></ion-input>
-    </ion-item>
+<ion-content *ngIf="profile">
+  <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Username</ion-label>
+        <ion-input *ngIf="profile" formControlName="username" clearInput="true" placeholder="Enter your username" aria-label="Username"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input [(ngModel)]="profile.user.email" clearInput="true" placeholder="Enter your email" aria-label="Email"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email" blank="true" clearInput="true" placeholder="Enter your email" aria-label="Email"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Date of Birth</ion-label>
-      <ion-input [(ngModel)]="profile.birthdate" clearInput="true" type="date" aria-label="Date of Birth"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Date of Birth</ion-label>
+        <ion-input formControlName="birthdate" clearInput="true" type="date" aria-label="Date of Birth"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Weight</ion-label>
-      <ion-input [(ngModel)]="profile.weight" clearInput="true" type="number" placeholder="Enter your weight" aria-label="Weight"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Weight</ion-label>
+        <ion-input formControlName="weight" clearInput="true" type="number" placeholder="Enter your weight" aria-label="Weight"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Height</ion-label>
-      <ion-input [(ngModel)]="profile.height" clearInput="true" type="number" placeholder="Enter your height" aria-label="Height"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Height</ion-label>
+        <ion-input formControlName="height" clearInput="true" type="number" placeholder="Enter your height" aria-label="Height"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Photo</ion-label>
-      <ion-input [(ngModel)]="profile.photo" clearInput="true" type="file" aria-label="Photo"></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label position="stacked">Photo</ion-label>
+        <ion-input formControlName="photo" clearInput="true" type="file" aria-label="Photo"></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-button expand="block" (click)="saveProfile(profile)">Save Profile</ion-button>
+    <ion-button expand="block" type="submit">Save Profile</ion-button>
+  </form>
 </ion-content>
