@@ -1,10 +1,10 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="exercise">
   <section class="exercise-detail-container">
     <div class="row">
       <!-- Columna de la imagen -->
       <div class="col-md-4">
         <div class="photo">
-          <img [src]="exercise.image" alt="Exercise Image">
+          <img [src]="exercise.image" alt="Exercise Image" class="zoomable-image">
         </div>
       </div>
       
@@ -18,8 +18,9 @@
             <div class="col"><i class="fas fa-dumbbell"></i> {{ exercise.required_material }}</div>
           </h4>
           <p>{{ exercise.description }}</p>
-          <button class="btn btn-primary">Add to my routine</button>
         </div>
+        <br>
+        <button class="btn btn-dark">Add to my routine</button>
       </div>
     </div>
   </section>

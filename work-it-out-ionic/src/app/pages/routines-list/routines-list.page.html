@@ -2,7 +2,7 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>List of Routines</ion-title>
+    <ion-title>List of Your Routines</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,8 +11,8 @@
     <ion-item *ngFor="let routine of routines">
       <ion-label>
         <h2>{{ routine.name }}</h2>
-        <p>{{ routine.description }}</p>
-        <p>Type: {{ routine.type }}</p>
+        <p id="type">Type: {{ routine.type }}</p>
+        <a>{{ routine.description }}</a>
         <p>Total kcal: {{ routine.total_kcal }}</p>
         <ion-button routerLink="/routine-maker/{{ routine.id }}" expand="block">View Details</ion-button>
       </ion-label>

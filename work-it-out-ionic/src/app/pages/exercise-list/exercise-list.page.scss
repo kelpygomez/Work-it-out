@@ -1,0 +1,65 @@
+// Estilos generales
+
+.container {
+    margin-top: 100px;
+    position: relative; 
+}
+
+.row#search {
+    margin-top: -100px;
+}
+
+.search-filter-container {
+    display: grid;
+    justify-content: space-between; 
+    align-items: flex-end; 
+}
+
+.search-bar-container {
+    display: grid;
+    justify-content:end; 
+    width: 100%; 
+}
+
+.filter-bar-container {
+    margin-bottom: 15px;
+}
+
+.col-lg-8 {
+    padding-top: 5%;
+}
+
+ul.list-group {
+    background-color: rgb(3, 168, 245);
+}
+
+.exercise-name {
+    color: rgb(3, 168, 245);
+    text-decoration: none;
+}
+
+.exercise-name:hover {
+    color: rgb(5, 37, 59);
+    text-decoration: none;
+}
+
+// Media Queries para hacer el diseño responsive
+
+@media (max-width: 768px) {
+    .search-bar-container {
+        order: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .list-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .list-group-item {
+        flex-basis: calc(50% - 30px); 
+        margin: 15px;
+    }
+}
