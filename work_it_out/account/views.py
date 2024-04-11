@@ -96,7 +96,7 @@ class ViewProfileAPIView(APIView):
                 {'error': 'Usuario no autenticado'}, status=status.HTTP_401_UNAUTHORIZED
             )
 
-    def put(self, request):
+    def put(self, request, partial=True):
         if request.user.is_authenticated:
             profile = Profile.objects.get(user=request.user)
             serializer = ProfileSerializer(profile, data=request.data)
