@@ -30,4 +30,34 @@ export class AuthService {
     return this.http.post(URLAPI+"account/logout/", user);
   }
 
+  getUserId(username: string): Observable<any> {
+    return this.http.get<any>(URLAPI + `get-user-id/${username}`);
 }
+
+  getUsername() {
+   const userString = localStorage.getItem('user');
+   if (userString) {
+    const user = JSON.parse(userString);
+    return user.username;
+}
+  }
+  getUserData(): Observable<{ username: string, user_id: number }> {
+    return new Observable(observer => {
+      const username = this.getUsername();
+      if (username) {
+        this.getUserId(username).subscribe(
+          (user_id: number) => {
+            observer.next({ username, user_id });
+            observer.complete();
+          },
+          (error) => {
+            observer.error(error);
+          }
+        );
+      } else {
+        observer.error('Username not found.');
+      }
+    });
+  }
+}
+

@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -85,8 +86,20 @@ class ViewProfileAPIView(APIView):
         }
         return Response(data, status=status.HTTP_200_OK)
 
-def get_user_id(request):
-    # Obtener el ID del usuario si está disponible
-    user_id = request.user.id if request.user.is_authenticated else None
-    # Enviar el ID del usuario como respuesta JSON
-    return JsonResponse({'user_id': user_id})
+
+
+from django.http import JsonResponse
+from django.contrib.auth.models import User
+
+def get_user_id(request, username):
+    try:
+        # Buscar el usuario por su nombre de usuario
+        user = User.objects.get(username=username)
+        # Obtener el ID del usuario
+        user_id = user.id
+        # Devolver el ID del usuario como respuesta JSON
+        return JsonResponse({'user_id': user_id})
+    except User.DoesNotExist:
+        # Si el usuario no existe, devolver un error
+        return JsonResponse({'error': 'User not found'}, status=404)
+

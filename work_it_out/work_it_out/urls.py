@@ -38,7 +38,7 @@ urlpatterns = [
     path('account/', include("account.urls", namespace="account")),
     path('exercises/', include("exercises.urls", namespace="exercises")),
     path('routines/', include("routines.urls", namespace="routines")),
-    path('get-user-id/', get_user_id, name='get_user_id'),
+    path('get-user-id/<str:username>/', get_user_id, name='get_user_id'),
     path('image/<str:image_name>/', serve_image, name='serve_image'),
     path('auth/', include('django.contrib.auth.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
