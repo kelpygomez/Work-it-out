@@ -3,15 +3,20 @@ from rest_framework import generics, status
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import Routine
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from account.models import Profile
 from exercises.models import Exercise
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import RoutineSerializer, RoutineListSerializer
 
-class RoutineList(generics.ListCreateAPIView):
-    queryset = Routine.objects.all()
-    serializer_class = RoutineListSerializer
+class RoutineList(generics.ListAPIView):
+    serializer_class = RoutineSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        user = self.request.user.profile
+        return Routine.objects.filter(user=user)
 
 class RoutineDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Routine.objects.all()

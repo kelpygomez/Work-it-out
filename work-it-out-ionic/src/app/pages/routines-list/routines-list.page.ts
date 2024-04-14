@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Routine } from '../../interfaces/routine.interface';
 import { AuthService } from '../../services/auth.service';
 import { RoutineService } from '../../services/routines.service';
-import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-routines-list',
@@ -12,37 +11,50 @@ import { User } from 'src/app/interfaces/user.interface';
 export class RoutinesListPage implements OnInit {
   routines: Routine[] = [];
   userId: number | undefined;
-  user: User | null = null;
 
   constructor(private authService: AuthService, private routineService: RoutineService) { }
 
   ngOnInit() {
-    const userString = localStorage.getItem('user');
-    if (userString) {
-      this.user = JSON.parse(userString) as User;
-      console.log(this.user);
-      this.getUserId(this.user.username); // Aquí pasas el nombre de usuario
-    }
+    // Obtener el ID del usuario al iniciar el componente
+    this.getUserId();
   }
-  
-  getUserId(username: string) {
-    this.authService.getUserId(username).subscribe(
-      (data: any) => {
-        this.userId = data.user_id;
-        console.log('User ID:', this.userId);
-        this.loadRoutines();
-      },
-      (error: any) => {
-        console.error('Error fetching user ID:', error);
-      }
-    );
+
+  getUserId() {
+    // Obtener el token de autenticación
+    const token = this.authService.getToken();
+    console.log('Token obtenido:', token);
+
+    if (token) {
+      // Llamar al método en el servicio de autenticación para obtener el ID del usuario
+      this.authService.getUserIdFromToken().subscribe(
+        (userId: number | null) => {
+          if (userId !== null) {
+            // Asignar el ID del usuario al userId
+            this.userId = userId;
+            console.log('User ID obtenido:', this.userId);
+            // Cargar las rutinas asociadas al usuario
+            this.loadRoutines();
+          } else {
+            console.error('Error: User ID is null.');
+          }
+        },
+        (error: any) => {
+          console.error('Error fetching user ID from token:', error);
+        }
+      );
+    } else {
+      console.error('Token not available.');
+    }
   }
 
   loadRoutines() {
+    // Verificar que el userId esté definido
     if (this.userId) {
-      this.routineService.getRutinas(this.userId).subscribe(
+      // Obtener las rutinas asociadas al usuario
+      this.routineService.getRoutines(this.userId).subscribe(
         (data: Routine[]) => {
           this.routines = data;
+          console.log('Rutinas cargadas:', this.routines);
         },
         (error: any) => {
           console.error('Error fetching routines:', error);
@@ -52,5 +64,4 @@ export class RoutinesListPage implements OnInit {
       console.error('User ID not available.');
     }
   }
-  
 }

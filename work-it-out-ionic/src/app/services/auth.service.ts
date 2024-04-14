@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CookieService } from "ngx-cookie-service";
+import { Observable, of } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
+import { tap } from 'rxjs/operators';
 
 const URLAPI = "http://127.0.0.1:8000/";
 
@@ -9,55 +10,60 @@ const URLAPI = "http://127.0.0.1:8000/";
   providedIn: 'root'
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient, private cookies: CookieService) {}
+  login(user: any): Observable<any> {
+    return this.http.post(URLAPI + "account/login/", user).pipe(
+      tap((response: any) => {
+        const token = response.access; // Suponiendo que el token se llama "access" en la respuesta del servidor
+        if (token) {
+          this.saveToken(token); // Guardar el token en localStorage
+        }
+      })
+    );
+  }
 
-  login(user: any): Observable<any>{
-    localStorage.setItem('user', JSON.stringify(user));
-    return this.http.post(URLAPI+"account/login/", user);
+  saveToken(token: string) {
+    console.log('Token to be saved:', token);
+    localStorage.setItem('token', token);
+  }
+  
+
+  getToken(): string | null {
+    const token = localStorage.getItem('token');
+    console.log('Token retrieved:', token);
+    return token;
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(URLAPI+"account/register/", user);
+    return this.http.post(URLAPI + "account/register/", user);
   }
 
-  getUser(id: any) {
-    return this.http.get(URLAPI+"account/profile/", id)
+  logout(): Observable<any> {
+    localStorage.removeItem('token');
+    return this.http.post(URLAPI + "account/logout/", {});
   }
 
-  logout(user: any) {
-    console.log(user)
-    return this.http.post(URLAPI+"account/logout/", user);
+  isAuthenticated(): boolean {
+    return this.getToken() !== null;
   }
 
-  getUserId(username: string): Observable<any> {
-    return this.http.get<any>(URLAPI + `get-user-id/${username}`);
-}
-
-  getUsername() {
-   const userString = localStorage.getItem('user');
-   if (userString) {
-    const user = JSON.parse(userString);
-    return user.username;
-}
-  }
-  getUserData(): Observable<{ username: string, user_id: number }> {
-    return new Observable(observer => {
-      const username = this.getUsername();
-      if (username) {
-        this.getUserId(username).subscribe(
-          (user_id: number) => {
-            observer.next({ username, user_id });
-            observer.complete();
-          },
-          (error) => {
-            observer.error(error);
-          }
-        );
-      } else {
-        observer.error('Username not found.');
+  getUserIdFromToken(): Observable<number | null> {
+    const token = this.getToken();
+    if (token) {
+      try {
+        console.log('Token:', token); // Verificar el token recibido
+        const decodedToken: any = jwtDecode(token);
+        console.log('Decoded token:', decodedToken); // Verificar el token decodificado
+        const userId = decodedToken.user_id;
+        return of(userId);
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return of(null);
       }
-    });
+    } else {
+      return of(null);
+    }
   }
+  
 }
-

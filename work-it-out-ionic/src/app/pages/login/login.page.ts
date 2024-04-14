@@ -21,13 +21,20 @@ export class LoginPage implements OnInit {
   login() {
     if (this.loginForm.valid) {
       const user = this.loginForm.value;
-      this.authService.login(user).subscribe((data) => {
-        console.log(localStorage.getItem('user'))
-        this.router.navigate(['/home']);
-      });
+      this.authService.login(user).subscribe(
+        (data) => {
+          console.log('Login response:', data);
+          localStorage.setItem('user', JSON.stringify(data)); // Assuming the response contains user data
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          console.error('Error during login:', error);
+          // Handle the error here, such as displaying a message to the user
+        }
+      );
     }
   }
+
   ngOnInit() {
   }
-
 }

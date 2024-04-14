@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -61,8 +62,10 @@ class UserLoginAPIView(APIView):
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_active:
                 login(request, user)
-                return Response({'user': user.username}, status=status.HTTP_201_CREATED)
+                refresh = RefreshToken.for_user(user)
+                return Response({'user': user.username, 'refresh': str(refresh), 'access': str(refresh.access_token)}, status=status.HTTP_201_CREATED)
         return Response({'error': 'Invalid login'}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class UserLogoutAPIView(APIView):
@@ -87,19 +90,4 @@ class ViewProfileAPIView(APIView):
         return Response(data, status=status.HTTP_200_OK)
 
 
-
-from django.http import JsonResponse
-from django.contrib.auth.models import User
-
-def get_user_id(request, username):
-    try:
-        # Buscar el usuario por su nombre de usuario
-        user = User.objects.get(username=username)
-        # Obtener el ID del usuario
-        user_id = user.id
-        # Devolver el ID del usuario como respuesta JSON
-        return JsonResponse({'user_id': user_id})
-    except User.DoesNotExist:
-        # Si el usuario no existe, devolver un error
-        return JsonResponse({'error': 'User not found'}, status=404)
 
