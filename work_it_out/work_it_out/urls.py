@@ -16,13 +16,33 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
 from rest_framework_simplejwt import views as jwt_views
+import os
+from django.conf import settings
+from django.conf.urls.static import static
+
+def serve_image(request, image_name):
+    image_path = os.path.join(settings.MEDIA_ROOT, 'exercise_images', image_name)
+    
+    if os.path.exists(image_path):
+        with open(image_path, 'rb') as image_file:
+            return HttpResponse(image_file.read(), content_type='image/jpeg')
+    else:
+        return HttpResponse(status=404)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include("account.urls", namespace="account")),
+    path('exercises/', include("exercises.urls", namespace="exercises")),
+    path('routines/', include("routines.urls", namespace="routines")),
+    path('image/<str:image_name>/', serve_image, name='serve_image'),
     path('auth/', include('django.contrib.auth.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

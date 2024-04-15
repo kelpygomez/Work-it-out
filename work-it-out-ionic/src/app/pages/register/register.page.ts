@@ -30,8 +30,8 @@ export class RegisterPage implements OnInit {
   register() {
     if (this.registerForm.valid) {
       const user = this.registerForm.value;
-      this.authService.register(user).subscribe((data) => {
-        console.log(data)
+      this.authService.register(user).subscribe((data: any) => { // Modifica la suscripción para que data sea de tipo any
+        console.log(data);
         this.router.navigate(['/login']);
       });
     }

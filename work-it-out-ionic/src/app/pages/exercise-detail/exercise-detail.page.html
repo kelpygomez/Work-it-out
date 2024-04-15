@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <section class="exercise-detail-container">
+    <div class="row">
+      <!-- Columna de la imagen -->
+      <div class="col-md-4">
+        <div class="photo">
+          <img [src]="exercise.image" alt="Exercise Image">
+        </div>
+      </div>
+      
+      <!-- Columna de la información -->
+      <div class="col-md-8">
+        <div class="info">
+          <h2>{{ exercise.name }}</h2>
+          <h4 class="row">
+            <div class="col"><i class="fas fa-fire"></i> {{ exercise.kcal }} KCAL/REP</div>
+            <div class="col"><i class="fas fa-male"></i> {{ exercise.type }}</div>
+            <div class="col"><i class="fas fa-dumbbell"></i> {{ exercise.required_material }}</div>
+          </h4>
+          <p>{{ exercise.description }}</p>
+          <button class="btn btn-primary">Add to my routine</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>

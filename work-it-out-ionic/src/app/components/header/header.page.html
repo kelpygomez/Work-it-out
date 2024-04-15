@@ -10,9 +10,10 @@
       <ion-button [routerLink]="['/home']">Home</ion-button>
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']">Profile</ion-button>
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">Calendar</ion-button>
-      <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">My Routines</ion-button>
-      <ion-button [routerLink]="['#']">Routine Maker</ion-button>
-      <ion-button [routerLink]="['#']">Exercises</ion-button>
+      <ion-button *ngIf="isLoggedIn()" routerLink="/routines-list">My Routines</ion-button>
+      <ion-button >Routine Maker</ion-button>
+      <!-- Enlace al ejercicio -->
+      <ion-button [routerLink]="['/exercise-list']">Exercises</ion-button>
       <ion-button [routerLink]="['#']">Community</ion-button>
     </ion-buttons>
 
@@ -26,4 +27,3 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-

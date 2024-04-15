@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.http import JsonResponse
 from .models import Profile
 from .serializers import (
     LoginFormSerializer,
@@ -60,8 +62,10 @@ class UserLoginAPIView(APIView):
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_active:
                 login(request, user)
-                return Response({'user': user.username}, status=status.HTTP_201_CREATED)
+                refresh = RefreshToken.for_user(user)
+                return Response({'user': user.username, 'refresh': str(refresh), 'access': str(refresh.access_token)}, status=status.HTTP_201_CREATED)
         return Response({'error': 'Invalid login'}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class UserLogoutAPIView(APIView):
@@ -84,3 +88,6 @@ class ViewProfileAPIView(APIView):
             'profile_picture': profile.profile_picture.url if profile.profile_picture else None,
         }
         return Response(data, status=status.HTTP_200_OK)
+
+
+

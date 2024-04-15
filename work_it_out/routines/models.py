@@ -1,13 +1,27 @@
 from django.db import models
 from exercises.models import Exercise
-
+from account.models import Profile
 
 class Routine(models.Model):
     name = models.CharField(max_length=100)
-    type = models.CharField(max_length=50)
     description = models.TextField()
-    total_kcal = models.IntegerField()
-    exercises = models.ManyToManyField(Exercise, related_name='exercise_routie')
+    exercises = models.ManyToManyField(Exercise, related_name='exercise_routine')
+    user = models.ForeignKey(Profile, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.name
+    
+    @property
+    def total_kcal(self):
+        total_calories = sum(exercise.kcal for exercise in self.exercises.all())
+        return total_calories
+    
+    @property
+    def types(self):
+        # Obtener los tipos únicos de los ejercicios asociados a la rutina
+        types = set(exercise.type for exercise in self.exercises.all())
+        # Si hay más de tres tipos, establecer como "FULL BODY"
+        if len(types) > 3:
+            return "FULL BODY"
+        # Si no, concatenar los tipos separados por barras
+        return "/".join(types) if types else "Unknown"
