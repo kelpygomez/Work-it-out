@@ -22,8 +22,10 @@ export class ProfileService {
   }
 
   saveProfile(profile: Profile): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}profile/`, { profile }, { headers: this.getHeaders() });
+    console.log(profile)
+    return this.http.put<Profile>(`${this.baseUrl}profile/`, { "profile": profile }, { headers: this.getHeaders() });
   }
+
   private getHeaders(): HttpHeaders {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

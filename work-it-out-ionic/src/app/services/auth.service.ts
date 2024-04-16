@@ -40,7 +40,7 @@ export class AuthService {
     const headers = { Authorization: `Bearer ${authToken}` };
 
     // Hacer la solicitud GET para obtener el perfil del usuario
-    return this.http.get(`${URLAPI}account/profile`, { headers: this.getHeaders() });
+    return this.http.get(`${URLAPI}account/profile`, { headers: headers });
   }
 
   saveProfile(profile: Profile): Observable<any> {

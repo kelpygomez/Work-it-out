@@ -20,7 +20,13 @@ class LoginFormSerializer(serializers.Serializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'email')
+        fields = ('username', 'password', 'email')
+
+
+class UserEditSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = 'email'
 
 
 class ProfileSerializer(serializers.ModelSerializer):

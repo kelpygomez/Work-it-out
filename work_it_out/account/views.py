@@ -1,3 +1,5 @@
+import pdb
+
 from django.contrib.auth import authenticate, logout
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -96,15 +98,19 @@ class ViewProfileAPIView(APIView):
                 {'error': 'Usuario no autenticado'}, status=status.HTTP_401_UNAUTHORIZED
             )
 
-    def put(self, request):
+    def put(self, request, partial=True):
         if request.user.is_authenticated:
-            profile = Profile.objects.get(user=request.user)
-            serializer = ProfileSerializer(profile, data=request.data)
+            print(request.user)
             print(request.data)
+            profile = Profile.objects.get(user=request.user)
+            pdb.set_trace()
+            serializer = ProfileSerializer(profile, data=request.data.get('profile'))
             if serializer.is_valid():
                 serializer.save()
+                print("perfil después de la actualización: ", profile)  # Debugging
                 return Response(serializer.data, status=status.HTTP_200_OK)
             else:
+                print("Errores de validación del serializador: ", serializer.errors)  # Debugging
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         else:

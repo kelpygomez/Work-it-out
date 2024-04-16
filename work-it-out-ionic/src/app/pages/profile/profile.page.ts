@@ -68,7 +68,6 @@ export class ProfilePage implements OnInit {
   
       this.profileService.saveProfile(updatedProfile).subscribe({
         next: (response) => {
-          console.log('Perfil guardado exitosamente:', response);
           // Actualizar el perfil local después de guardar
           this.profile = updatedProfile;
         },
