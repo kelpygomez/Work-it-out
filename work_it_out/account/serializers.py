@@ -18,10 +18,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ['user', 'birthdate', 'photo', 'weight', 'height', 'status', 'BMI']
         read_only_fields = ['BMI']
 
-    def validate(self, data):
-        # Validar aquí si es necesario
-        return data
-
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
