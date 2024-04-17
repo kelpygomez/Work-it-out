@@ -5,7 +5,7 @@ from .views import RegisterView, UserLoginAPIView, UserLogoutAPIView, ViewProfil
 app_name = 'account'
 urlpatterns = [
     path('profile/', ViewProfileAPIView.as_view(), name='profile'),
-    path('user/register/', RegisterView.as_view(), name='user-register'),
-    path('user/login/', UserLoginAPIView.as_view(), name='user-login'),
+    path('register/', RegisterView.as_view(), name='user-register'),
+    path('login/', UserLoginAPIView.as_view(), name='user-login'),
     path('logout/', UserLogoutAPIView.as_view(), name='user-logout'),
 ]

@@ -11,7 +11,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProfilePage implements OnInit {
   profile: Profile | null = null; // Inicializa profile como null hasta que se cargue
-
   profileForm: FormGroup;
 
   constructor(private profileService: ProfileService, private formBuilder: FormBuilder) {

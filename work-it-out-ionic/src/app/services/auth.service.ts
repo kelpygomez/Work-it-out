@@ -18,7 +18,7 @@ export class AuthService {
   }
   
   login(user: any): Observable<any> {
-    return this.http.post<any>(`${URLAPI}account/user/login/`, { user }).pipe(
+    return this.http.post<any>(`${URLAPI}account/login/`, { user }).pipe(
       tap(response => {
         this.token = response.access;
         localStorage.setItem('token', this.token as string);
@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(URLAPI+"account/user/register/", user);
+    return this.http.post(URLAPI+"account/register/", user);
   }
 
   getProfile(): Observable<any> {
