@@ -1,7 +1,75 @@
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="hero2">
+    <fieldset class="hero2-text">
+      <h1>Unlock Your Full Potential</h1>
+      <p> Start tracking your progress, discovering new exercises, and connecting with like-minded individuals now. Sign up today!"</p>
+      <ion-button color="dark" [routerLink]="['/register']">GET STARTED</ion-button>
+    </fieldset>
+  </div>
+
+
+  <div class="demo sport">
+
+      <!-- APPETIZERS-->
+      <div class="sport__div ">
+        
+        <picture class="responsive-img">
+          <img src="../../../assets/img/routine-maker.webp" alt="Routine maker" >
+        </picture>     
+        
+        <div class="sport-info">
+          <ion-content class="ion-padding">
+            <ion-button class="sport-info__link" expand="block" (click)="setOpen(true)">Routine Maker</ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Modal</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
+                    reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
+                    dicta.
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-content>
+        </div>
+      </div>
+
+      <!-- MAIN COURSE-->
+      <div class="sport__div">
+          
+          <picture class="responsive-img">
+              <img src="../../../assets/img/exercises.jpg" alt="List of exercises" >
+          </picture> 
+
+          <div class="sport-info">
+              <a [routerLink]="['/exercise-list']" class="sport-info__link">List of exercises</a>
+              <br>
+              <p></p>
+          </div>            
+      </div>
+
+      <!-- DESSERTS-->
+      <div class="sport__div">
+          
+          <picture class="responsive-img">
+              <source media="(min-width: 992px)" srcset="https://i.postimg.cc/9FfLh6ZZ/dessert-img-1.jpg">
+              <source media="(min-width: 767px)" srcset="https://i.postimg.cc/FsRXBnKn/dessert-img-2.jpg">
+              <source srcset="https://i.postimg.cc/ZKcFCVFZ/dessert-img-3.jpg">
+              <img src="https://i.postimg.cc/ZKcFCVFZ/dessert-img-1.jpg" alt="Desserts">
+          </picture>
+
+          <div class="sport-info">
+              <a href="#" class="sport-info__link">Dessert</a>
+          </div>              
+      </div>
   </div>
 </ion-content>
-<app-footer></app-footer>

@@ -1,27 +1,262 @@
-#container {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Sans:wght@100;500&family=IBM+Plex+Serif:ital,wght@0,100;0,500;0,600;0,700;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+$fun-color: hsl(319, 45, 60);
+$fun-dark: hsl(319, 45, 30);
+$fun-darker: hsl(319, 45, 20);
+$green: #0aff8a;
+$dark-green: #1d965b;
+$grey: #3d3c3d;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
+body,html{
+  width: 100%;
+  height: 100%;
+  padding: 0;
   margin: 0;
+  position: relative;
+  button{
+    cursor: pointer;
+  }
+  a{
+    text-decoration: none;
+  }
 }
 
-#container a {
+/* ====== MAIN BANNER ===== */
+.hero-text {
+  position: absolute;
+  width: 20%;
+  left: 5%;
+  top: 25%;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  h1{
+    font-weight: 400;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 46px;
+    text-align: center;
+  }
+
+}
+
+
+.hero2{
+  width: 100%;
+  height: 100%;
+   background-size: cover;
+  background-image: linear-gradient(to bottom left,
+      rgba(0, 0, 0, .4),
+      rgba(0, 0, 0, 1)
+    ), url(../../../assets/img/training-person.webp);
+  background-position:top;
+  filter: grayscale(40%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ .border-text{
+    width: 160px;
+    text-transform: uppercase;
+    z-index: 1;
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    color: $green;
+    text-align: left;
+   overflow: hidden;
+  }
+
+.hero2-text{
+  z-index: 0;
+  @extend .hero-text;
+  width: 35%;
+  top: 35%;
+  font-family: 'IBM Plex Serif', serif;
+  letter-spacing: 1.8px;
+  position: relative;
+  border: solid $green 2px;
+  padding-left: 40px;
+  padding-right: 30px;
+  p{
+    margin: 0px;
+  }
+  h1{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 52px;
+    letter-spacing: 4px;
+  }
+  ion-button{
+    position: relative;
+    border: solid $green 3px;
+    border-radius: 0;
+    background-color: $green;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Serif', serif;
+    letter-spacing: 2px;
+    margin-left: 0;
+    bottom: -40px;
+    color: $green;
+    font-size: 18px;
+  }
+  ion-button:hover{
+     transform: translate(0px);
+     box-shadow: 0px 2px 2px rgba(0, 0, 0, .25);
+     color: $green;
+    background-color: black;
+    border: solid $green 3px;
+   }
+}
+
+.sticky{
+  position: fixed;
+  bottom: 0;
+}
+
+/* ====== HOVER IMAGES ===== */
+.sport {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.sport__div {
+  flex: 0 0 33.3333333%;
+  position: relative;
+}
+
+.responsive-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sport-info {
+  background-color: rgba(0,0,0, 0.3);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  transition: all 0.4s;
+  p{
+    color: transparent;
+
+  }
+}
+
+.sport-info__link:link,
+.sport-info__link:visited {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1.8px;
+  margin: 0;
   text-decoration: none;
+
+  transition: all 0.4s;
+}
+
+.sport__div:hover .sport-info {
+  height: 100%;
+  background-color: rgba(0,0,0, 0.6);
+  a{
+    color: transparent;
+  }
+  p{
+    color: white;
+    text-align: center;
+  }
+}
+.sport__div:hover .sport-info p{
+  color: white;
+}
+.demo {
+  height: 500px; 
+  width: 1200px;
+  margin: 0 auto;  
+  margin-top: 8%;
+  -webkit-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+  -moz-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+  box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+  overflow: hidden;
+  background-color: #000;
+  position: relative;
+
+}
+
+
+@media only screen and (max-width: 1200px) {
+  body {
+      flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .sport  {
+      height: 900px;
+      flex-wrap: wrap;
+  }
+
+  .sport__div {
+      flex: 0 0 100%;
+      height: 33.33333%;
+  }
+
+  .responsive-img img {
+      height: 100%;
+  }
+
+  .sport__div:nth-of-type(2) img {
+      object-position: 50% 70%;
+  }
+
+  .sport-info {
+      height: 20%
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .sport__div:nth-of-type(1) img {
+      object-position: 50% 75%;
+  }
+
+  .sport__div:nth-of-type(3) img {
+      object-position: 50% 60%;
+  }    
+
+  .sport-info__title {
+      font-size: 25px;
+  }    
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .hero-text,.hero2-text{
+    top: 10px;
+    margin: auto;
+   h1{
+    font-size: 30px;
+  }
+    p{
+    font-size: 18px;
+  }
+  button{
+    font-size: 16px;
+  }
+  }
 }

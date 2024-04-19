@@ -14,7 +14,6 @@ import { FooterPageModule } from 'src/app/components/footer/footer.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    FooterPageModule
   ],
   declarations: [HomePage]
 })
