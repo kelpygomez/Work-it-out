@@ -1,11 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
-from rest_framework import status
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.http import JsonResponse
+from rest_framework_simplejwt.tokens import RefreshToken
+
 from .models import Profile
 from .serializers import (
     LoginFormSerializer,
@@ -38,7 +37,7 @@ class RegisterView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class EditAPIView(APIView):
+class EditProfileAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
@@ -63,9 +62,15 @@ class UserLoginAPIView(APIView):
             if user is not None and user.is_active:
                 login(request, user)
                 refresh = RefreshToken.for_user(user)
-                return Response({'user': user.username, 'refresh': str(refresh), 'access': str(refresh.access_token)}, status=status.HTTP_201_CREATED)
+                return Response(
+                    {
+                        'user': user.username,
+                        'refresh': str(refresh),
+                        'access': str(refresh.access_token),
+                    },
+                    status=status.HTTP_201_CREATED,
+                )
         return Response({'error': 'Invalid login'}, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 class UserLogoutAPIView(APIView):
@@ -76,18 +81,10 @@ class UserLogoutAPIView(APIView):
         return Response(status=status.HTTP_200_OK)
 
 
-class ViewProfileAPIView(APIView):
+class ViewProfileAPIView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = ProfileSerializer
 
-    def get(self, request):
-        user = request.user
-        profile = Profile.objects.get(user=user)
-        data = {
-            'user': user.username,
-            'email': user.email,
-            'profile_picture': profile.profile_picture.url if profile.profile_picture else None,
-        }
-        return Response(data, status=status.HTTP_200_OK)
-
-
-
+    def get_queryset(self):
+        user = self.request.user.profile
+        return Profile.objects.filter(user=user)

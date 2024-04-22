@@ -65,4 +65,7 @@ export class AuthService {
       return of(null);
     }
   }
+  getProfileData(): Observable<any> {
+    return this.http.get<Profile[]>(URLAPI + 'account/profile', {});
+  }
 }
