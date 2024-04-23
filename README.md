@@ -163,7 +163,7 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 
   #### *WEEKS FIVE, SIX AND SEVEN*
 
-  ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/cccdb8c1-2cac-4bf3-9d85-692302a95fbe)
+![image](https://github.com/kelpygomez/Work-it-out/assets/113540080/9e153e4b-5844-43a9-b954-9af97676a1f7)
 
 ### 7. SUMMARY OF HUMAN AND MATERIAL RESOURCES. <a name="id7"></a>
 
