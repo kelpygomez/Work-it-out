@@ -3,14 +3,14 @@
     <fieldset class="hero2-text">
       <h1>Unlock Your Full Potential</h1>
       <p> Start tracking your progress, discovering new exercises, and connecting with like-minded individuals now. Sign up today!"</p>
-      <ion-button color="dark" [routerLink]="['/register']">GET STARTED</ion-button>
+      <ion-button color="green" [routerLink]="['/register']">GET STARTED</ion-button>
     </fieldset>
   </div>
 
 
   <div class="demo sport">
 
-      <!-- APPETIZERS-->
+      <!-- ROUTINE MAKER -->
       <div class="sport__div ">
         
         <picture class="responsive-img">
@@ -19,12 +19,12 @@
         
         <div class="sport-info">
           <ion-content class="ion-padding">
-            <ion-button class="sport-info__link" expand="block" (click)="setOpen(true)">Routine Maker</ion-button>
+            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Routine Maker</ion-button>
             <ion-modal [isOpen]="isModalOpen">
               <ng-template>
                 <ion-header>
                   <ion-toolbar>
-                    <ion-title>Modal</ion-title>
+                    <ion-title>HOW TO MAKE YOUR OWN ROUTINES?</ion-title>
                     <ion-buttons slot="end">
                       <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
                     </ion-buttons>
@@ -32,9 +32,7 @@
                 </ion-header>
                 <ion-content class="ion-padding">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
-                    reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
-                    dicta.
+
                   </p>
                 </ion-content>
               </ng-template>
@@ -43,33 +41,67 @@
         </div>
       </div>
 
-      <!-- MAIN COURSE-->
-      <div class="sport__div">
-          
-          <picture class="responsive-img">
-              <img src="../../../assets/img/exercises.jpg" alt="List of exercises" >
-          </picture> 
+      <!-- LIST OF EXERCISES -->
+      <div class="sport__div ">
+        
+        <picture class="responsive-img">
+          <img src="../../../assets/img/exercises.jpg" alt="List of exercises" >
+        </picture>     
+        
+        <div class="sport-info">
+          <ion-content class="ion-padding">
+            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">List of exercises</ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>THE LIST OF EXERCISES</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
 
-          <div class="sport-info">
-              <a [routerLink]="['/exercise-list']" class="sport-info__link">List of exercises</a>
-              <br>
-              <p></p>
-          </div>            
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-content>
+        </div>
       </div>
 
-      <!-- DESSERTS-->
-      <div class="sport__div">
-          
-          <picture class="responsive-img">
-              <source media="(min-width: 992px)" srcset="https://i.postimg.cc/9FfLh6ZZ/dessert-img-1.jpg">
-              <source media="(min-width: 767px)" srcset="https://i.postimg.cc/FsRXBnKn/dessert-img-2.jpg">
-              <source srcset="https://i.postimg.cc/ZKcFCVFZ/dessert-img-3.jpg">
-              <img src="https://i.postimg.cc/ZKcFCVFZ/dessert-img-1.jpg" alt="Desserts">
-          </picture>
+      <!-- TRACKING CALENDAR -->
+      <div class="sport__div ">
+        
+        <picture class="responsive-img">
+          <img src="../../../assets/img/training-person.webp" alt="Tracking calendar" >
+        </picture>     
+        
+        <div class="sport-info">
+          <ion-content class="ion-padding">
+            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Tracking calendar</ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>HOW TO USE OUR TRACKING CALENDAR?</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
 
-          <div class="sport-info">
-              <a href="#" class="sport-info__link">Dessert</a>
-          </div>              
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-content>
+        </div>
       </div>
+
   </div>
 </ion-content>
