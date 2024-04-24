@@ -13,10 +13,21 @@ class ProfileRegisterSerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    # Define los campos del usuario que quieres incluir en la respuesta
+    username = serializers.CharField(source='user.username')
+    email = serializers.EmailField(source='user.email')
+
     class Meta:
         model = Profile
-        fields = ['user', 'birthdate', 'photo', 'weight', 'height', 'status', 'BMI']
-        read_only_fields = ['BMI']
+        fields = ['id', 'username', 'email', 'birthdate', 'photo', 'weight', 'height', 'status']
+
+    def to_representation(self, instance):
+        # Obtén la representación del perfil
+        ret = super().to_representation(instance)
+        # Agrega los campos del usuario a la representación
+        ret['username'] = instance.user.username
+        ret['email'] = instance.user.email
+        return ret
 
 
 class UserSerializer(serializers.ModelSerializer):

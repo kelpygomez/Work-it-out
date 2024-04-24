@@ -1,5 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
-from rest_framework import generics, status
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from rest_framework import status
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -81,10 +84,11 @@ class UserLogoutAPIView(APIView):
         return Response(status=status.HTTP_200_OK)
 
 
-class ViewProfileAPIView(generics.ListAPIView):
-    permission_classes = [IsAuthenticated]
+class ViewProfileAPIView(RetrieveAPIView):
     serializer_class = ProfileSerializer
 
-    def get_queryset(self):
-        user = self.request.user.profile
-        return Profile.objects.filter(user=user)
+    def get(self, request, user_id):
+        user = get_object_or_404(User, id=user_id)
+        profile = get_object_or_404(Profile, user=user)
+        serializer = self.serializer_class(profile)
+        return Response(serializer.data)

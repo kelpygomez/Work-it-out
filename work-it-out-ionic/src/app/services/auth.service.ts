@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { tap } from 'rxjs/operators';
+import { Profile } from '../interfaces/profile.interface';
 
 const URLAPI = "http://127.0.0.1:8000/";
 
@@ -10,6 +11,7 @@ const URLAPI = "http://127.0.0.1:8000/";
   providedIn: 'root'
 })
 export class AuthService {
+  private apiUrl = 'http://localhost:8000/'; 
   constructor(private http: HttpClient) {}
 
   login(user: any): Observable<any> {
@@ -65,7 +67,8 @@ export class AuthService {
       return of(null);
     }
   }
-  getProfileData(): Observable<any> {
-    return this.http.get<Profile[]>(URLAPI + 'account/profile', {});
+  getProfileData(userId: number): Observable<any> {
+    return this.http.get<Profile[]>(`${this.apiUrl}account/profile/${userId}`);
+
   }
 }

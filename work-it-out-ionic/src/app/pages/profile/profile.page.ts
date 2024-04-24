@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Profile } from 'src/app/interfaces/profile.interface';
 
 @Component({
   selector: 'app-profile',
@@ -9,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class ProfilePage implements OnInit {
 
   userId: number | undefined;
+  profile: Profile = { id:0 , username: '', email: '' , birthdate: '', height: 0, weight:0, status: '' };
 
   constructor(private authService: AuthService) { }
 
@@ -31,7 +33,7 @@ export class ProfilePage implements OnInit {
             this.userId = userId;
             console.log('User ID obtenido:', this.userId);
             // Cargar las rutinas asociadas al usuario
-            this.loadRoutines();
+            this.loadProfile();
           } else {
             console.error('Error: User ID is null.');
           }
@@ -49,7 +51,7 @@ export class ProfilePage implements OnInit {
     if (this.userId) {
       // Obtener las rutinas asociadas al usuario
       this.authService.getProfileData(this.userId).subscribe(
-        (data: Profile[]) => {
+        (data: Profile) => {
           this.profile = data;
           console.log('Profile loaded:', this.profile);
         },
