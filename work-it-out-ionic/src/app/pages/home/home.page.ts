@@ -8,9 +8,13 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   isModalOpen = false;
-
+ 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-
+  
+  isLoggedIn(): boolean {
+    const user = localStorage.getItem('user');
+    return user !== null;
+  }
 }

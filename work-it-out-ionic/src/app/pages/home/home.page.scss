@@ -118,26 +118,28 @@ body,html{
 
 /* ====== WEB TOOLS' IMAGES ===== */
 
+
 .demo {
-  height: 500px; 
-  width: 1200px;
+  max-width: 100%; 
+  width: 100%;
   margin: 0 auto;  
   margin-top: 8%;
   -webkit-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
   -moz-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
   box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
   overflow: hidden;
-  background-color: #000;
+  background-color: #ffffff;
   position: relative;
+}
 
-}.sport {
+.sport {
   display: flex;
-  align-items: stretch;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .sport__div {
-  flex: 0 0 33.3333333%;
+  flex: 0 0 calc(33.3333333% - 20px);
+  margin: 10px;
   position: relative;
 }
 
@@ -161,9 +163,9 @@ body,html{
   flex-wrap: wrap;
 
   transition: all 0.4s;
+
   p{
     color: transparent;
-
   }
 }
 
@@ -189,17 +191,21 @@ body,html{
   p{
     color: white;
     text-align: center;
+    padding-top: 10%;
+  }
+  ion-button{
+    padding-top: 30%;
   }
 }
+
 .sport__div:hover .sport-info p{
   color: white;
 }
 
-
-
-ion-content.ion-padding{
- --background: transparent;
+ion-content.ion-padding {
+  --background: transparent;
 }
+
 ion-modal {
   --height: 70%;
   --width: 50%;
@@ -216,6 +222,9 @@ ion-modal ion-toolbar {
   body {
       flex-wrap: wrap;
   }
+  .sport__div {
+    flex: 0 0 calc(50% - 20px);
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -225,8 +234,7 @@ ion-modal ion-toolbar {
   }
 
   .sport__div {
-      flex: 0 0 100%;
-      height: 33.33333%;
+    flex: 0 0 calc(100% - 20px);
   }
 
   .responsive-img img {
@@ -243,6 +251,10 @@ ion-modal ion-toolbar {
 }
 
 @media only screen and (max-width: 767px) {
+  .sport  {
+    height: 700px;
+    flex-wrap: wrap;
+}
   .sport__div:nth-of-type(1) img {
       object-position: 50% 75%;
   }
