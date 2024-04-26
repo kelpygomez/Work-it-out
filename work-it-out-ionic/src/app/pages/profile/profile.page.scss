@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+.card {
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    width: 80%; /* Ajustamos el ancho de la tarjeta */
+    max-width: 400px; /* Establecemos un ancho máximo */
+    margin: 0 auto; /* Centramos horizontalmente */
+    padding: 20px; /* Agregamos un relleno interno */
+}
+
+.image img {
+    transition: all 0.5s;
+}
+
+.card:hover .image img {
+    transform: scale(1.5);
+}
+
+.btn {
+    height: 12em; /* Usamos em para hacerlo más adaptable */
+    width: 12em; /* Usamos em para hacerlo más adaptable */
+    border-radius: 50%;
+    font-size: 1.5em; /* Ajustamos el tamaño de fuente */
+}
+
+.name {
+    font-size: 1.5em; /* Ajustamos el tamaño de fuente */
+    font-weight: bold;
+}
+
+.number {
+    font-size: 1.5em; /* Ajustamos el tamaño de fuente */
+    font-weight: bold;
+}
+
+.btn1 {
+    height: 3em; /* Usamos em para hacerlo más adaptable */
+    width: 7.5em; /* Usamos em para hacerlo más adaptable */
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 1em; /* Ajustamos el tamaño de fuente */
+}
+
+.text span {
+    font-size: 0.8125em; /* Ajustamos el tamaño de fuente */
+    color: #545454;
+    font-weight: 500;
+}
+
+.join {
+    font-size: 0.875em; /* Ajustamos el tamaño de fuente */
+    color: #a0a0a0;
+    font-weight: bold;
+}
