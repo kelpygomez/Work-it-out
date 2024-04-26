@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Profile } from 'src/app/interfaces/profile.interface';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,19 +11,23 @@ import { Profile } from 'src/app/interfaces/profile.interface';
 export class ProfilePage implements OnInit {
 
   userId: number | undefined;
-  profile: Profile = { id:0 , username: '', email: '' , birthdate: '', height: 0, weight:0, status: '' };
+  profile: Profile = { id: 0, username: '', email: '', birthdate: '', height: 0, weight: 0, status: '' };
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     // Obtener el ID del usuario al iniciar el componente
     this.getUserId();
   }
 
+  ionViewWillEnter() {
+    // Se ejecuta cada vez que la página se carga o vuelve a cargarse
+    this.loadProfile();
+  }
+
   getUserId() {
     // Obtener el token de autenticación
     const token = this.authService.getToken();
-    console.log('Token obtenido:', token);
 
     if (token) {
       // Llamar al método en el servicio de autenticación para obtener el ID del usuario
@@ -31,7 +36,6 @@ export class ProfilePage implements OnInit {
           if (userId !== null) {
             // Asignar el ID del usuario al userId
             this.userId = userId;
-            console.log('User ID obtenido:', this.userId);
             // Cargar las rutinas asociadas al usuario
             this.loadProfile();
           } else {
@@ -46,6 +50,7 @@ export class ProfilePage implements OnInit {
       console.error('Token not available.');
     }
   }
+
   loadProfile() {
     // Verificar que el userId esté definido
     if (this.userId) {
