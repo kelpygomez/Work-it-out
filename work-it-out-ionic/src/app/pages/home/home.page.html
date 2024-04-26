@@ -4,7 +4,7 @@
       <h1>Unlock Your Full Potential</h1>
       <p> Start tracking your progress, discovering new exercises, and connecting with like-minded individuals now. Sign up today!"</p>
       <ion-button color="green" *ngIf="!isLoggedIn()" [routerLink]="['/register']">GET STARTED</ion-button>
-      <ion-button color="green" *ngIf="isLoggedIn()" [routerLink]="['/profile']">GET STARTED</ion-button>
+      <ion-button color="green" *ngIf="isLoggedIn()" [routerLink]="['/exercise-list']">EXPLORE SOME EXERCISES</ion-button>
     </fieldset>
   </div>
 
@@ -56,7 +56,7 @@
           <ion-content class="ion-padding">
             <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">List of exercises</ion-button>
             <p>
-              rellename esto en ingles invitando a concoer el 'routine maker'
+              Explore our extensive list of exercises covering all muscle groups and fitness levels, providing you with endless workout options.
             </p>
             <ion-modal [isOpen]="isModalOpen">
               <ng-template>
@@ -70,7 +70,7 @@
                 </ion-header>
                 <ion-content class="ion-padding">
                   <p>
-
+                    
                   </p>
                 </ion-content>
               </ng-template>
@@ -78,7 +78,7 @@
           </ion-content>
         </div>
       </div>
-
+      
       <!-- TRACKING CALENDAR -->
       <div class="sport__div ">
         
@@ -90,7 +90,7 @@
           <ion-content class="ion-padding">
             <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Tracking calendar</ion-button>
             <p>
-              rellename esto en ingles invitando a concoer el 'routine maker'
+              Manage your fitness journey with our Tracking Calendar feature, helping you keep track of your workouts, progress, and achievements.
             </p>
             <ion-modal [isOpen]="isModalOpen">
               <ng-template>
@@ -104,7 +104,7 @@
                 </ion-header>
                 <ion-content class="ion-padding">
                   <p>
-
+                    
                   </p>
                 </ion-content>
               </ng-template>
@@ -112,6 +112,6 @@
           </ion-content>
         </div>
       </div>
-
-  </div>
-</ion-content>
+      
+    </div>
+  </ion-content>
