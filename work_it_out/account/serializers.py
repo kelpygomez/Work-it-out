@@ -14,8 +14,8 @@ class ProfileRegisterSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     # Define los campos del usuario que quieres incluir en la respuesta
-    username = serializers.CharField(source='user.username')
-    email = serializers.EmailField(source='user.email')
+    username = serializers.CharField(source='user.username', read_only=True)
+    email = serializers.EmailField(source='user.email', read_only=True)
 
     class Meta:
         model = Profile

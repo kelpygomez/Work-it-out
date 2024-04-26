@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>edit-profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">edit-profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <label for="profile-birthdate">profile-birthdate:</label>
+    <input type="text" id="profile-birthdate" [(ngModel)]="profile.birthdate">
+  </div>
+  <div>
+    <label for="profile-weight">Profile weight:</label>
+    <textarea id="profile-weight" [(ngModel)]="profile.weight"></textarea>
+  </div>
+  <button (click)="saveChanges()">Save changes</button>
+</ion-content>

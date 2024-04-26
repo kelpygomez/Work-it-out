@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from account.models import Profile
 from django.db import models
 from routines.models import Routine
 
@@ -25,8 +25,8 @@ class Week(models.Model):
     sunday = models.ForeignKey(
         Routine, on_delete=models.SET_NULL, null=True, related_name='sunday_routine'
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     week_number = models.IntegerField()  # Número de la semana en el año
 
     def __str__(self):
-        return f"Week {self.week_number} for {self.user.username}"
+        return f"Week {self.week_number} for {self.profile.user.username}"
