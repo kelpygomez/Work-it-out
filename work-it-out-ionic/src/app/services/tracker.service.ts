@@ -11,24 +11,20 @@ export class TrackerService {
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener todos los registros del rastreador
-  getTracker(): Observable<Week[]> {
-    return this.http.get<Week[]>(this.apiUrl);
+  getWeek(id: number): Observable<Week[]> {
+    return this.http.get<Week[]>(`${this.apiUrl}${id}/`);
   }
 
-  // Método para crear un nuevo registro en el rastreador
-  createTracker(trackerData: Week): Observable<Week> {
-    return this.http.post<Week>(this.apiUrl, trackerData);
+  createWeek(): Observable<Week> {
+    return this.http.post<Week[]>(`${this.apiUrl}${id}/`);
   }
 
-  // Método para actualizar un registro existente en el rastreador
-  updateTracker(trackerId: number, trackerData: Week): Observable<Week> {
-    return this.http.put<Week>(`${this.apiUrl}${trackerId}/`, trackerData);
+  updateWeek(weekId: number, weekData: Week): Observable<Week> {
+    return this.http.put<Week>(`${this.apiUrl}${weekId}/`, weekData);
   }
 
-  // Método para eliminar un registro del rastreador
-  deleteTracker(trackerId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}${trackerId}/`);
+  deleteWeek(weekId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${weekId}/`);
   }
 }
 
