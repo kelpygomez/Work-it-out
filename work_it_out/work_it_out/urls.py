@@ -40,7 +40,7 @@ urlpatterns = [
     path('account/', include("account.urls", namespace="account")),
     path('exercises/', include("exercises.urls", namespace="exercises")),
     path('routines/', include("routines.urls", namespace="routines")),
-    path('tracker/', include("tracker.urls", namespace="tracker")),
+    path('weeks/', include("tracker.urls", namespace="tracker")),
     path('image/<str:image_name>/', serve_image, name='serve_image'),
     path('auth/', include('django.contrib.auth.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),

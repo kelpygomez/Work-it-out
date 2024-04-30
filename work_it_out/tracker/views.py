@@ -7,6 +7,7 @@ from .models import Week
 from account.models import Profile
 from django.contrib.auth.models import User
 from .serializers import WeekSerializer
+from django.contrib.auth.decorators import login_required
 
 class WeekRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = WeekSerializer
