@@ -1,13 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>tracker</ion-title>
-  </ion-toolbar>
-</ion-header>
+<h1>WEEK TRACKER</h1>
+<div>
+  <h2>Week {{ week.week_number }}</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tracker</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <h3>Monday</h3>
+  <p>Routine: {{ week.monday ? week.monday.name : 'No routine' }}</p>
+  <p>Number: {{ week.monday_number }}</p>
+
+  <h3>Tuesday</h3>
+  <p>Routine: {{ week.tuesday ? week.tuesday.name : 'No routine' }}</p>
+  <p>Number: {{ week.tuesday_number }}</p>
+
+  <h3>Wednesday</h3>
+  <p>Routine: {{ week.wednesday ? week.wednesday.name : 'No routine' }}</p>
+  <p>Number: {{ week.wednesday_number }}</p>
+
+  <h3>Thursday</h3>
+  <p>Routine: {{ week.thursday ? week.thursday.name : 'No routine' }}</p>
+  <p>Number: {{ week.thursday_number }}</p>
+
+  <h3>Friday</h3>
+  <p>Routine: {{ week.friday ? week.friday.name : 'No routine' }}</p>
+  <p>Number: {{ week.friday_number }}</p>
+
+  <h3>Saturday</h3>
+  <p>Routine: {{ week.saturday ? week.saturday.name : 'No routine' }}</p>
+  <p>Number: {{ week.saturday_number }}</p>
+
+  <h3>Sunday</h3>
+  <p>Routine: {{ week.sunday ? week.sunday.name : 'No routine' }}</p>
+  <p>Number: {{ week.sunday_number }}</p>
+</div>
+

@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import WeekRetrieveCreateAPIView, WeekRetrieveUpdateDestroyAPIView
+from .views import WeekRetrieveAPIView, WeekRetrieveUpdateDestroyAPIView
 
 app_name = "tracker"
 
 urlpatterns = [
-    path('weeks/', WeekRetrieveCreateAPIView.as_view(), name='week-retrieve-create'),
+    path('upcoming/<int:pk>/', WeekRetrieveAPIView.as_view(), name='week-retrieve'),
     path('weeks/<int:pk>/', WeekRetrieveUpdateDestroyAPIView.as_view(), name='week-retrieve-update-destroy'),
+    path('current/', WeekRetrieveUpdateDestroyAPIView.as_view(), name='week-retrieve-current')
 ]
 

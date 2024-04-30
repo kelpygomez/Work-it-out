@@ -11,20 +11,21 @@ export class TrackerService {
 
   constructor(private http: HttpClient) {}
 
-  getWeek(id: number): Observable<Week[]> {
-    return this.http.get<Week[]>(`${this.apiUrl}${id}/`);
+  getCurrentWeek(): Observable<any> {
+    return this.http.get<Week[]>(`${this.apiUrl}current/`);
   }
 
-  createWeek(): Observable<Week> {
-    return this.http.post<Week[]>(`${this.apiUrl}${id}/`);
+  getNextWeek(id:number): Observable<any> {
+    return this.http.get<Week[]>(`${this.apiUrl}/upcoming/${id}/`);
   }
 
-  updateWeek(weekId: number, weekData: Week): Observable<Week> {
+  getPreviousWeek(id:number): Observable<any> {
+    return this.http.get<Week[]>(`${this.apiUrl}/previous/${id}/`);
+  }
+
+  updateWeek(weekId: number, weekData: Week): Observable<any> {
     return this.http.put<Week>(`${this.apiUrl}${weekId}/`, weekData);
   }
 
-  deleteWeek(weekId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}${weekId}/`);
-  }
 }
 

@@ -9,7 +9,7 @@
     <ion-buttons slot="start">
       <ion-button [routerLink]="['/home']">Home</ion-button>
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']">Profile</ion-button>
-      <ion-button *ngIf="isLoggedIn()" [routerLink]="['#']">Calendar</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['/tracker']">Calendar</ion-button>
       <ion-button *ngIf="isLoggedIn()" routerLink="/routines-list">My Routines</ion-button>
       <ion-button >Routine Maker</ion-button>
       <!-- Enlace al ejercicio -->

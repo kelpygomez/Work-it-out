@@ -3,6 +3,7 @@ import { TrackerService } from '../../services/tracker.service';
 import { AuthService } from '../../services/auth.service';
 import { RoutineService } from '../../services/routines.service';
 import { Week } from '../../interfaces/tracker.interface';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-tracker',
@@ -11,7 +12,9 @@ import { Week } from '../../interfaces/tracker.interface';
 })
 export class TrackerPage {
   userId: number | undefined;
-  profile: Profile = { id: 0, username: '', email: '', birthdate: '', height: 0, weight: 0, status: '' };
+  week: Week = {id:0, monday: null, tuesday: null, wednesday: null, thursday: null, friday: null, saturday: null, sunday:null,
+  monday_number: 0, tuesday_number:0, wednesday_number:0, thursday_number: 0, friday_number: 0, saturday_number:0, sunday_number: 0,
+  week_number:0, user: null};
 
   constructor(private authService: AuthService, private routineService: RoutineService, private trackerService: TrackerService) { }
 
@@ -52,10 +55,7 @@ export class TrackerPage {
   }
 
   loadWeek() {
-    // Verificar que el userId esté definido
-    if (this.userId) {
-      // Obtener las rutinas asociadas al usuario
-      this.authService.getWeek(this.userId).subscribe(
+      this.trackerService.getCurrentWeek().subscribe(
         (data: Week) => {
           this.week = data;
           console.log('Week loaded:', this.week);
@@ -64,9 +64,5 @@ export class TrackerPage {
           console.error('Error fetching profile:', error);
         }
       );
-    } else {
-      console.error('User ID not available.');
-    }
   }
-
 }

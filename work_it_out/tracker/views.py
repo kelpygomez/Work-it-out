@@ -1,10 +1,14 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
 from django.utils import timezone
 from .models import Week
+from account.models import Profile
+from django.contrib.auth.models import User
 from .serializers import WeekSerializer
 
-class WeekRetrieveCreateAPIView(generics.RetrieveCreateAPIView):
+class WeekRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = WeekSerializer
 
     def get_queryset(self):
@@ -47,3 +51,14 @@ class WeekRetrieveCreateAPIView(generics.RetrieveCreateAPIView):
 class WeekRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Week.objects.all()
     serializer_class = WeekSerializer
+
+class CurrentWeekAPIView(RetrieveAPIView):
+    serializer_class = WeekSerializer
+
+    def get(self, request):
+        profile = self.request.user.profile
+        current_week = timezone.now().isocalendar()[1]
+        current_year = timezone.now().isocalendar()[0]
+        week = Week.objects.get_or_create(profile=profile,year=current_year,week_number=current_week)
+        serializer = self.serializer_class(week)
+        return Response(serializer.data)
