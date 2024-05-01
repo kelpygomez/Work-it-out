@@ -11,8 +11,8 @@ export class TrackerService {
 
   constructor(private http: HttpClient) {}
 
-  getCurrentWeek(): Observable<any> {
-    return this.http.get<Week[]>(`${this.apiUrl}current/`);
+  getCurrentWeek(user_id:number): Observable<any> {
+    return this.http.get<Week[]>(`${this.apiUrl}current/${user_id}/`);
   }
 
   getNextWeek(id:number): Observable<any> {

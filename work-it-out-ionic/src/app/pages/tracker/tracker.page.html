@@ -1,33 +1,109 @@
-<h1>WEEK TRACKER</h1>
-<div>
-  <h2>Week {{ week.week_number }}</h2>
+<ion-content>
+<section id=timeline>
+	<h1>Week Routines Timeline</h1>
+	<div class="demo-card-wrapper">
+		<div class="demo-card demo-card--step1">
+			<div class="head">
+				<div class="number-box">
+					<span>Mon</span>
+				</div>
+				<h2><span class="small">{{ week.monday_date }}</span> {{ week.monday ? week.monday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.monday; else noMonday">
+          <p>
+            {{ week.monday.description }}<br>
+            <strong>Type:</strong> {{ week.monday.types }}<br>
+            <strong>Total kcal:</strong> {{ week.monday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+        </ng-container>
+        
+        <ng-template #noMonday>
+          <p>No data available for Monday</p>
+        </ng-template>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
 
-  <h3>Monday</h3>
-  <p>Routine: {{ week.monday ? week.monday.name : 'No routine' }}</p>
-  <p>Number: {{ week.monday_number }}</p>
+		<div class="demo-card demo-card--step2">
+			<div class="head">
+				<div class="number-box">
+					<span>Tue</span>
+				</div>
+				<h2><span class="small">{{ week.tuesday_date }}</span> {{ week.tuesday ? week.tuesday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<p>{{ week.tuesday ? week.tuesday.name : 'No routine' }}</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
 
-  <h3>Tuesday</h3>
-  <p>Routine: {{ week.tuesday ? week.tuesday.name : 'No routine' }}</p>
-  <p>Number: {{ week.tuesday_number }}</p>
+		<div class="demo-card demo-card--step3">
+			<div class="head">
+				<div class="number-box">
+					<span>Wed</span>
+				</div>
+				<h2><span class="small">{{ week.wednesday_date }}</span> {{ week.wednesday ? week.wednesday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<p>{{ week.wednesday ? week.wednesday.name : 'No routine' }}</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
 
-  <h3>Wednesday</h3>
-  <p>Routine: {{ week.wednesday ? week.wednesday.name : 'No routine' }}</p>
-  <p>Number: {{ week.wednesday_number }}</p>
+		<div class="demo-card demo-card--step4">
+			<div class="head">
+				<div class="number-box">
+					<span>Thu</span>
+				</div>
+				<h2><span class="small">{{ week.thursday_date }}</span> {{ week.thursday ? week.thursday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<p>{{ week.thursday ? week.thursday.name : 'No routine' }}</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
 
-  <h3>Thursday</h3>
-  <p>Routine: {{ week.thursday ? week.thursday.name : 'No routine' }}</p>
-  <p>Number: {{ week.thursday_number }}</p>
+		<div class="demo-card demo-card--step5">
+			<div class="head">
+				<div class="number-box">
+					<span>Fri</span>
+				</div>
+				<h2><span class="small">{{ week.friday_date }}</span> {{ week.friday ? week.friday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<p>{{ week.friday ? week.friday.name : 'No routine' }}</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
 
-  <h3>Friday</h3>
-  <p>Routine: {{ week.friday ? week.friday.name : 'No routine' }}</p>
-  <p>Number: {{ week.friday_number }}</p>
+    <div class="demo-card demo-card--step6">
+			<div class="head">
+				<div class="number-box">
+					<span>Sat</span>
+				</div>
+				<h2><span class="small">{{ week.saturday_date }}</span> {{ week.saturday ? week.saturday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<p>{{ week.saturday ? week.saturday.name : 'No routine' }}</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
 
-  <h3>Saturday</h3>
-  <p>Routine: {{ week.saturday ? week.saturday.name : 'No routine' }}</p>
-  <p>Number: {{ week.saturday_number }}</p>
-
-  <h3>Sunday</h3>
-  <p>Routine: {{ week.sunday ? week.sunday.name : 'No routine' }}</p>
-  <p>Number: {{ week.sunday_number }}</p>
-</div>
+    <div class="demo-card demo-card--step7">
+			<div class="head">
+				<div class="number-box">
+					<span>Sun</span>
+				</div>
+				<h2><span class="small">{{ week.sunday_date }}</span> {{ week.sunday ? week.sunday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<p>{{ week.sunday ? week.sunday.name : 'No routine' }}</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+    
+	</div>
+</section>
+</ion-content>
 

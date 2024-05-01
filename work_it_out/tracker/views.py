@@ -56,10 +56,15 @@ class WeekRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 class CurrentWeekAPIView(RetrieveAPIView):
     serializer_class = WeekSerializer
 
-    def get(self, request):
-        profile = self.request.user.profile
+    def get(self, request,user_id):
+        user = get_object_or_404(User, id=user_id)
+        profile = get_object_or_404(Profile, user=user)
         current_week = timezone.now().isocalendar()[1]
         current_year = timezone.now().isocalendar()[0]
-        week = Week.objects.get_or_create(profile=profile,year=current_year,week_number=current_week)
+        try:
+            week = Week.objects.get(profile=profile,year=current_year,week_number=current_week)
+        except Week.DoesNotExist:
+            week = Week.objects.create(profile=profile,year=current_year,week_number=current_week)
+            week.save()
         serializer = self.serializer_class(week)
         return Response(serializer.data)

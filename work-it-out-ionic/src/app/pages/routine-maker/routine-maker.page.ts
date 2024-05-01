@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class RoutineMakerPage implements OnInit {
   userId: number= 0;
   routineId: number = 0;
-  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', type: '', exercises: [] };
+  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', exercises: [] };
   availableExercises: Exercise[] = [];
   routineExercises: Exercise[] = [];
 

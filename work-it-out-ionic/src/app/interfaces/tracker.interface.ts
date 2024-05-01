@@ -9,13 +9,13 @@ export interface Week {
     friday: Routine | null;
     saturday: Routine | null;
     sunday: Routine | null;
-    monday_number: number;
-    tuesday_number: number;
-    wednesday_number: number;
-    thursday_number: number;
-    friday_number: number;
-    saturday_number: number;
-    sunday_number: number;
+    monday_date: string;
+    tuesday_date: string;
+    wednesday_date: string;
+    thursday_date: string;
+    friday_date: string;
+    saturday_date: string;
+    sunday_date: string;
     user: User | null;
     week_number: number;
   }

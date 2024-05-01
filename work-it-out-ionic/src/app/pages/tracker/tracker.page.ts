@@ -13,8 +13,8 @@ import { User } from '../../interfaces/user.interface';
 export class TrackerPage {
   userId: number | undefined;
   week: Week = {id:0, monday: null, tuesday: null, wednesday: null, thursday: null, friday: null, saturday: null, sunday:null,
-  monday_number: 0, tuesday_number:0, wednesday_number:0, thursday_number: 0, friday_number: 0, saturday_number:0, sunday_number: 0,
-  week_number:0, user: null};
+  monday_date: "", tuesday_date:"", wednesday_date:"", thursday_date: "", friday_date: "", saturday_date:"",
+  sunday_date: "", week_number:0, user: null};
 
   constructor(private authService: AuthService, private routineService: RoutineService, private trackerService: TrackerService) { }
 
@@ -55,7 +55,8 @@ export class TrackerPage {
   }
 
   loadWeek() {
-      this.trackerService.getCurrentWeek().subscribe(
+    if (this.userId) {
+      this.trackerService.getCurrentWeek(this.userId).subscribe(
         (data: Week) => {
           this.week = data;
           console.log('Week loaded:', this.week);
@@ -65,4 +66,5 @@ export class TrackerPage {
         }
       );
   }
+}
 }
