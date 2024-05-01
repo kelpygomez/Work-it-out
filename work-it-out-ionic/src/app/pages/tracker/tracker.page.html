@@ -13,15 +13,25 @@
 				<ng-container *ngIf="week.monday; else noMonday">
           <p>
             {{ week.monday.description }}<br>
-            <strong>Type:</strong> {{ week.monday.types }}<br>
+            <strong>Type:</strong> {{ week.monday.types }} <i class="fas fa-male"></i><br>
             <strong>Total kcal:</strong> {{ week.monday.total_kcal }} <i class="fas fa-fire"></i>
           </p>
+		  <button (click)="removeRoutineFromWeek('monday')">Remove Routine</button>
         </ng-container>
         
         <ng-template #noMonday>
-          <p>No data available for Monday</p>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <!-- Botón para agregar rutina al lunes -->
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'monday')">Add to Monday</ion-button>
         </ng-template>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
 			</div>
 		</div>
 

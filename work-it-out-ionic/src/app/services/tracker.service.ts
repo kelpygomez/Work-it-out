@@ -23,8 +23,12 @@ export class TrackerService {
     return this.http.get<Week[]>(`${this.apiUrl}/previous/${id}/`);
   }
 
-  updateWeek(weekId: number, weekData: Week): Observable<any> {
-    return this.http.put<Week>(`${this.apiUrl}${weekId}/`, weekData);
+  addRoutineToWeek(week_id: number, routineId: number, weekDay: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}${week_id}/add-routine/`, { routineId: routineId, weekDay: weekDay});
+  }
+
+  removeRoutineFromWeek(week_id: number, weekDay: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}${week_id}/remove-routine/`, { weekDay: weekDay });
   }
 
 }
