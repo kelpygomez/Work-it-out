@@ -13,10 +13,6 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-class WeekRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Week.objects.all()
-    serializer_class = WeekSerializer
-
 class CurrentWeekAPIView(RetrieveAPIView):
     serializer_class = WeekSerializer
 
@@ -25,10 +21,47 @@ class CurrentWeekAPIView(RetrieveAPIView):
         profile = get_object_or_404(Profile, user=user)
         current_week = timezone.now().isocalendar()[1]
         current_year = timezone.now().isocalendar()[0]
-        try:
+        week_exists = Week.objects.filter(
+            profile=profile,
+            year=current_year,
+            week_number=current_week
+        ).exists()
+        if week_exists:
             week = Week.objects.get(profile=profile,year=current_year,week_number=current_week)
-        except Week.DoesNotExist:
+        else:
             week = Week.objects.create(profile=profile,year=current_year,week_number=current_week)
+            week.save()
+        serializer = self.serializer_class(week)
+        return Response(serializer.data)
+    
+class UpcomingWeekAPIView(RetrieveAPIView):
+    serializer_class = WeekSerializer
+
+    def get(self, request, week_id):
+        week = get_object_or_404(Week, id=week_id)
+        profile = week.profile
+        next_week_number = week.week_number + 1
+        year = week.year
+        try:
+            week = Week.objects.get(profile=profile,year=year,week_number=next_week_number)
+        except Week.DoesNotExist:
+            week = Week.objects.create(profile=profile,year=year,week_number=next_week_number)
+            week.save()
+        serializer = self.serializer_class(week)
+        return Response(serializer.data)
+
+class PreviousWeekAPIView(RetrieveAPIView):
+    serializer_class = WeekSerializer
+
+    def get(self, request, week_id):
+        week = get_object_or_404(Week, id=week_id)
+        profile = week.profile
+        next_week_number = week.week_number - 1
+        year = week.year
+        try:
+            week = Week.objects.get(profile=profile,year=year,week_number=next_week_number)
+        except Week.DoesNotExist:
+            week = Week.objects.create(profile=profile,year=year,week_number=next_week_number)
             week.save()
         serializer = self.serializer_class(week)
         return Response(serializer.data)
@@ -65,40 +98,3 @@ def add_routine_to_week(request, week_id):
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
     
-# class WeekRetrieveAPIView(generics.RetrieveAPIView):
-#     serializer_class = WeekSerializer
-
-#     def get_queryset(self):
-#         # Obtener el perfil asociado al usuario actual
-#         profile = self.request.user.profile
-
-#         # Obtener todas las semanas asociadas al perfil
-#         return Week.objects.filter(profile=profile)
-
-#     def post(self, request, *args, **kwargs):
-#         # Obtener el perfil asociado al usuario actual
-#         profile = self.request.user.profile
-
-#         # Obtener todas las semanas asociadas al perfil
-#         weeks = Week.objects.filter(profile=profile)
-
-#         # Obtener la última semana, si existe
-#         last_week = weeks.last()
-
-#         # Calcular el número de semana y año para la próxima semana
-#         if last_week:
-#             next_week_number = last_week.week_number + 1
-#             next_year = last_week.year
-#             if next_week_number > 52:
-#                 next_week_number = 1
-#                 next_year += 1
-#         else:
-#             # Si no hay semanas existentes, crear la semana para la semana actual
-#             next_week_number = timezone.now().isocalendar()[1]
-#             next_year = timezone.now().isocalendar()[0]
-
-#         # Crear la nueva semana
-#         Week.objects.create(profile=profile, week_number=next_week_number, year=next_year)
-
-#         # Devolver una respuesta exitosa
-#         return Response({'message': 'Week created successfully'}, status=201)

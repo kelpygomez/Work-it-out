@@ -15,12 +15,12 @@ export class TrackerService {
     return this.http.get<Week[]>(`${this.apiUrl}current/${user_id}/`);
   }
 
-  getNextWeek(id:number): Observable<any> {
-    return this.http.get<Week[]>(`${this.apiUrl}/upcoming/${id}/`);
+  getNextWeek(week_id:number): Observable<any> {
+    return this.http.get<Week[]>(`${this.apiUrl}upcoming/${week_id}/`);
   }
 
-  getPreviousWeek(id:number): Observable<any> {
-    return this.http.get<Week[]>(`${this.apiUrl}/previous/${id}/`);
+  getPreviousWeek(week_id:number): Observable<any> {
+    return this.http.get<Week[]>(`${this.apiUrl}previous/${week_id}/`);
   }
 
   addRoutineToWeek(week_id: number, routineId: number, weekDay: string): Observable<any> {

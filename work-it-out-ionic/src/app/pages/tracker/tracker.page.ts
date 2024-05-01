@@ -25,12 +25,10 @@ export class TrackerPage {
     // Obtener el ID del usuario al iniciar el componente
     this.getUserId();
     this.loadRoutines();
-  }
-
-  ionViewWillEnter() {
-    // Se ejecuta cada vez que la página se carga o vuelve a cargarse
+    // Cargar la semana asociada al usuario
     this.loadWeek();
   }
+
 
   getUserId() {
     // Obtener el token de autenticación
@@ -43,8 +41,6 @@ export class TrackerPage {
           if (userId !== null) {
             // Asignar el ID del usuario al userId
             this.userId = userId;
-            // Cargar la semana asociada al usuario
-            this.loadWeek();
           } else {
             console.error('Error: User ID is null.');
           }
@@ -69,12 +65,40 @@ export class TrackerPage {
           console.error('Error fetching profile:', error);
         }
       );
+    }
   }
+
+  loadPreviousWeek() {
+    if (this.userId) {
+      this.trackerService.getPreviousWeek(this.week.id).subscribe(
+        (data: Week) => {
+          this.week = data;
+          console.log('Week loaded:', this.week);
+        },
+        (error: any) => {
+          console.error('Error fetching profile:', error);
+        }
+      );
+    }
   }
+
+  loadUpcomingWeek() {
+    if (this.userId) {
+      this.trackerService.getNextWeek(this.week.id).subscribe(
+        (data: Week) => {
+          this.week = data;
+          console.log('Week loaded:', this.week);
+        },
+        (error: any) => {
+          console.error('Error fetching profile:', error);
+        }
+      );
+    }
+  }
+
   addRoutineToWeek(routineId:number, weekDay: string) {
     this.trackerService.addRoutineToWeek(this.week.id, routineId, weekDay).subscribe(
       () => {
-        this.loadWeek(); // Recargar rutina después de agregar ejercicio
       },
       (error: any) => {
         console.error('Error adding routine to the week:', error);
@@ -85,7 +109,6 @@ export class TrackerPage {
   removeRoutineFromWeek(weekDay: string) {
     this.trackerService.removeRoutineFromWeek(this.week.id, weekDay).subscribe(
       () => {
-        this.loadWeek(); // Recargar rutina después de agregar ejercicio
       },
       (error: any) => {
         console.error('Error removing the routine from the week:', error);
