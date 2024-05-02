@@ -1,37 +1,39 @@
-$green: #0aff8a;
-$dark-green: #1d965b;
-$grey: #3d3c3d;
-$shadow: rgba(0, 0, 0, .25);
-/* Estilos para el encabezado */
-
 ion-toolbar {
-    --background: #0aff8a; /* Color de fondo del encabezado */
-    --box-shadow: none; /* Sin sombra en el encabezado */
-  }
-  
+  --background: #0aff8a; /* Color de fondo del encabezado */
+  --box-shadow: none; /* Sin sombra en el encabezado */
+}
+
+ion-title {
+  font-size: 20px; /* Tamaño de fuente del título */
+  font-weight: bold; /* Fuente en negrita para el título */
+  border-bottom: none;
+}
+
+ion-title img {
+  max-width: 7em;
+}
+
+ion-button {
+  --color: #ffffff; /* Color de texto de los botones */
+  --background: #a8acb1; /* Color de fondo de los botones */
+  --border-radius: 5px; /* Radio de borde para los botones */
+  --padding-end: 15px; /* Espacio interno a la derecha de los botones */
+  --padding-start: 15px; /* Espacio interno a la izquierda de los botones */
+  font-size: 15px; /* Tamaño de fuente de los botones */
+}
+
+ion-button:hover {
+  --background: #a8acb1; /* Color de fondo del botón al pasar el mouse */
+}
+
+/* Media query para tamaños más grandes */
+@media only screen and (min-width: 768px) {
   ion-title {
-    font-size: 20px; /* Tamaño de fuente del título */
-    font-weight: bold; /* Fuente en negrita para el título */
-    border-bottom: none;
-    img{
-      max-width: 7em;
-    }
+    font-size: 24px; /* Aumenta el tamaño de la fuente del título */
   }
-
-
   
   ion-button {
-    --color: #ffffff; /* Color de texto de los botones */
-    --background: #a8acb1; /* Color de fondo de los botones */
-    --border-radius: 5px; /* Radio de borde para los botones */
-    --padding-end: 15px; /* Espacio interno a la derecha de los botones */
-    --padding-start: 15px; /* Espacio interno a la izquierda de los botones */
-    font-size: 15px; /* Tamaño de fuente de los botones */
+    font-size: 15px; /* Aumenta el tamaño de la fuente de los botones */
   }
-  
-  ion-button:hover {
-    --background: #a8acb1; /* Color de fondo del botón al pasar el mouse */
-  }
-  
-  /* Estilos adicionales si es necesario */
-  
+}
+

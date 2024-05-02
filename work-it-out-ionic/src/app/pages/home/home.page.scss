@@ -3,6 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Sans:wght@100;500&family=IBM+Plex+Serif:ital,wght@0,100;0,500;0,600;0,700;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 $green: #0aff8a;
 $dark-green: #1d965b;
@@ -23,10 +28,9 @@ body,html{
   }
 }
 
-/* ====== MAIN BANNER ===== */
+/* ====== Main banner ===== */
 .hero-text {
   position: absolute;
-  width: 20%;
   left: 5%;
   top: 25%;
   color: white;
@@ -39,9 +43,7 @@ body,html{
     font-size: 46px;
     text-align: center;
   }
-
 }
-
 
 .hero2{
   width: 100%;
@@ -73,20 +75,20 @@ body,html{
   z-index: 0;
   @extend .hero-text;
   width: 35%;
-  top: 35%;
+  top: 15%;
   font-family: 'IBM Plex Serif', serif;
   letter-spacing: 1.8px;
-  position: relative;
+  position: absolute;
   border: solid #0aff8a 2px;
   padding-left: 40px;
   padding-right: 30px;
   p{
     margin: 0px;
-    font-size: 20px;
+    font-size: 1rem;
   }
   h1{
     font-family: 'Abril Fatface', cursive;
-    font-size: 70px;
+    font-size: 2rem;
     letter-spacing: 4px;
   }
   ion-button{
@@ -100,7 +102,7 @@ body,html{
     margin-left: 0;
     bottom: -40px;
     color: black;
-    font-size: 30px;
+    font-size: 1rem;
   }
   ion-button:hover{
      transform: translate(0px);
@@ -116,17 +118,15 @@ body,html{
   bottom: 0;
 }
 
-/* ====== WEB TOOLS' IMAGES ===== */
+/* ====== Work it out's caracteristics ===== */
 
 
 .demo {
   max-width: 100%; 
   width: 100%;
+  height: 110%;
   margin: 0 auto;  
-  margin-top: 8%;
-  -webkit-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
-  -moz-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
-  box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+  margin-top: 2%;
   overflow: hidden;
   background-color: #ffffff;
   position: relative;
@@ -135,6 +135,7 @@ body,html{
 .sport {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .sport__div {
@@ -148,6 +149,7 @@ body,html{
   height: 100%;
   object-fit: cover;
   object-position: center;
+
 }
 
 .sport-info {
@@ -217,16 +219,172 @@ ion-modal ion-toolbar {
   --color: white;
 }
 
-@media only screen and (max-width: 1200px) {
-  body {
-      flex-wrap: wrap;
+/* ====== Reviews ===== */
+
+.slider {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.slider__nav {
+  width: 12px;
+  height: 12px;
+  margin: 2rem 12px;
+  border-radius: 50%;
+  z-index: 10;
+  outline: 6px solid #ccc;
+  outline-offset: -6px;
+  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.slider__nav:checked {
+  -webkit-animation: check 0.4s linear forwards;
+          animation: check 0.4s linear forwards;
+}
+.slider__nav:checked:nth-of-type(1) ~ .slider__inner {
+  left: 0%;
+}
+.slider__nav:checked:nth-of-type(2) ~ .slider__inner {
+  left: -100%;
+}
+.slider__nav:checked:nth-of-type(3) ~ .slider__inner {
+  left: -200%;
+}
+.slider__nav:checked:nth-of-type(4) ~ .slider__inner {
+  left: -300%;
+}
+.slider__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  -webkit-transition: left 0.4s;
+  transition: left 0.4s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+.slider__contents {
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.slider__image {
+  font-size: 2.7rem;
+      color: #2196F3;
+}
+.slider__caption {
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+}
+.slider__txt {
+  color: #999;
+  margin-bottom: 3rem;
+  max-width: 300px;
+}
+
+@-webkit-keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
   }
-  .sport__div {
-    flex: 0 0 calc(50% - 20px);
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
+@keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
+
+
+@media only screen and (min-width: 1200px) {
+  .hero2{
+    width: 100%;
+    height: 100%;
+  }
+  .hero-text,.hero2-text{
+   h1{
+    font-size: 2rem;
+  }
+    p{
+    font-size: 1.2rem;
+  }
+  ion-button{
+    font-size: 1rem;
+  }
   }
 }
 
 @media only screen and (max-width: 991px) {
+  .hero-text,.hero2-text{
+    top: 10px;
+    margin: auto;
+   h1{
+    font-size: 30px;
+  }
+    p{
+    font-size: 12px;
+  }
+  ion-button{
+    font-size: 10px;
+  }
+  }
   .sport  {
       height: 900px;
       flex-wrap: wrap;
@@ -250,6 +408,19 @@ ion-modal ion-toolbar {
 }
 
 @media only screen and (max-width: 767px) {
+  .hero-text,.hero2-text{
+    top: 10px;
+    margin: auto;
+   h1{
+    font-size: 30px;
+  }
+    p{
+    font-size: 18px;
+  }
+  ion-button{
+    font-size: 16px;
+  }
+  }
   .sport  {
     height: 700px;
     flex-wrap: wrap;
@@ -281,7 +452,7 @@ ion-modal ion-toolbar {
     p{
     font-size: 18px;
   }
-  button{
+  ion-button{
     font-size: 16px;
   }
   }
