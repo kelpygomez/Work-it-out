@@ -25,7 +25,6 @@ export class TrackerPage {
     // Obtener el ID del usuario al iniciar el componente
     this.getUserId();
     this.loadRoutines();
-    // Cargar la semana asociada al usuario
     this.loadWeek();
   }
 
@@ -41,6 +40,7 @@ export class TrackerPage {
           if (userId !== null) {
             // Asignar el ID del usuario al userId
             this.userId = userId;
+            this.loadWeek();
           } else {
             console.error('Error: User ID is null.');
           }

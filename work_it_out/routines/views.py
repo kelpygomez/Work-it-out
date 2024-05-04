@@ -1,4 +1,6 @@
 import json
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -23,23 +25,28 @@ class RoutineDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RoutineSerializer
 
 class RoutineCreateAPIView(APIView):
-    def post(self, request, format=None):
-        user_id = request.data.get('user_id')
+    permission_classes = [AllowAny]
+    serializer_class = RoutineSerializer
+
+    def get(self, request, user_id):
+        user = get_object_or_404(User, id=user_id)
+        profile = get_object_or_404(Profile, user=user)
         if user_id is None:
             return Response({'error': 'User ID is required'}, status=status.HTTP_400_BAD_REQUEST)
         try:
-            user = Profile.objects.get(id=user_id)
+            user = get_object_or_404(User, id=user_id)
+            profile = get_object_or_404(Profile, user=user)
         except Profile.DoesNotExist:
             return Response({'error': 'User with the provided ID does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
         routine = Routine.objects.create(
-            user=user,
+            user=profile,
             name='Nombre de rutina',
-            type='Tipo de rutina',
-            description='Descripción de la rutina',
-            total_kcal=0
+            description='Descripción de la rutina'
         )
-        return Response({'id': routine.id}, status=status.HTTP_201_CREATED)
+        routine.save()
+        serializer = self.serializer_class(routine)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @csrf_exempt

@@ -37,8 +37,8 @@ export class RoutineService {
     return this.http.get<Routine>(`${this.apiUrl}${id}/`, this.getRequestOptions());
   }
 
-  createRoutine(userId: number): Observable<Routine> {
-    return this.http.post<Routine>(`${this.apiUrl}create/`, {}, this.getRequestOptions());
+  createRoutine(user_id: number): Observable<Routine> {
+    return this.http.get<Routine>(`${this.apiUrl}create/${user_id}/`);
   }
 
   addExerciseToRoutine(routineId: number, exerciseId: number): Observable<any> {
