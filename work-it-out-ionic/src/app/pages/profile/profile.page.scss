@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background-color: #000;
 }
@@ -12,8 +7,8 @@ body {
     border: none;
     cursor: pointer;
     transition: all 0.5s;
-    width: 80%; /* Ajustamos el ancho de la tarjeta */
-    max-width: 400px; /* Establecemos un ancho máximo */
+    width: 100%; /* Ajustamos el ancho de la tarjeta */
+    max-width: 4000px; /* Establecemos un ancho máximo */
     margin: 0 auto; /* Centramos horizontalmente */
     padding: 20px; /* Agregamos un relleno interno */
 }
@@ -27,10 +22,11 @@ body {
 }
 
 .btn {
-    height: 12em; /* Usamos em para hacerlo más adaptable */
-    width: 12em; /* Usamos em para hacerlo más adaptable */
+    height: 8em; /* Usamos em para hacerlo más adaptable */
+    width: 8em; /* Usamos em para hacerlo más adaptable */
     border-radius: 50%;
     font-size: 1.5em; /* Ajustamos el tamaño de fuente */
+    background-color: #000;
 }
 
 .name {

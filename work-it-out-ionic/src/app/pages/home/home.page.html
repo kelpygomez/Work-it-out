@@ -1,7 +1,147 @@
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="hero2">
+    <fieldset class="hero2-text">
+      <h1>Unlock Your Full Potential</h1>
+      <p> Start tracking your progress, discovering new exercises, and connecting with like-minded individuals now. Sign up today!"</p>
+      <ion-button color="green" *ngIf="!isLoggedIn()" [routerLink]="['/register']">GET STARTED</ion-button>
+      <ion-button color="green" *ngIf="isLoggedIn()" [routerLink]="['/exercise-list']">EXPLORE SOME EXERCISES</ion-button>
+    </fieldset>
+  </div>
+
+
+  <div class="demo sport">
+
+      <!-- ROUTINE MAKER -->
+      <div class="sport__div ">
+        
+        <picture class="responsive-img">
+          <img src="../../../assets/img/routine-maker.webp" alt="Routine maker" >
+        </picture>     
+        
+        <div class="sport-info">
+          <ion-content class="ion-padding">
+            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Routine Maker</ion-button>
+            <p>
+              Discover our Routine Maker feature, allowing you to create personalized workout routines tailored to your fitness goals and preferences.
+            </p>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>HOW TO MAKE YOUR OWN ROUTINES?</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
+
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-content>
+        </div>
+      </div>
+
+      <!-- LIST OF EXERCISES -->
+      <div class="sport__div ">
+        
+        <picture class="responsive-img">
+          <img src="../../../assets/img/exercises.jpg" alt="List of exercises" >
+        </picture>     
+        
+        <div class="sport-info">
+          <ion-content class="ion-padding">
+            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">List of exercises</ion-button>
+            <p>
+              Explore our extensive list of exercises covering all muscle groups and fitness levels, providing you with endless workout options.
+            </p>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>THE LIST OF EXERCISES</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
+                    
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-content>
+        </div>
+      </div>
+      
+      <!-- TRACKING CALENDAR -->
+      <div class="sport__div ">
+        
+        <picture class="responsive-img">
+          <img src="../../../assets/img/training-person.webp" alt="Tracking calendar" >
+        </picture>     
+        
+        <div class="sport-info">
+          <ion-content class="ion-padding">
+            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Tracking calendar</ion-button>
+            <p>
+              Manage your fitness journey with our Tracking Calendar feature, helping you keep track of your workouts, progress, and achievements.
+            </p>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>HOW TO USE OUR TRACKING CALENDAR?</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
+                    
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-content>
+        </div>
+      </div>
+      
+    </div>
+
+  
+  <div class="slider">
+    <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+    <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+    <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+    <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+    <div class="slider__inner">
+      <div class="slider__contents">
+        <i class="fas fa-star" ><i class="fas fa-star"><i class="fas fa-star"><i class="fas fa-star"><i class="fas fa-star"></i></i></i></i></i> 
+        <h2 class="slider__caption">John Doe</h2>
+        <p class="slider__txt">"Work it out is amazing! It helped me achieve my fitness goals and stay motivated throughout my journey."</p>
+      </div>
+      <div class="slider__contents">
+        <i class="fas fa-star" ><i class="fas fa-star"><i class="fas fa-star"><i class="fas fa-star"><i class="far fa-star"></i></i></i></i></i> 
+        <h2 class="slider__caption">Jane Smith</h2>
+        <p class="slider__txt">"I've been using Work it out for months now and I've seen incredible results. Highly recommended!"</p>
+      </div>
+      <div class="slider__contents">
+        <i class="fas fa-star" ><i class="fas fa-star"><i class="fas fa-star"><i class="fas fa-star"><i class="far fa-star"></i></i></i></i></i> 
+        <h2 class="slider__caption">David Johnson</h2>
+        <p class="slider__txt">"Work it out has been a game-changer for me. It's user-friendly and has a wide variety of exercises to choose from."</p>
+      </div>
+      <div class="slider__contents">
+        <i class="fas fa-star" ><i class="fas fa-star"><i class="fas fa-star"><i class="fas fa-star"><i class="fas fa-star"></i></i></i></i></i> 
+        <h2 class="slider__caption">Emily Brown</h2>
+        <p class="slider__txt">"I'm so glad I found Work it out. It's helped me stay consistent with my workouts and I've never felt better!"</p>
+      </div>
+    </div>
   </div>
 </ion-content>
-<app-footer></app-footer>
