@@ -5,7 +5,7 @@
       <!-- Columna del buscador -->
       <div class="col-6">
         <ion-toolbar class="search-bar-container">
-          <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExercises($event.target.value ?? '')"></ion-searchbar>
+          <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterExercises($event.target.value ?? '')"></ion-searchbar>
 
         </ion-toolbar>
       </div>
