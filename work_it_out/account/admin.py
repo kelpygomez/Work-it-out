@@ -5,5 +5,5 @@ from .models import Profile
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'birthdate', 'photo']
+    list_display = ['id', 'user', 'birthdate', 'photo']
     raw_id_fields = ['user']

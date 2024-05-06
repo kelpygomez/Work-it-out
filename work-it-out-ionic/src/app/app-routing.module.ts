@@ -47,6 +47,14 @@ const routes: Routes = [
     path: 'routine-maker/:id',
     loadChildren: () => import('./pages/routine-maker/routine-maker.module').then( m => m.RoutineMakerPageModule)
   },
+  {
+    path: 'tracker',
+    loadChildren: () => import('./pages/tracker/tracker.module').then( m => m.TrackerPageModule)
+  },
+  {
+    path: 'edit-profile',
+    loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
 ];
 
 @NgModule({

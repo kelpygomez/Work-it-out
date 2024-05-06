@@ -46,6 +46,6 @@ class Profile(models.Model):
         else:
             raise ValueError("Invalid status")
 
-    @property
-    def BMI(self):
-        return self.weight / (self.height**2)
+    # @property
+    # def BMI(self):
+    #     return self.weight / (self.height**2)

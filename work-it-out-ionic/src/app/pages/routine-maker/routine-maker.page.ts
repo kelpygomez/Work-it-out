@@ -5,6 +5,7 @@ import { Routine } from '../../interfaces/routine.interface';
 import { Exercise } from '../../interfaces/exercise.interface';
 import { ExerciseService } from 'src/app/services/exercise.service';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-routine-maker',
@@ -14,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class RoutineMakerPage implements OnInit {
   userId: number= 0;
   routineId: number = 0;
-  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', type: '', exercises: [] };
+  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', exercises: [] };
   availableExercises: Exercise[] = [];
   routineExercises: Exercise[] = [];
 
@@ -89,6 +90,12 @@ export class RoutineMakerPage implements OnInit {
       () => {
         this.loadRoutine(); // Recargar rutina después de agregar ejercicio
         this.loadExercises(); // Recargar ejercicios disponibles
+        Swal.fire({
+          title: 'Success!',
+          text: 'Exercise added to routine.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
       },
       (error: any) => {
         console.error('Error adding exercise to routine:', error);
@@ -101,6 +108,12 @@ export class RoutineMakerPage implements OnInit {
       () => {
         this.loadRoutine(); // Recargar rutina después de quitar ejercicio
         this.loadExercises(); // Recargar ejercicios disponibles
+        Swal.fire({
+          title: 'Success!',
+          text: 'Exercise removed from routine.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
       },
       (error: any) => {
         console.error('Error removing exercise from routine:', error);

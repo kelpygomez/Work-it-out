@@ -1,0 +1,240 @@
+<ion-content>
+<section id=timeline>
+	<h1>Week Routines Timeline</h1>
+	<div class="buttons-container-1">
+		<button class="button-arounder" (click)="loadUpcomingWeek()">NEXT WEEK</button>
+	</div>
+	<div class="buttons-container-2">
+		<button class="button-arounder" (click)="loadPreviousWeek()">PREVIOUS WEEK</button>
+	</div>
+
+	<div class="demo-card-wrapper">
+		<div class="demo-card demo-card--step1">
+			<div class="head">
+				<div class="number-box">
+					<span>Mon</span>
+				</div>
+				<h2><span class="small">{{ week.monday_date }}</span> {{ week.monday ? week.monday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.monday; else noMonday">
+          <p>
+            {{ week.monday.description }}<br>
+            <strong>Type:</strong> {{ week.monday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.monday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('monday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noMonday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <!-- Botón para agregar rutina al lunes -->
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'monday')">Add to Monday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step2">
+			<div class="head">
+				<div class="number-box">
+					<span>Tue</span>
+				</div>
+				<h2><span class="small">{{ week.tuesday_date }}</span> {{ week.tuesday ? week.tuesday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.tuesday; else noTuesday">
+          <p>
+            {{ week.tuesday.description }}<br>
+            <strong>Type:</strong> {{ week.tuesday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.tuesday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('tuesday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noTuesday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'tuesday')">Add to Tuesday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step3">
+			<div class="head">
+				<div class="number-box">
+					<span>Wed</span>
+				</div>
+				<h2><span class="small">{{ week.wednesday_date }}</span> {{ week.wednesday ? week.wednesday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.wednesday; else noWednesday">
+          <p>
+            {{ week.wednesday.description }}<br>
+            <strong>Type:</strong> {{ week.wednesday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.wednesday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('wednesday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noWednesday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'wednesday')">Add to Wednesday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step4">
+			<div class="head">
+				<div class="number-box">
+					<span>Thu</span>
+				</div>
+				<h2><span class="small">{{ week.thursday_date }}</span> {{ week.thursday ? week.thursday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.thursday; else noThursday">
+          <p>
+            {{ week.thursday.description }}<br>
+            <strong>Type:</strong> {{ week.thursday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.thursday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('thursday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noThursday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'thursday')">Add to Thursday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step5">
+			<div class="head">
+				<div class="number-box">
+					<span>Fri</span>
+				</div>
+				<h2><span class="small">{{ week.friday_date }}</span> {{ week.friday ? week.friday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.friday; else noFriday">
+          <p>
+            {{ week.friday.description }}<br>
+            <strong>Type:</strong> {{ week.friday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.friday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('friday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noFriday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'friday')">Add to Friday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+
+    <div class="demo-card demo-card--step6">
+			<div class="head">
+				<div class="number-box">
+					<span>Sat</span>
+				</div>
+				<h2><span class="small">{{ week.saturday_date }}</span> {{ week.saturday ? week.saturday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.saturday; else noSaturday">
+          <p>
+            {{ week.saturday.description }}<br>
+            <strong>Type:</strong> {{ week.saturday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.saturday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('saturday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noSaturday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'saturday')">Add to Saturday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+
+    <div class="demo-card demo-card--step7">
+			<div class="head">
+				<div class="number-box">
+					<span>Sun</span>
+				</div>
+				<h2><span class="small">{{ week.sunday_date }}</span> {{ week.sunday ? week.sunday.name : 'No routine' }}</h2>
+			</div>
+			<div class="body">
+				<ng-container *ngIf="week.sunday; else noSunday">
+          <p>
+            {{ week.sunday.description }}<br>
+            <strong>Type:</strong> {{ week.sunday.types }} <i class="fas fa-male"></i><br>
+            <strong>Total kcal:</strong> {{ week.sunday.total_kcal }} <i class="fas fa-fire"></i>
+          </p>
+		  <button (click)="removeRoutineFromWeek('sunday')">Remove Routine</button>
+        </ng-container>
+        
+        <ng-template #noSunday>
+          <p>You haven't select a routine yet!!</p>
+		  <ion-item>
+			<ion-label>Select Routine</ion-label>
+			<ion-select [(ngModel)]="selectedRoutineId">
+			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
+				{{ routine.name }}
+			  </ion-select-option>
+			</ion-select>
+		  </ion-item>
+		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'sunday')">Add to Sunday</ion-button>
+        </ng-template>
+			</div>
+		</div>
+    
+	</div>
+</section>
+</ion-content>
+

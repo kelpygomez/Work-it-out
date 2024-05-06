@@ -1,10 +1,78 @@
 from django.db import models
 from routines.models import Routine
+from account.models import Profile
+from datetime import datetime, timedelta
 
-
-class Calendar(models.Model):
-    date = models.DateField()
-    routine = models.ManyToManyField(Routine, related_name="routine_calendar")
+class Week(models.Model):
+    monday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='monday_routine'
+    )
+    tuesday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='tuesday_routine'
+    )
+    wednesday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='wednesday_routine'
+    )
+    thursday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='thursday_routine'
+    )
+    friday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='friday_routine'
+    )
+    saturday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='saturday_routine'
+    )
+    sunday = models.ForeignKey(
+        Routine, on_delete=models.SET_NULL, null=True, related_name='sunday_routine'
+    )
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    week_number = models.IntegerField(null=True)  # Número de la semana en el año
+    year = models.IntegerField(null=True)  # Año en el que estamos
+    # Añadir los atributos de fecha
+    monday_date = models.DateField(null=True)
+    tuesday_date = models.DateField(null=True)
+    wednesday_date = models.DateField(null=True)
+    thursday_date = models.DateField(null=True)
+    friday_date = models.DateField(null=True)
+    saturday_date = models.DateField(null=True)
+    sunday_date = models.DateField(null=True)
 
     def __str__(self):
-        return f"{self.date} - {self.routine.name}"
+        return f"Week {self.week_number} for {self.profile.user.username}"
+
+    def set_week_dates(self):
+        # Verificar que self.year y self.week_number no sean None
+        if self.year is None or self.week_number is None:
+            # Manejar el caso en el que los valores sean None
+            # Puedes lanzar una excepción, establecer valores predeterminados o manejarlo de otra manera según tu lógica de la aplicación
+            return
+
+        # Obtener el primer día de la semana basado en el número de semana y el año
+        first_day_of_week = datetime.strptime(f'{self.year}-W{self.week_number}-1', "%Y-W%W-%w").date()
+
+        # Calcular las fechas de los días de la semana
+        monday = first_day_of_week
+        tuesday = monday + timedelta(days=1)
+        wednesday = monday + timedelta(days=2)
+        thursday = monday + timedelta(days=3)
+        friday = monday + timedelta(days=4)
+        saturday = monday + timedelta(days=5)
+        sunday = monday + timedelta(days=6)
+        
+        # Actualizar los atributos de fecha de la semana
+        self.monday_date = monday
+        self.tuesday_date = tuesday
+        self.wednesday_date = wednesday
+        self.thursday_date = thursday
+        self.friday_date = friday
+        self.saturday_date = saturday
+        self.sunday_date = sunday
+        
+        # Guardar el objeto Week en la base de datos
+        self.save()
+
+        
+    def __init__(self, *args, **kwargs):
+        super(Week, self).__init__(*args, **kwargs)
+        # Llamar al método set_week_dates() al crear una instancia de Week
+        self.set_week_dates()
