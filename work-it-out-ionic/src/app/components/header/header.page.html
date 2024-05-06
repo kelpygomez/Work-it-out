@@ -14,9 +14,8 @@
       <ion-button *ngIf="isLoggedIn()" (click)="createEmptyRoutine()">Routine Maker</ion-button>
       <!-- Enlace al ejercicio -->
       <ion-button [routerLink]="['/exercise-list']">Exercises</ion-button>
-      <ion-button [routerLink]="['#']">Community</ion-button>
+      <ion-button [routerLink]="['#']">IMC Calculator</ion-button>
     </ion-buttons>
-
     <!-- Botón de inicio de sesión/registro -->
     <ion-buttons slot="end">
       <!-- Se mostrará el botón de inicio de sesión/registro si el usuario no está autenticado -->
