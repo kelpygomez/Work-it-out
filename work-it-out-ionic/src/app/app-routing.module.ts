@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'loading-spinner',
     loadChildren: () => import('./components/loading-spinner/loading-spinner.module').then( m => m.LoadingSpinnerPageModule)
   },
+  {
+    path: 'bmi-calculator',
+    loadChildren: () => import('./pages/bmi-calculator/bmi-calculator.module').then( m => m.BmiCalculatorPageModule)
+  },
 ];
 
 @NgModule({

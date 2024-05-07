@@ -1,0 +1,60 @@
+<!-- bmi-calculator.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      BMI Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">BMI Calculator</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Calculate Your BMI</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Weight (kg)</ion-label>
+        <ion-input type="number" [(ngModel)]="weightValue"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Height (cm)</ion-label>
+        <ion-input type="number" [(ngModel)]="heightValue"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="calculateBMI()">Calculate</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="bmi">
+    <ion-card-header>
+      <ion-card-title>Your BMI</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Your BMI is {{ bmi }}</p>
+    </ion-card-content>
+  </ion-card>
+  <div class="container">
+    <div class="line"></div>
+    <div class="arrow" [style.left.%]="arrowPosition"></div>
+    <div class="squares">
+      <div class="square">Underweight</div>
+      <div class="square">Normal weight</div>
+      <div class="square">Overweight</div>
+      <div class="square">Obesity</div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+</ion-content>

@@ -74,4 +74,8 @@ export class AuthService {
   updateProfile(profile: Profile): Observable<any> {
     return this.http.put<Profile>(`${this.apiUrl}account/edit_profile/${profile.id}/`, profile);
   }
+
+  getAmountRoutines(userId: number): Observable<any> {
+    return this.http.get<number>(`${this.apiUrl}account/routines_amount/${userId}`);
+  }
 }

@@ -7,7 +7,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from routines.models import Routine
 from .models import Profile
 from .serializers import (
     LoginFormSerializer,
@@ -95,3 +95,26 @@ class ViewProfileAPIView(RetrieveAPIView):
         profile = get_object_or_404(Profile, user=user)
         serializer = self.serializer_class(profile)
         return Response(serializer.data)
+    
+
+class GetAmountRoutinesAPIView(APIView):
+
+    def get(self, request, userId):
+        user = get_object_or_404(User, id=userId)
+        profile = get_object_or_404(Profile, user=user)
+        routines = Routine.objects.filter(profile=profile)
+        amount_routines = len(routines)
+        return Response({'amount_routines': amount_routines})
+    
+
+# class GetAmountRoutinesAPIView(APIView):
+
+#     def get(self, request, userId):
+#         user = get_object_or_404(User, id=userId)
+#         profile = get_object_or_404(Profile, user=user)
+#         weight = profile.weight
+#         height = profile.height
+#         imc = 
+#         amount_routines = len(routines)
+#         return Response({'amount_routines': amount_routines})
+    

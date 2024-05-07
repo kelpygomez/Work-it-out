@@ -1,0 +1,49 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 150px; /* Ajustar según sea necesario */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .squares {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .square {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .line {
+    position: absolute;
+    width: calc(100% - 40px); /* Ancho total menos el ancho de la flecha */
+    height: 2px;
+    background-color: #ccc; /* Color de la línea */
+    bottom: 30px; /* Distancia desde la parte inferior */
+    left: 20px; /* Posición izquierda para alinear con la flecha */
+  }
+  
+  .arrow {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: red; /* Color de la flecha */
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    animation: slideArrow 1s linear forwards; /* Animación */
+  }
+  
+  @keyframes slideArrow {
+    from {
+      left: calc(0% + 20px); /* Posición inicial de la flecha (20px para centrar) */
+    }
+    to {
+      left: calc((var(--position) * 25%) + 20px); /* Posición final de la flecha */
+    }
+  }
+  

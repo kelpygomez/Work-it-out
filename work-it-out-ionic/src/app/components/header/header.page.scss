@@ -26,6 +26,11 @@ ion-button:hover {
   --background: #a8acb1; /* Color de fondo del botón al pasar el mouse */
 }
 
+.active {
+  background-color: black; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color del texto */
+}
+
 /* Media query para tamaños más grandes */
 @media only screen and (min-width: 768px) {
   ion-title {

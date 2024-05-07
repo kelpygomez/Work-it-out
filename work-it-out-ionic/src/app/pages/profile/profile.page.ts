@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
 
   userId: number | undefined;
   profile: Profile = { id: 0, username: '', email: '', birthdate: '', height: 0, weight: 0, status: '' };
+  routines_amount = 0;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -37,6 +38,7 @@ export class ProfilePage implements OnInit {
             // Asignar el ID del usuario al userId
             this.userId = userId;
             // Cargar las rutinas asociadas al usuario
+            this.getAmountRoutines();
             this.loadProfile();
           } else {
             console.error('Error: User ID is null.');
@@ -62,6 +64,23 @@ export class ProfilePage implements OnInit {
         },
         (error: any) => {
           console.error('Error fetching profile:', error);
+        }
+      );
+    } else {
+      console.error('User ID not available.');
+    }
+  }
+  getAmountRoutines() {
+    // Verificar que el userId esté definido
+    if (this.userId) {
+      // Obtener las rutinas asociadas al usuario
+      this.authService.getAmountRoutines(this.userId).subscribe(
+        (data: number) => {
+          this.routines_amount = data;
+          console.log('Number of routines obtained:', this.profile);
+        },
+        (error: any) => {
+          console.error('Error fetching number of routines:', error);
         }
       );
     } else {
