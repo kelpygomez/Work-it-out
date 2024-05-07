@@ -42,7 +42,7 @@ button{
   }
   
 /* Estilos para los inputs */
-input[type="text"], textarea {
+input[type="text"], input[type="date"], textarea {
     width: 100%;
     padding: 10px; /* Ajustamos el relleno */
     margin-bottom: 20px; /* Agregamos espacio inferior */
@@ -57,5 +57,6 @@ input[type="text"], textarea {
     margin-bottom: 5px; /* Agregamos espacio inferior */
     color: whitesmoke; /* Color del texto de la etiqueta */
     font-weight: bold; /* Texto en negrita */
+    text-align: center;
   }
   

@@ -4,7 +4,7 @@
       <div class="image d-flex flex-column justify-content-center align-items-center">
         <div>
           <label for="profile-birthdate">Date of birth:</label>
-          <input type="text" id="profile-birthdate" [(ngModel)]="profile.birthdate" displayFormat="YYYY-MM-DD"
+          <input type="date" id="profile-birthdate" [(ngModel)]="profile.birthdate" displayFormat="YYYY-MM-DD"
             placeholder="YYYY-MM-DD" [style.border-color]="validationErrors.birthdate ? 'red' : ''">
           <div *ngIf="validationErrors.birthdate" style="color: red;">{{ validationErrors.birthdate }}</div>
         </div>

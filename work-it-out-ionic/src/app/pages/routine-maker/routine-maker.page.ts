@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RoutineService } from '../../services/routines.service';
 import { Routine } from '../../interfaces/routine.interface';
 import { Exercise } from '../../interfaces/exercise.interface';
@@ -19,7 +19,7 @@ export class RoutineMakerPage implements OnInit {
   availableExercises: Exercise[] = [];
   routineExercises: Exercise[] = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -111,7 +111,6 @@ export class RoutineMakerPage implements OnInit {
         this.loadExercises(); // Recargar ejercicios disponibles
         Swal.fire({
           title: "Are you sure?",
-          text: "You won't be able to revert this!",
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: "#1d965b",
@@ -121,7 +120,7 @@ export class RoutineMakerPage implements OnInit {
           if (result.isConfirmed) {
             Swal.fire({
               title: "Deleted!",
-              text: "Your file has been deleted.",
+              text: "The exercise has been deleted.",
               icon: "success",
               confirmButtonColor: "#1d965b",
             });
@@ -138,6 +137,13 @@ export class RoutineMakerPage implements OnInit {
     saveChanges() {
       this.routineService.updateRoutine(this.routine).subscribe(
         () => {
+          Swal.fire({
+            title: 'Success!',
+            text: 'New routine created.',
+            icon: 'success',
+            confirmButtonColor: "#1d965b",
+          });
+          this.router.navigateByUrl("/routines-list");
           console.log('Changes saved successfully');
         },
         (error: any) => {
