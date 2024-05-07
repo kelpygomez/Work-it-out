@@ -139,6 +139,7 @@ export class RoutineMakerPage implements OnInit {
       this.routineService.updateRoutine(this.routine).subscribe(
         () => {
           console.log('Changes saved successfully');
+          window.location.href = '/routines-list'
         },
         (error: any) => {
           console.error('Error saving changes:', error);

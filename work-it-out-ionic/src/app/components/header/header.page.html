@@ -9,20 +9,20 @@
 
     <!-- Enlaces de navegación -->
     <ion-buttons slot="start">
-      <ion-button [routerLink]="['/home']">Home</ion-button>
-      <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']">Profile</ion-button>
-      <ion-button *ngIf="isLoggedIn()" [routerLink]="['/tracker']">Calendar</ion-button>
-      <ion-button *ngIf="isLoggedIn()" routerLink="/routines-list">My Routines</ion-button>
-      <ion-button *ngIf="isLoggedIn()" (click)="createEmptyRoutine()">Routine Maker</ion-button>
+      <ion-button [routerLink]="['/home']" routerLinkActive="active">Home</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']" routerLinkActive="active">Profile</ion-button>
+      <ion-button *ngIf="isLoggedIn()" [routerLink]="['/tracker']" routerLinkActive="active">Calendar</ion-button>
+      <ion-button *ngIf="isLoggedIn()" routerLink="/routines-list" routerLinkActive="active">My Routines</ion-button>
+      <ion-button *ngIf="isLoggedIn()" (click)="createEmptyRoutine()" routerLinkActive="active">Routine Maker</ion-button>
       <!-- Enlace al ejercicio -->
-      <ion-button [routerLink]="['/exercise-list']">Exercises</ion-button>
-      <ion-button [routerLink]="['#']">IMC Calculator</ion-button>
+      <ion-button [routerLink]="['/exercise-list']" routerLinkActive="active">Exercises</ion-button>
+      <ion-button [routerLink]="['#']" routerLinkActive="active">IMC Calculator</ion-button>
     </ion-buttons>
     <!-- Botón de inicio de sesión/registro -->
     <ion-buttons slot="end">
       <!-- Se mostrará el botón de inicio de sesión/registro si el usuario no está autenticado -->
-      <ion-button *ngIf="!isLoggedIn()" [routerLink]="['/login']">Login</ion-button>
-      <ion-button *ngIf="!isLoggedIn()" [routerLink]="['/register']">Register</ion-button>
+      <ion-button *ngIf="!isLoggedIn()" [routerLink]="['/login']" routerLinkActive="active">Login</ion-button>
+      <ion-button *ngIf="!isLoggedIn()" [routerLink]="['/register']" routerLinkActive="active">Register</ion-button>
       <!-- Se mostrará el botón de cerrar sesión si el usuario está autenticado -->
       <ion-button *ngIf="isLoggedIn()" (click)="logout()">Logout</ion-button>
     </ion-buttons>

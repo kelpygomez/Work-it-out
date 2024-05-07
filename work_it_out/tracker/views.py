@@ -31,6 +31,7 @@ class CurrentWeekAPIView(RetrieveAPIView):
         else:
             week = Week.objects.create(profile=profile,year=current_year,week_number=current_week)
             week.save()
+            week = Week.objects.get(profile=profile,year=current_year,week_number=current_week)
         serializer = self.serializer_class(week)
         return Response(serializer.data)
     
@@ -47,6 +48,7 @@ class UpcomingWeekAPIView(RetrieveAPIView):
         except Week.DoesNotExist:
             week = Week.objects.create(profile=profile,year=year,week_number=next_week_number)
             week.save()
+            week = Week.objects.get(profile=profile,year=year,week_number=next_week_number)
         serializer = self.serializer_class(week)
         return Response(serializer.data)
 
@@ -63,6 +65,7 @@ class PreviousWeekAPIView(RetrieveAPIView):
         except Week.DoesNotExist:
             week = Week.objects.create(profile=profile,year=year,week_number=next_week_number)
             week.save()
+            week = Week.objects.get(profile=profile,year=year,week_number=next_week_number)
         serializer = self.serializer_class(week)
         return Response(serializer.data)
     

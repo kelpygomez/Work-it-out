@@ -17,6 +17,7 @@ export class RoutinesListPage implements OnInit {
   ngOnInit() {
     // Obtener el ID del usuario al iniciar el componente
     this.getUserId();
+    this.loadRoutines();
   }
 
   getUserId() {
