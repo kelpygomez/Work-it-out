@@ -12,6 +12,7 @@ import { FooterPageModule } from './components/footer/footer.module';
 
 // Importa ExerciseService
 import { ExerciseService } from './services/exercise.service';
+import { LoadingSpinnerPageModule } from './components/loading-spinner/loading-spinner.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { ExerciseService } from './services/exercise.service';
     IonicModule.forRoot(),
     AppRoutingModule,
     HeaderPageModule,
-    FooterPageModule
+    FooterPageModule,
+    LoadingSpinnerPageModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

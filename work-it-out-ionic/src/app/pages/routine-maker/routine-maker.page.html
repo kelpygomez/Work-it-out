@@ -1,5 +1,8 @@
 <!-- routine-maker.page.html -->
 <div style="margin-bottom: auto; height: 100vh; margin-top: 10vh;"  class="container-lg">
+  <div *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
   <ion-grid>
     <div>
       <label for="routine-name">Name of the routine:</label>

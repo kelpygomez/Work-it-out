@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'edit-profile',
     loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
+  {
+    path: 'loading-spinner',
+    loadChildren: () => import('./components/loading-spinner/loading-spinner.module').then( m => m.LoadingSpinnerPageModule)
+  },
 ];
 
 @NgModule({

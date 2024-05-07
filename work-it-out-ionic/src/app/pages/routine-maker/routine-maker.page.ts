@@ -20,8 +20,11 @@ export class RoutineMakerPage implements OnInit {
   routineExercises: Exercise[] = [];
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService, private router: Router) { }
-
+  isLoading: boolean = true;
   ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 30);
     this.route.params.subscribe(params => {
       this.routineId = params['id'];
       this.loadRoutine();
@@ -139,7 +142,7 @@ export class RoutineMakerPage implements OnInit {
         () => {
           Swal.fire({
             title: 'Success!',
-            text: 'New routine created.',
+            text: 'Routine saved succesfully.',
             icon: 'success',
             confirmButtonColor: "#1d965b",
           });

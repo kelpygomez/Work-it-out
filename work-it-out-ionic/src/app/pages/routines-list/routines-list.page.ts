@@ -18,7 +18,10 @@ export class RoutinesListPage implements OnInit {
     // Obtener el ID del usuario al iniciar el componente
     this.getUserId();
   }
-
+  ionViewWillEnter() {
+    // Se ejecuta cada vez que la página se carga o vuelve a cargarse
+    this.loadRoutines();
+  }
   getUserId() {
     // Obtener el token de autenticación
     const token = this.authService.getToken();
