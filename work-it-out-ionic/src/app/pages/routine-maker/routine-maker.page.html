@@ -8,7 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<div style="margin-bottom: auto; height: 100vh;"  class="container-lg">
   <ion-grid>
     <div>
       <label for="routine-name">Name of the routine:</label>
@@ -31,7 +31,7 @@
             <ion-list lines="full">
               <ion-item *ngFor="let exercise of availableExercises">
                 <ion-label>{{ exercise.name }}</ion-label>
-                <ion-button color="primary" (click)="addExerciseToRoutine(exercise.id)">Add</ion-button>
+                <button color="primary" (click)="addExerciseToRoutine(exercise.id)">Add</button>
               </ion-item>
             </ion-list>
           </ion-card-content>
@@ -57,4 +57,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+</div>

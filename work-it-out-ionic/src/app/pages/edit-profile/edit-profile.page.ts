@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Profile } from 'src/app/interfaces/profile.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-profile',
@@ -97,6 +98,13 @@ export class EditProfilePage implements OnInit {
     }
     this.authService.updateProfile(this.profile).subscribe(
       () => {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your profile has been updated.',
+          icon: 'success',
+          confirmButtonColor: "#1d965b",
+
+        });
         console.log('Changes saved successfully');
       },
       (error: any) => {

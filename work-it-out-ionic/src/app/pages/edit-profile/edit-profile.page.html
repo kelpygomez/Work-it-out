@@ -1,31 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>edit-profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <button [routerLink]="['/profile']" [queryParams]="{reload: true}">Return to profile</button>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">edit-profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <div>
-    <label for="profile-birthdate">Date of birth:</label>
-    <input type="text" id="profile-birthdate" [(ngModel)]="profile.birthdate" displayFormat="YYYY-MM-DD" placeholder="YYYY-MM-DD" [style.border-color]="validationErrors.birthdate ? 'red' : ''">
-    <div *ngIf="validationErrors.birthdate" style="color: red;">{{ validationErrors.birthdate }}</div>
+<div class="body">
+  <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+      <div class="image d-flex flex-column justify-content-center align-items-center">
+        <div>
+          <label for="profile-birthdate">Date of birth:</label>
+          <input type="text" id="profile-birthdate" [(ngModel)]="profile.birthdate" displayFormat="YYYY-MM-DD"
+            placeholder="YYYY-MM-DD" [style.border-color]="validationErrors.birthdate ? 'red' : ''">
+          <div *ngIf="validationErrors.birthdate" style="color: red;">{{ validationErrors.birthdate }}</div>
+        </div>
+        <div>
+          <label for="profile-weight">Your weight:</label>
+          <input type="text" id="profile-weight" [(ngModel)]="profile.weight" placeholder="(no decimals)"
+            [style.border-color]="validationErrors.weight ? 'red' : ''">
+          <div *ngIf="validationErrors.weight" style="color: red;">{{ validationErrors.weight }}</div>
+        </div>
+        <div>
+          <label for="profile-height">Your height:</label>
+          <input type="text" id="profile-height" [(ngModel)]="profile.height" placeholder=" (in cm)"
+            [style.border-color]="validationErrors.height ? 'red' : ''">
+          <div *ngIf="validationErrors.height" style="color: red;">{{ validationErrors.height }}</div>
+        </div>
+      </div>
+      <!-- Botón "Return to profile" con un ícono de flecha -->
+      <button class="btn btn-dark btn-return-profile" [routerLink]="['/profile']" [queryParams]="{reload: true}">
+        <ion-icon name="arrow-back"></ion-icon> Return to profile
+      </button>
+      <!-- Botón "Save changes" -->
+      <button class="btn btn-success btn-save-changes" (click)="saveChanges()">Save changes</button>
+    </div>
   </div>
-  <div>
-    <label for="profile-weight">Your weight:</label>
-    <textarea id="profile-weight" [(ngModel)]="profile.weight" placeholder="(no decimals)" [style.border-color]="validationErrors.weight ? 'red' : ''"></textarea>
-    <div *ngIf="validationErrors.weight" style="color: red;">{{ validationErrors.weight }}</div>
-  </div>
-  <div>
-    <label for="profile-height">Your height:</label>
-    <textarea id="profile-height" [(ngModel)]="profile.height" placeholder=" (in cm)" [style.border-color]="validationErrors.height ? 'red' : ''"></textarea>
-    <div *ngIf="validationErrors.height" style="color: red;">{{ validationErrors.height }}</div>
-  </div>
-  
-  <button (click)="saveChanges()">Save changes</button>
-</ion-content>
+</div>

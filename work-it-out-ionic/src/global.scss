@@ -27,7 +27,85 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
+$primary-color: #0aff8a;
+$dark-green: #1d965b;
+$grey: #3d3c3d;
+$shadow: rgba(0, 0, 0, .25);
 
 .swal2-container{
-    height: 1000px;
+    height: 100vh;
+    background-color: black;
+}
+.swal2-backdrop-show{
+    height: 100vh;
+}
+
+.workitout-button {
+    color: #201f2e;
+    margin: 0px 5px 0px 0px;
+    background-color: transparent;
+    padding: 10px 23px;
+    font-weight: 600;
+    font-family: DM Sans, sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-flex;
+    /* Para permitir el alineamiento vertical */
+    align-items: center;
+    /* Alinea el contenido verticalmente */
+
+    ion-icon {
+        font-size: 20px !important;
+        margin-right: 5px;
+        /* Espacio entre el icono y el texto */
+        vertical-align: middle;
+        /* Alinea el icono verticalmente */
+    }
+
+    &:hover {
+        background-color: #e2e5e79c;
+    }
+}
+
+.workitout-button-violet {
+    background-color: #0aff8a;
+    font-weight: 700;
+    color: #ffffff;
+
+    &:hover {
+        background-color: #014223;
+    }
+}
+
+
+.workitout-button-white {
+    background-color: #fff;
+    font-weight: 700;
+    color: #0aff8a;
+    border: 1px solid #dad9da;
+
+    &:hover {
+        background-color: #e6e6e6;
+    }
+}
+
+.workitout-button-icon {
+    border: none;
+
+    /* Asegúrate de que el tamaño del icono se ajuste adecuadamente */
+    ion-icon {
+        padding: 5px;
+        border-radius: 100px;
+        /* Se establece en 50% para que sea un círculo */
+        font-size: 30px;
+        font-weight: 800;
+
+        &:hover {
+            background-color: #e6e6e6;
+        }
+    }
+
+    &:hover {
+        background-color: var(--white-color);
+    }
 }

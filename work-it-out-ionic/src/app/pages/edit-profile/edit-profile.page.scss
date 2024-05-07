@@ -1,0 +1,61 @@
+$green: #0aff8a;
+$dark-green: #1d965b;
+$grey: #3d3c3d;
+$shadow: rgba(0, 0, 0, .25);
+
+.body {
+    background-color: white;
+    height: 100vh;
+}
+
+.card {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    width: 100%; /* Ajustamos el ancho de la tarjeta */
+    height: 425px;
+    max-width: 4000px; /* Establecemos un ancho máximo */
+    margin: 0 auto; /* Centramos horizontalmente */
+    padding: 20px; /* Agregamos un relleno interno */
+    margin-top: 100px;
+}
+
+.image{
+    margin-top: 50px;
+}
+
+
+button{
+    margin: 20px 20px 20px 20px;
+}
+
+.btn-return-profile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .btn-save-changes {
+    width: auto;
+    margin-top: 20px;
+  }
+  
+/* Estilos para los inputs */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px; /* Ajustamos el relleno */
+    margin-bottom: 20px; /* Agregamos espacio inferior */
+    border: 1px solid #ccc; /* Añadimos borde */
+    border-radius: 5px; /* Redondeamos los bordes */
+    box-sizing: border-box; /* Hacemos que el padding y el borde se incluyan en el ancho total */
+  }
+  
+  /* Estilos para las etiquetas */
+  label {
+    display: block; /* Hacemos que cada etiqueta ocupe una línea */
+    margin-bottom: 5px; /* Agregamos espacio inferior */
+    color: whitesmoke; /* Color del texto de la etiqueta */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
