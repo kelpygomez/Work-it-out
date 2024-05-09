@@ -147,6 +147,23 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
 | Task  4.20 | #28 Creating a paginator in every list view     |         | 4 h | 1/4/24    | 21/4/24   |
 | Task  4.21 | #29 Deploy the application in Azure VPS    |        | 4 h      | 1/4/24   | 21/4/24    |
 
+#### *WEEK EIGHT*
+![week eight](https://github.com/kelpygomez/Work-it-out/assets/113540080/31d7e0d1-3382-439e-b43b-33f3276ee015)
+
+
+
+| Task      | Title                   | Depend  | Duration | Start date| End date  |
+|-----------|-------------------------|---------|----------|-----------|-----------|
+| **Task 4**    | **Implementation of the application**          |         | 29h       | 1/4/24    | 21/4/24   |
+| Task  4.22 | #30 Creating the calendar view   |        | 18 h      | 21/4/24    | 27/4/24    |
+| Task  4.23 | #31 Reviewing the models to fix some problems    |        | 10 h | 21/4/24    | 27/4/24   |
+| Task  4.24 | #34 Design the 'home' page  |        | 7 h      | 22/4/24    | 28/4/24    |
+| Task  4.25 | #35 Fix 'edit-profile' so it recharges after saving changes   |         | 1 h | 26/4/24    | 26/4/24   |
+| Task  4.26 | #36 Fix 'edit-profile' so it displays errors for the user   |        | 2 h      | 25/4/24   | 26/4/24    |
+| Task  4.27 | #37 Improve 'profile' and 'edit-profile'  |        | 10 h      | 25/4/24   | 28/4/24    |
+| Task  4.28 | #38 Improve 'login' and 'register'  |        | 3 h      | 5/5/24   | 5/5/24    |
+| Task  4.29 | #40 Create and design the BMI Calculator  |        | 8 h      | 5/5/24   | 9/5/24    |
+
 ### 6. CHRONOGRAM. <a name="id6"></a>
 #### *WEEK ONE*
  <img src="/img/chronogram-one.png"> 
@@ -164,6 +181,10 @@ Aquí describir el proyecto con cierto nivel de detalle, se puede tomar como ref
   #### *WEEKS FIVE, SIX AND SEVEN*
 
 ![image](https://github.com/kelpygomez/Work-it-out/assets/113540080/9e153e4b-5844-43a9-b954-9af97676a1f7)
+
+  #### *WEEKS EIGHT*
+![week-eight](https://github.com/kelpygomez/Work-it-out/assets/113540080/39b11ddc-8a8a-473c-8941-3f844f929aea)
+
 
 ### 7. SUMMARY OF HUMAN AND MATERIAL RESOURCES. <a name="id7"></a>
 
