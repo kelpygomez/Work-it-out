@@ -15,15 +15,14 @@
       </ion-item>
       <ion-button expand="full" color="success" (click)="calculateBMI()">Calculate</ion-button>
     </ion-card-content>
+    <div class="result" *ngIf="bmi">
+        <p>Your BMI is {{ bmi.toFixed(2) }}</p>
+    </div>
   </div>
 
-  <ion-card *ngIf="bmi">
-    <ion-card-header>
-      <ion-card-title>Your BMI</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Your BMI is {{ bmi.toFixed(2) }}</p>
-    </ion-card-content>
-  </ion-card>
 </div>  
+
+<div class="info">
+  <h2>Additional Information</h2>
+  <p>Here you can add additional information or text.</p>
+</div>

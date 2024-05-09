@@ -32,12 +32,18 @@ $dark-green: #1d965b;
 $grey: #3d3c3d;
 $shadow: rgba(0, 0, 0, .25);
 
+body.swal2-height-auto{
+    height:inherit !important;
+}
 .swal2-container{
     height: 100vh;
-    background-color: black;
 }
 .swal2-backdrop-show{
     height: 100vh;
+
+}
+div:where(.swal2-container).swal2-backdrop-show{
+    background: rgba(0, 0, 0, 0.94);
 }
 
 .workitout-button {

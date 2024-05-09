@@ -1,33 +1,34 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Alinea los elementos al principio del contenedor */
+  align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+  height: 70vh;
+  position: relative; /* Establece la posición relativa para que los elementos absolutos estén posicionados con respecto a este contenedor */
+  margin-top: auto;
+}
+
+.calculator-card {
+  background-color: aquamarine;
+  width: 40%;
+  padding: 20px;
+}
+
+.info {
+  background-color: aquamarine;
+  width: 55%;
+  position: absolute; /* Establece la posición absoluta */
+  top: 0; /* Coloca el elemento en la parte superior del contenedor */
+  right: 0; /* Coloca el elemento en el lado derecho del contenedor */
+  height: 100%; /* Hace que el elemento ocupe toda la altura del contenedor */
+
+  h2{
+    margin-top: 5%;
   }
-  
-  .calculator-card {
-    width: 300px;
-    padding: 20px;
-  }
-  
-  ion-card-title {
-    font-size: 20px;
-  }
-  
-  ion-card-content {
-    padding: 0;
-  }
-  
-  ion-item {
-    margin-bottom: 10px;
-  }
-  
-  ion-button {
-    margin-top: 20px;
-  }
-  
-  ion-card {
-    margin-top: 20px;
-    width: 300px;
-  }
-  
+}
+
+.result{
+  margin-top: 5%;
+  font-weight: bolder;
+  font-size: large;
+  text-align: center;
+}
