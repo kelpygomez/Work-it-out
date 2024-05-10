@@ -63,3 +63,25 @@ Aquí se describe el proyecto con cierto nivel de detalle, se puede tomar como r
 - Ofrecer una base de datos completa de ejercicios con descripciones detalladas e instrucciones para guiar a los usuarios en la realización de ejercicios correctamente y de manera segura.
 - Facilitar la interacción social y la participación comunitaria permitiendo a los usuarios compartir sus rutinas de ejercicio, experiencias y progreso con otros, así como seguir y apoyar los viajes de fitness de los demás.
 - Capacitar a los usuarios con conocimientos y recursos para tomar decisiones informadas sobre su estado físico y bienestar, incluidos consejos, artículos y consejos de expertos sobre ejercicio, nutrición y hábitos de vida saludables.
+
+
+### 6. CHRONOGRAM. <a name="id6"></a>
+#### *SEMANA 1*
+ <img src="/img/chronogram-one.png"> 
+ 
+#### *SEMANA 2*
+ ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/144a4c18-77bd-49a8-97ac-8b3b017564c5)
+
+ #### *SEMANA 3*
+ ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/850999bc-12e3-4a80-94ee-43426c645a87)
+
+  #### *SEMANA 4*
+
+  ![image](https://github.com/kelpygomez/Work-it-out/assets/113540240/3b63501c-9e98-4454-abe6-90408cfd983c)
+
+  #### *SEMANA 5, 6 Y 7*
+
+![image](https://github.com/kelpygomez/Work-it-out/assets/113540080/9e153e4b-5844-43a9-b954-9af97676a1f7)
+
+  #### *SEMANA 8*
+![week-eight](https://github.com/kelpygomez/Work-it-out/assets/113540080/39b11ddc-8a8a-473c-8941-3f844f929aea)
