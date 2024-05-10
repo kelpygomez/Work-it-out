@@ -184,3 +184,112 @@ Aquí se describe el proyecto con cierto nivel de detalle, se puede tomar como r
 
   #### *SEMANA 8*
 ![week-eight](https://github.com/kelpygomez/Work-it-out/assets/113540080/39b11ddc-8a8a-473c-8941-3f844f929aea)
+
+### 8. CONTROL DE RIESGOS. <a name="id8"></a>
+
+**Riesgo Técnico: Problemas de Compatibilidad con APIs de Terceros**
+- Probabilidad: Media (0.50)
+- Impacto: Alto (0.80) → Disrupción en el desarrollo, potencial reescritura de código, retraso de más de 2 semanas en el proyecto y un aumento en el costo.
+- Tipo de Riesgo: Alto
+- Acción a Tomar: Plan de Mitigación → Monitorizar regularmente la compatibilidad con APIs de terceros durante el desarrollo. Tener opciones de respaldo o soluciones alternativas listas para implementar si surgen problemas de compatibilidad.
+
+**Riesgo de Recursos: Incapacidad de Miembro Clave del Equipo**
+- Probabilidad: Baja (0.20)
+- Impacto: Alto (0.70) → Pérdida de conocimientos y experiencia críticos, interrupción en el cronograma del proyecto, retraso de más de 2 semanas en el proyecto y un aumento en el costo.
+- Tipo de Riesgo: Medio
+- Acción a Tomar: Plan de Contingencia → Desarrollar y mantener documentación integral de tareas y procesos clave. Capacitar de manera cruzada a los miembros del equipo para garantizar redundancia en roles críticos. Establecer un plan de transición para la transferencia de conocimientos en caso de incapacidad temporal del miembro del equipo. Evaluar regularmente el ánimo del equipo y abordar cualquier problema rápidamente para reducir la probabilidad de incapacidad.
+
+**Riesgo Operacional: Tiempo de Inactividad del Servidor**
+- Probabilidad: Media (0.40)
+- Impacto: Medio (0.60) → Pérdida temporal de acceso a la aplicación, interrupción en la entrega del servicio, pérdida potencial de usuarios, retraso de hasta 1 semana en el proyecto y un aumento del 10% en el costo.
+- Tipo de Riesgo: Medio
+- Acción a Tomar: Plan de Contingencia → Implementar una arquitectura de servidor redundante para minimizar el riesgo de tiempo de inactividad. Monitorizar regularmente el rendimiento del servidor e implementar medidas de mantenimiento proactivo para prevenir problemas. Tener un plan de respaldo listo para restaurar rápidamente el servicio en caso de tiempo de inactividad. Comunicarse eficazmente con los usuarios sobre el mantenimiento planificado y el tiempo de inactividad para minimizar el impacto en su experiencia.
+
+### 9. POLÍTICA DE MONITOREO, EVALUACIÓN Y CONTROL DE CALIDAD. <a name="id9"></a>
+
+Para asegurar que nuestro proyecto se mantenga en curso y cumpla con los objetivos establecidos, se implementarán las siguientes acciones:
+
+- **Reuniones de Progreso Regulares:** Se realizarán reuniones de progreso semanales para revisar el estado de cada tarea, identificar cualquier problema o desafío, y discutir posibles soluciones. Se asignarán nuevas tareas en cada reunión.
+
+- **Seguimiento y Reporte de Tareas:** Se utilizará un sistema centralizado de gestión de proyectos para realizar un seguimiento del progreso de cada tarea, incluyendo fechas de inicio y finalización, dependencias y miembros del equipo responsables.
+
+- **Pruebas de Aseguramiento de Calidad:** Se realizarán pruebas de aseguramiento de calidad exhaustivas durante todo el proceso de desarrollo para identificar y rectificar cualquier defecto o problema en la aplicación. Esto incluirá pruebas unitarias, pruebas de integración, pruebas de regresión y pruebas de aceptación de usuario. Se desarrollarán casos de prueba basados en requisitos funcionales y no funcionales, y los resultados de las pruebas se documentarán para su análisis y mejora.
+
+- **Monitoreo y Optimización del Rendimiento:** Se monitorizarán continuamente las métricas de rendimiento para evaluar el rendimiento y la escalabilidad de la aplicación. Se implementarán técnicas de optimización de rendimiento de forma iterativa para mejorar la eficiencia y la capacidad de respuesta de la aplicación.
+
+### 10. CLÁUSULAS. <a name="id10"></a>
+**Alcance del Trabajo:**
+El equipo de desarrollo se compromete a entregar una solución de software que incluya una interfaz fácil de usar, funcionalidades de sistema actualizables y gestión de clientes, según lo establecido en las especificaciones del proyecto.
+
+**Cronogramas y Hitos:**
+El cronograma del proyecto consistirá en hitos y plazos, siendo el primer hito, completar los esquemas y maquetas de diseño, que se logrará en un plazo de 10 días a partir de la fecha efectiva de este acuerdo.
+
+**Propiedad Intelectual:**
+El cliente retendrá la propiedad completa del software y todos los derechos de propiedad intelectual asociados una vez finalizado el proyecto.
+
+**Confidencialidad:**
+Ambas partes acuerdan mantener toda la información relacionada con el proyecto, secretos comerciales y datos propietarios confidenciales durante y después de la finalización del proyecto.
+
+**Términos de Pago:**
+El cliente pagará al equipo de desarrollo el 50% del costo total del proyecto al completarse la fase inicial de desarrollo, y el saldo restante se pagará al entregar el proyecto.
+
+**Garantía y Soporte:**
+El equipo de desarrollo proporcionará correcciones de errores y soporte técnico durante un período de tres meses después de la entrega final del proyecto, sujeto a los términos establecidos en las disposiciones de garantía.
+
+**Pruebas de Aceptación:**
+El cliente tendrá 10 días hábiles para realizar pruebas de aceptación y notificar al equipo de desarrollo cualquier defecto o problema. Una vez completadas con éxito las pruebas de aceptación, el software se considerará aceptado por el cliente.
+
+### 11. BIBLIOGRAFÍA. <a name="id11"></a>
+<a href="https://adevait.com/blog/startups/write-brief-for-software-project">Cómo Escribir un Breve para un Proyecto de Software</a>
+
+<a href="https://niftypm.com/blog/what-is-project-scope/">¿Qué es el Alcance del Proyecto?</a>
+
+<a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project">Planificación y Seguimiento del Trabajo para tu Equipo</a>
+
+<a href="https://law-aka.com/essential-clauses-for-a-software-development-agreement/">Cláusulas Esenciales para un Acuerdo de Desarrollo de Software</a>
+
+### 12. GLOSARIO. <a name="id12"></a>
+- **Interfaz Amigable para el Usuario:** Una interfaz diseñada para ser fácil de usar y entender, típicamente caracterizada por una navegación intuitiva, un diseño claro y una complejidad mínima.
+
+- **Sistema de Procesamiento de Pagos:** Un sistema que facilita la transferencia electrónica de fondos entre partes, típicamente utilizado para procesar pagos por bienes o servicios.
+
+- **Funcionalidades de Gestión de Clientes:** Funciones y herramientas diseñadas para gestionar las interacciones con los clientes, incluido el software de gestión de relaciones con los clientes (CRM), sistemas de soporte al cliente y canales de comunicación.
+
+- **Esquema:** Una representación visual del diseño y la estructura de una página web o aplicación, típicamente creada en las primeras etapas del proceso de diseño para describir los elementos y la funcionalidad básica.
+
+- **Maquetas de Diseño:** Representaciones visuales detalladas de la interfaz de usuario y el diseño visual de una página web o aplicación, utilizadas para demostrar el aspecto y la sensación del producto final.
+
+- **Diagrama de Clases:** Un tipo de diagrama UML (Lenguaje Unificado de Modelado) que representa la estructura y las relaciones de clases dentro de un sistema, incluidos atributos, métodos y asociaciones.
+
+- **Migas de Pan de las Páginas de Maquetas:** Un sistema de navegación utilizado en interfaces de usuario para indicar la ubicación del usuario dentro de la jerarquía de la aplicación o el sitio web.
+
+- **Diagrama E/R (Diagrama Entidad-Relación):** Una representación visual de las entidades (objetos o conceptos) y sus relaciones en una base de datos, típicamente utilizado para diseñar y comprender la estructura de una base de datos.
+
+- **Diagrama MR (Diagrama Relacional Modificado):** Un tipo de diagrama de base de datos que representa las tablas, columnas y relaciones en un sistema de gestión de bases de datos relacionales (RDBMS).
+
+- **Correcciones de Errores:** Correcciones o modificaciones realizadas al código de software para resolver errores, defectos o problemas identificados durante las pruebas o el uso.
+
+- **Soporte Técnico:** Asistencia proporcionada a los usuarios de un producto de software para ayudarles a resolver problemas técnicos o dificultades encontradas durante el uso del software.
+
+- **Pruebas de Aceptación:** El proceso de evaluación de un producto de software para determinar si cumple con los requisitos especificados y está listo para su implementación o lanzamiento.
+
+- **Arquitectura de Servidor Redundante:** Una configuración que incluye múltiples servidores o componentes de servidor diseñados para garantizar el funcionamiento continuo y minimizar el tiempo de inactividad en caso de fallos de hardware u otros problemas.
+
+- **Métricas de Rendimiento:** Medidas cuantitativas utilizadas para evaluar el rendimiento y la eficiencia de un sistema de software, incluyendo factores como el tiempo de respuesta, la capacidad y la utilización de recursos.
+
+- **Pruebas de Aseguramiento de Calidad:** Un proceso sistemático de evaluación de la calidad y corrección de un producto de software para identificar defectos o problemas que puedan afectar su funcionalidad, confiabilidad o usabilidad.
+
+### 13. ANEXOS. <a name="id13"></a>
+#### *MAQUETAS*
+- <a href="/img/Mockups">¡Consulta los diseños de maquetas del proyecto para cada página aquí!</a>
+
+#### *DIAGRAMA DE CASOS DE USO*
+<img src="img/Diagrams/Use-Case-Diagram.png"></img>
+- 
+Aquí se agregarán:
+- Documentación externa de utilidad
+- Modelos de datos
+- Diagramas y esquemas
+- Diagrama Entidad-Relación o similar.
+- Tabla de roles de usuario
+- etc.
