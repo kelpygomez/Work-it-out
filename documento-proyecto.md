@@ -185,6 +185,83 @@ Aquí se describe el proyecto con cierto nivel de detalle, se puede tomar como r
   #### *SEMANA 8*
 ![week-eight](https://github.com/kelpygomez/Work-it-out/assets/113540080/39b11ddc-8a8a-473c-8941-3f844f929aea)
 
+Aquí está la traducción sin modificar el formato:
+
+### 7. RESUMEN DE RECURSOS HUMANOS Y MATERIALES. <a name="id7"></a>
+
+<center>
+
+  #### *Tarea 1: Documentación*
+
+| TAREA                 | RECURSOS HUMANOS                                    | RECURSOS MATERIALES                            |
+|----------------------|----------------------------------------------------|-----------------------------------------------|
+| 1.1 Borrador Preliminar| Escritor Técnico: 1 | Computadora |
+| 1.2 Documento del Proyecto | Escritor Técnico: 1 | Computadora                                        |
+
+</center>
+
+<center>
+
+  #### *Tarea 2: Análisis y diseño de la aplicación*
+
+| TAREA                 | RECURSOS HUMANOS                                    | RECURSOS MATERIALES                            |
+|----------------------|----------------------------------------------------|-----------------------------------------------|
+| 2.1 Especificación de casos de uso| Analista de Negocios: 1 | Computadora |
+| 2.2 Diagrama de Clases | Arquitecto de Software: 1 | Computadora                                        |
+| 2.3 Definición de maquetas | Diseñador UX: 1 | Software de diseño                                       |
+| 2.4 Migas de pan de las páginas de maquetas | Diseñador UX: 1 | Software de diseño                                       |
+
+</center>
+
+<center>
+
+  #### *Tarea 3: Base de Datos*
+
+| TAREA                 | RECURSOS HUMANOS                                    | RECURSOS MATERIALES                            |
+|----------------------|----------------------------------------------------|-----------------------------------------------|
+| 3.1 Diagrama E/R| Administrador de Bases de Datos: 1 | Software de diseño de base de datos |
+| 3.2 Diagrama MR | Administrador de Bases de Datos: 1 | Software de diseño de base de datos |
+
+</center>
+
+<center>
+Aquí tienes la tabla con los nuevos commits integrada con la información anterior:
+
+#### *Tarea 4: Implementación de la aplicación*
+
+| TAREA                 | RECURSOS HUMANOS                                    | RECURSOS MATERIALES                            |
+|----------------------|----------------------------------------------------|-----------------------------------------------|
+| 4.1 Crear nuevo proyecto de Django | Desarrollador Python: 1 | Computadora + IDE |
+| 4.2 Definición de aplicaciones del proyecto | Desarrollador Python: 1 | Computadora + IDE |
+| 4.3 Definición de Modelos del Proyecto | Desarrollador Python: 1 | Computadora + IDE |
+| 4.4 Esquema de URLs | Desarrollador Python: 1 | Computadora + IDE |
+| 4.5 Aplicación 'Account' | Desarrollador Python: 1 | Computadora + IDE |
+| 4.6 Diseño de la plantilla base.html | Desarrollador Python: 1 | Computadora + IDE |
+| 4.7 Diseño de la plantilla header.html | Desarrollador Python: 1 | Computadora + IDE |
+| 4.8 Definición de Modelos del Proyecto | Desarrollador Python: 1 | Computadora + IDE |
+| 4.9 Mejorar las plantillas existentes y 'AUTH' | Desarrollador Python: 1 | Computadora + IDE |
+| 4.10 Crear la API de la aplicación 'ACCOUNT' | Desarrollador Python: 1 | Computadora + IDE |
+| 4.11 Crear API de Ejercicios | Desarrollador Python: 1 | Computadora + IDE |
+| 4.12 Crear nueva página para lista de ejercicios | Desarrollador Python: 1 | Computadora + IDE |
+| 4.13 Crear nueva página para detalle de ejercicio | Desarrollador Python: 1 | Computadora + IDE |
+| 4.14 Crear nueva página para perfil | Desarrollador Python: 1 | Computadora + IDE |
+| 4.15 Crear nueva página para editar perfil | Desarrollador Python: 1 | Computadora + IDE |
+| 4.16 Implementar estilos con SCSS en las VISTAS de ejercicios | Desarrollador Python: 1 | Computadora + IDE |
+| 4.17 Agregar ejercicios a la base de datos | Desarrollador Python: 1 | Computadora + IDE |
+| 4.18 Crear nueva página para lista de rutinas | Desarrollador Python: 1 | Computadora + IDE |
+| 4.19 Crear nueva página para generador de rutinas | Desarrollador Python: 1 | Computadora + IDE |
+| 4.20 Crear un paginador en cada vista de lista | Desarrollador Python: 1 | Computadora + IDE |
+| 4.21 Desplegar la aplicación en Azure VPS | Desarrollador Python: 1 | Computadora + IDE |
+| 4.22 Crear la vista de calendario | Desarrollador Python: 1 | Computadora + IDE |
+| 4.23 Revisar los modelos para corregir algunos problemas | Desarrollador Python: 1 | Computadora + IDE |
+| 4.24 Diseñar la página 'inicio' | Desarrollador Python: 1 | Computadora + IDE |
+| 4.25 Corregir 'editar-perfil' para que se recargue después de guardar cambios | Desarrollador Python: 1 | Computadora + IDE |
+| 4.26 Corregir 'editar-perfil' para que muestre errores para el usuario | Desarrollador Python: 1 | Computadora + IDE |
+| 4.27 Mejorar 'perfil' y 'editar-perfil' | Desarrollador Python: 1 | Computadora + IDE |
+| 4.28 Mejorar 'inicio de sesión' y 'registro' | Desarrollador Python: 1 | Computadora + IDE |
+| 4.29 Crear y diseñar la Calculadora de IMC | Desarrollador Python: 1 | Computadora + IDE |
+
+</center>
 ### 8. CONTROL DE RIESGOS. <a name="id8"></a>
 
 **Riesgo Técnico: Problemas de Compatibilidad con APIs de Terceros**
