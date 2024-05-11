@@ -64,8 +64,6 @@ Aquí se describe el proyecto con cierto nivel de detalle, se puede tomar como r
 - Facilitar la interacción social y la participación comunitaria permitiendo a los usuarios compartir sus rutinas de ejercicio, experiencias y progreso con otros, así como seguir y apoyar los viajes de fitness de los demás.
 - Capacitar a los usuarios con conocimientos y recursos para tomar decisiones informadas sobre su estado físico y bienestar, incluidos consejos, artículos y consejos de expertos sobre ejercicio, nutrición y hábitos de vida saludables.
 
-¡Vale, vale! Aquí tienes todas las semanas traducidas y sin alterar el formato:
-
 ### 5. TAREAS. <a name="id5"></a>
 <center>
   
@@ -225,7 +223,6 @@ Aquí está la traducción sin modificar el formato:
 </center>
 
 <center>
-Aquí tienes la tabla con los nuevos commits integrada con la información anterior:
 
 #### *Tarea 4: Implementación de la aplicación*
 
