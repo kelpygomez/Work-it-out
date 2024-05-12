@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,14 @@ export class LoginPage implements OnInit {
       this.authService.login(user).subscribe(
         (data) => {
           console.log('Login response:', data);
-          localStorage.setItem('user', JSON.stringify(data)); // Assuming the response contains user data
+          localStorage.setItem('user', JSON.stringify(data));
+          Swal.fire({
+            title: 'Success!',
+            text: 'Login succesfull',
+            icon: 'success',
+            confirmButtonColor: "#1d965b",
+  
+          }); // Assuming the response contains user data
           this.router.navigate(['/home']);
         },
         (error) => {

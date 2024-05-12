@@ -75,9 +75,9 @@ export class ProfilePage implements OnInit {
     if (this.userId) {
       // Obtener las rutinas asociadas al usuario
       this.authService.getAmountRoutines(this.userId).subscribe(
-        (data: number) => {
-          this.routines_amount = data;
-          console.log('Number of routines obtained:', this.profile);
+        (data) => {
+          this.routines_amount = data.amount_routines;
+          console.log('Number of routines obtained:', this.routines_amount);
         },
         (error: any) => {
           console.error('Error fetching number of routines:', error);

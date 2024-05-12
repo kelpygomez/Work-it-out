@@ -102,19 +102,8 @@ class GetAmountRoutinesAPIView(APIView):
     def get(self, request, userId):
         user = get_object_or_404(User, id=userId)
         profile = get_object_or_404(Profile, user=user)
-        routines = Routine.objects.filter(profile=profile)
-        amount_routines = len(routines)
+        amount_routines = Routine.objects.filter(user=profile).count()
         return Response({'amount_routines': amount_routines})
     
 
-# class GetAmountRoutinesAPIView(APIView):
-
-#     def get(self, request, userId):
-#         user = get_object_or_404(User, id=userId)
-#         profile = get_object_or_404(Profile, user=user)
-#         weight = profile.weight
-#         height = profile.height
-#         imc = 
-#         amount_routines = len(routines)
-#         return Response({'amount_routines': amount_routines})
     

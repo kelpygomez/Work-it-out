@@ -5,6 +5,7 @@ import { RoutineService } from '../../services/routines.service';
 import { Week } from '../../interfaces/tracker.interface';
 import { Routine } from '../../interfaces/routine.interface';
 import { AlertController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tracker',
@@ -99,6 +100,13 @@ export class TrackerPage {
   addRoutineToWeek(routineId:number, weekDay: string) {
     this.trackerService.addRoutineToWeek(this.week.id, routineId, weekDay).subscribe(
       () => {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Routine added to this day.',
+          icon: 'success',
+          confirmButtonColor: "#1d965b",
+
+        });
       },
       (error: any) => {
         console.error('Error adding routine to the week:', error);
@@ -109,6 +117,13 @@ export class TrackerPage {
   removeRoutineFromWeek(weekDay: string) {
     this.trackerService.removeRoutineFromWeek(this.week.id, weekDay).subscribe(
       () => {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Routine removed from this day!!',
+          icon: 'success',
+          confirmButtonColor: "#1d965b",
+
+        });
       },
       (error: any) => {
         console.error('Error removing the routine from the week:', error);
