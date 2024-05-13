@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Sans:wght@100;500&family=IBM+Plex+Serif:ital,wght@0,100;0,500;0,600;0,700;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -113,18 +107,18 @@ ion-content{
 .demo {
   max-width: 100%; 
   width: 100%;
-  height: 110%;
+  height: 100%;
   margin: 0 auto;  
   margin-top: 2%;
   overflow: hidden;
   background-color: #ffffff;
   position: relative;
+  padding: 100px;
 }
 
 .sport {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .sport__div {
@@ -145,7 +139,7 @@ ion-content{
   background-color: $shadow;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 95%;
   height: 15%;
 
   display: flex; 
@@ -358,6 +352,10 @@ ion-modal ion-toolbar {
     font-size: 1rem;
   }
   }
+  .sport  {
+    height: auto;
+    flex-wrap: wrap;
+}
 }
 
 @media only screen and (max-width: 991px) {
@@ -375,10 +373,9 @@ ion-modal ion-toolbar {
   }
   }
   .sport  {
-      height: 900px;
+
       flex-wrap: wrap;
   }
-
   .sport__div {
     flex: 0 0 calc(100% - 20px);
   }
@@ -411,7 +408,7 @@ ion-modal ion-toolbar {
   }
   }
   .sport  {
-    height: 700px;
+    height: auto;
     flex-wrap: wrap;
 }
   .sport__div:nth-of-type(1) img {
@@ -444,5 +441,9 @@ ion-modal ion-toolbar {
   ion-button{
     font-size: 16px;
   }
+  }
+  .sport{
+    height: auto;
+    flex-wrap: wrap;
   }
 }

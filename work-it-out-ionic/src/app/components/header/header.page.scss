@@ -9,7 +9,7 @@ ion-title {
 }
 
 ion-title img {
-  max-width: 7em;
+  max-width: 5em;
 }
 
 ion-buttons{
@@ -34,14 +34,4 @@ ion-button:hover {
   border-radius: 45px; /* Radio de borde para los botones */
 }
 
-/* Media query para tamaños más grandes */
-@media only screen and (min-width: 768px) {
-  ion-title {
-    font-size: 24px; /* Aumenta el tamaño de la fuente del título */
-  }
-  
-  ion-button {
-    font-size: 2vh; /* Aumenta el tamaño de la fuente de los botones */
-  }
-}
 

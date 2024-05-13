@@ -1,9 +1,9 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="d-none d-xl-block">
   <ion-toolbar>
     <!-- Logo -->
     <ion-title slot="start">
       <a [routerLink]="['/home']">
-          <img src="../../../../assets/img/work-white.png" type="img/png" alt="Work it out">
+        <img src="../../../../assets/img/work-white.png" type="img/png" alt="Work it out">
       </a>
     </ion-title>
 
@@ -13,7 +13,8 @@
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['/profile']" routerLinkActive="active">Profile</ion-button>
       <ion-button *ngIf="isLoggedIn()" [routerLink]="['/tracker']" routerLinkActive="active">Calendar</ion-button>
       <ion-button *ngIf="isLoggedIn()" routerLink="/routines-list" routerLinkActive="active">My Routines</ion-button>
-      <ion-button *ngIf="isLoggedIn()" (click)="createEmptyRoutine()" routerLinkActive="active">Routine Maker</ion-button>
+      <ion-button *ngIf="isLoggedIn()" (click)="createEmptyRoutine()" routerLinkActive="active">Routine
+        Maker</ion-button>
       <!-- Enlace al ejercicio -->
       <ion-button [routerLink]="['/exercise-list']" routerLinkActive="active">Exercises</ion-button>
       <ion-button [routerLink]="['/bmi-calculator']" routerLinkActive="active">BMI Calculator</ion-button>
@@ -28,3 +29,30 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
+
+<ion-menu class="d-xl-none" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+
+
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title slot="start">
+        <a [routerLink]="['/home']">
+          <img src="../../../../assets/img/work-white.png" type="img/png" alt="Work it out">
+        </a>
+      </ion-title> </ion-toolbar>
+  </ion-header>
+</div>
