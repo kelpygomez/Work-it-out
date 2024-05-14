@@ -60,8 +60,12 @@ input[type="text"], input[type="date"], textarea {
     border: 1px solid #ccc; /* Añadimos borde */
     border-radius: 5px; /* Redondeamos los bordes */
     box-sizing: border-box; /* Hacemos que el padding y el borde se incluyan en el ancho total */
+    
   }
-  
+input[type="text"] , input[type="date"]:focus-visible{
+    outline: none;
+}
+
   /* Estilos para las etiquetas */
   label {
     display: block; /* Hacemos que cada etiqueta ocupe una línea */
