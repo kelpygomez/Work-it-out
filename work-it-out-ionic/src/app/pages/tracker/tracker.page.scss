@@ -259,20 +259,13 @@
   }
 
   .buttons-container-1 {
-    width: 180%;
+    width: 100%;
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .buttons-container-2 {
-    width: 30%;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   
   button {
     background: white;
@@ -287,14 +280,14 @@
     color: hsl(190deg, 10%, 95%);
     
     box-shadow: 0 0px 0px hsla(190deg, 15%, 5%, .2);
-    transfrom: translateY(0);
+    transform: translateY(0);
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     
-    --dur: .15s;
-    --delay: .15s;
+    --dur: .05s;
+    --delay: .05s;
     --radius: 16px;
     
     transition:
