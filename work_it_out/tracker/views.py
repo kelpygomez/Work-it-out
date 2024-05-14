@@ -16,21 +16,18 @@ from django.views.decorators.csrf import csrf_exempt
 class CurrentWeekAPIView(RetrieveAPIView):
     serializer_class = WeekSerializer
 
-    def get(self, request,user_id):
+    def get(self, request, user_id):
         user = get_object_or_404(User, id=user_id)
         profile = get_object_or_404(Profile, user=user)
-        current_week = timezone.now().isocalendar()[1]
-        current_year = timezone.now().isocalendar()[0]
-        week_exists = Week.objects.filter(
+        current_week, current_year = timezone.now().isocalendar()[1], timezone.now().isocalendar()[0]
+
+        week, created = Week.objects.get_or_create(
             profile=profile,
             year=current_year,
-            week_number=current_week
-        ).exists()
-        if week_exists:
-            week = Week.objects.get(profile=profile,year=current_year,week_number=current_week)
-        else:
-            week = Week.objects.create(profile=profile,year=current_year,week_number=current_week)
-            week.save()
+            week_number=current_week,
+            defaults={'profile': profile, 'year': current_year, 'week_number': current_week}
+        )
+
         serializer = self.serializer_class(week)
         return Response(serializer.data)
     
