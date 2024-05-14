@@ -1,3 +1,9 @@
+$green: #0aff8a;
+$dark-green: #1d965b;
+$grey: #3d3c3d;
+$light-grey: #c0c0c0;
+$shadow: rgba(0, 0, 0, .25);
+
 ion-toolbar {
   --background: #3d3c3d; /* Color de fondo del encabezado */
   --box-shadow:var(--background); /* Sin sombra en el encabezado */
@@ -6,6 +12,7 @@ ion-toolbar {
 ion-title {
   font-size: 20px; /* Tamaño de fuente del título */
   font-weight: bold; /* Fuente en negrita para el título */
+  color: white;
 }
 
 ion-title img {
@@ -25,13 +32,47 @@ ion-button {
 }
 
 ion-button:hover {
-  --background: #000000; /* Color de fondo del botón al pasar el mouse */
+  border-bottom: $green 1px solid;
+  border-radius: 500px; /* Radio de borde para los botones */
+  color: white;
+  font-size: bolder;
+  background-color: none;
 }
 
 .active {
   background-color: rgba(0, 0, 0, 0.774); /* Cambia el color de fondo */
   color: #fff; /* Cambia el color del texto */
   border-radius: 45px; /* Radio de borde para los botones */
+  border-bottom: $green 3px solid;
 }
 
+ion-button.menu {
+  --color: #3d3c3d;
+  --background: none;
+  --padding-end: 60vh;
+  --padding-start: 10vh;
+  --font-size: 2vh;
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
 
+ion-button:hover.menu{
+  --background: #3d3c3d;
+  color: white;
+}
+
+.active.menu{
+  background-color: $grey;
+  border-radius: 5px;
+}
+
+ion-button.login, ion-button.logout, ion-button.register{
+  --color: #3d3c3d;
+  --background: #0aff8a;
+  --font-size: 2vh;
+}
+
+ion-button:hover.login, ion-button:hover.logout, ion-button:hover.register{
+  --background: #1d965b;
+  color: white;
+}

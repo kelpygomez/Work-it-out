@@ -32,14 +32,30 @@
 
 
 
-<ion-menu class="d-xl-none" contentId="main-content">
+<ion-menu class="d-xl-none" contentId="main-content" style="background-color: rgba(0, 0, 0, 0.788);">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
+      <ion-title>MENU</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
+  
+  <ion-content class="ion-padding">
+    <!-- Copia de los botones de navegación -->
+    <ion-button class="menu" [routerLink]="['/home']" routerLinkActive="active">Home</ion-button>
+    <ion-button class="menu" *ngIf="isLoggedIn()" [routerLink]="['/profile']" routerLinkActive="active">Profile</ion-button>
+    <ion-button class="menu" *ngIf="isLoggedIn()" [routerLink]="['/tracker']" routerLinkActive="active">Calendar</ion-button>
+    <ion-button class="menu" *ngIf="isLoggedIn()" routerLink="/routines-list" routerLinkActive="active">My Routines</ion-button>
+    <ion-button class="menu" *ngIf="isLoggedIn()" (click)="createEmptyRoutine()" routerLinkActive="active">Routine Maker</ion-button>
+    <ion-button class="menu" [routerLink]="['/exercise-list']" routerLinkActive="active">Exercises</ion-button>
+    <ion-button class="menu" [routerLink]="['/bmi-calculator']" routerLinkActive="active">BMI Calculator</ion-button>
+    
+    <!-- Copia del botón de inicio de sesión/registro -->
+    <ion-button class="login" *ngIf="!isLoggedIn()" [routerLink]="['/login']" routerLinkActive="active">Login</ion-button>
+    <ion-button class="register" *ngIf="!isLoggedIn()" [routerLink]="['/register']" routerLinkActive="active">Register</ion-button>
+    <ion-button class="logout" *ngIf="isLoggedIn()" (click)="logout()">Logout</ion-button>
+  </ion-content>
 </ion-menu>
+
 
 
 
