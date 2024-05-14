@@ -1,5 +1,9 @@
 <ion-content [fullscreen]="true">
   <section class="exercise-detail-container">
+    <!-- Botón "Return to profile" con un ícono de flecha -->
+    <button class="btn btn-dark btn-return-list" [routerLink]="['/exercise-list']" [queryParams]="{reload: true}">
+      <ion-icon name="arrow-back"></ion-icon> Exercise list
+    </button>
     <div class="row">
       <!-- Columna de la imagen -->
       <div class="col-md-4">

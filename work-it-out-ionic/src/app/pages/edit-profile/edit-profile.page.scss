@@ -1,6 +1,7 @@
 $green: #0aff8a;
 $dark-green: #1d965b;
 $grey: #3d3c3d;
+$light-grey: #c0c0c0;
 $shadow: rgba(0, 0, 0, .25);
 
 .body {
@@ -9,12 +10,10 @@ $shadow: rgba(0, 0, 0, .25);
 }
 
 .card {
-    background-color: black;
+    background-color: $grey;
     border: none;
-    cursor: pointer;
     transition: all 0.5s;
     width: 100%; /* Ajustamos el ancho de la tarjeta */
-    height: 425px;
     max-width: 4000px; /* Establecemos un ancho máximo */
     margin: 0 auto; /* Centramos horizontalmente */
     padding: 20px; /* Agregamos un relleno interno */
@@ -30,17 +29,29 @@ button{
     margin: 20px 20px 20px 20px;
 }
 
-.btn-return-profile {
+  .btn-return-profile {
     position: absolute;
     top: 10px;
     left: 10px;
+    background-color: $light-grey;
+    color: $grey;
   }
-  
+
+  .btn-return-profile:hover {
+    color: white;
+  }  
+
   .btn-save-changes {
-    width: auto;
+    width: 20%;
+    align-self: center;
     margin-top: 20px;
+    background-color: $light-grey;
+    color: $grey;
   }
-  
+
+  .btn-save-changes:hover{
+    color: white;
+  }
 /* Estilos para los inputs */
 input[type="text"], input[type="date"], textarea {
     width: 100%;

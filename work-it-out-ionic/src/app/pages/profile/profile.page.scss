@@ -1,9 +1,11 @@
-body {
-    background-color: #000;
-}
+$green: #0aff8a;
+$dark-green: #1d965b;
+$grey: #3d3c3d;
+$light-grey: #c0c0c0;
+$shadow: rgba(0, 0, 0, .25);
 
 .card {
-    background-color: #efefef;
+    background-color: $grey;
     border: none;
     cursor: pointer;
     transition: all 0.5s;
@@ -28,31 +30,41 @@ body {
     width: 8em; /* Usamos em para hacerlo más adaptable */
     border-radius: 50%;
     font-size: 1.5em; /* Ajustamos el tamaño de fuente */
-    background-color: #000;
+    background-color: $light-grey;
+    color: white;
 }
 
-.name {
+span.name p {
     font-size: 1.5em; /* Ajustamos el tamaño de fuente */
     font-weight: bold;
+    color: white;
+
 }
 
-.number {
-    font-size: 1.5em; /* Ajustamos el tamaño de fuente */
+span.number{
+    font-size: 1em; /* Ajustamos el tamaño de fuente */
     font-weight: bold;
+    color: white;
 }
+
 
 .btn1 {
     height: 3em; /* Usamos em para hacerlo más adaptable */
-    width: 7.5em; /* Usamos em para hacerlo más adaptable */
-    border: none;
-    background-color: #000;
-    color: #aeaeae;
+    width: 11em; /* Usamos em para hacerlo más adaptable */
+    margin-top: 4%;
+    border-radius: 20px;
+    background-color: $light-grey;
+    color: $grey;
     font-size: 1em; /* Ajustamos el tamaño de fuente */
+    font-weight:400;
 }
 
+.btn1:hover{
+    color:white;
+}
 .text span {
     font-size: 0.8125em; /* Ajustamos el tamaño de fuente */
-    color: #545454;
+    color: $light-grey;
     font-weight: 500;
 }
 
