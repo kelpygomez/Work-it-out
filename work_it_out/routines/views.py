@@ -10,6 +10,7 @@ from account.models import Profile
 from exercises.models import Exercise
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import RetrieveAPIView
 from .serializers import RoutineSerializer, RoutineListSerializer
 
 class RoutineList(generics.ListAPIView):
@@ -19,6 +20,16 @@ class RoutineList(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user.profile
         return Routine.objects.filter(user=user)
+
+class NewRoutineList(RetrieveAPIView):
+    serializer_class = RoutineSerializer
+    
+    def get(self, request, user_id):
+        user = get_object_or_404(User, id=user_id)
+        profile = get_object_or_404(Profile, user=user)
+        routines = Routine.objects.filter(user=profile)
+        serializer = self.serializer(routines)
+        return Response(serializer.data)
 
 class RoutineDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Routine.objects.all()
