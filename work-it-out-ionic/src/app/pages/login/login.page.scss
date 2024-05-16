@@ -140,8 +140,7 @@ section .signin .content .form .inputBox i
 }
 .signin .content .form .inputBox input[type="submit"]
 {
-  padding: 10px;
-  background: $green;
+  padding: 15px;
   color: #000;
   font-weight: 600;
   font-size: 1.35em;
@@ -152,6 +151,7 @@ input[type="submit"]:active
 {
   opacity: 0.6;
 }
+
 @media (max-width: 900px)
 {
   section span 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ExerciseListModalComponent } from '../exercise-list-modal/exercise-list-modal.component';
 
 @Component({
   selector: 'app-exercise-list',
@@ -11,8 +13,14 @@ export class ExerciseListPage implements OnInit {
   exercises: any[] = [];
   filteredExercises: any[] = [];
   searchTerm: string = '';
+  selectedExercise: any; // Ejercicio seleccionado
+  isModalOpen = false; // Indica si el modal está abierto
   
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
     // Llamar a la API para obtener la lista de ejercicios al inicializar la página
@@ -31,9 +39,26 @@ export class ExerciseListPage implements OnInit {
     );
   }
 
-  viewExerciseDetail(exerciseId: number) {
-    // Redirigir a la página de detalle de ejercicio pasando el ID del ejercicio
-    window.location.href = '/exercise-detail/' + exerciseId;
+  async openExerciseModal(exercise: any) {
+    this.selectedExercise = exercise;
+    this.isModalOpen = true;
+    // Implementación del modal directamente sin ExerciseModalPage
+    const modal = await this.modalController.create({
+      component: ExerciseListModalComponent, // Cambia ExerciseListPage por ExerciseListModalComponent
+      cssClass: 'exercise-modal',
+      componentProps: {
+        'exercise': this.selectedExercise
+      }
+    });
+    await modal.present();
+  }
+
+
+  // Método para cerrar el modal
+  closeExerciseModal() {
+    this.isModalOpen = false;
+    this.selectedExercise = null;
+    this.modalController.dismiss();
   }
   
   filterExercises(searchTerm: string) {

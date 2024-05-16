@@ -8,13 +8,15 @@ import { ExerciseListPageRoutingModule } from './exercise-list-routing.module';
 
 import { ExerciseListPage } from './exercise-list.page';
 import { FooterPageModule } from 'src/app/components/footer/footer.module';
+import { ExerciseListModalModule } from '../exercise-list-modal/exercise-list-modal.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ExerciseListPageRoutingModule
+    ExerciseListPageRoutingModule,
+    ExerciseListModalModule
   ],
   declarations: [ExerciseListPage]
 })

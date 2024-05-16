@@ -40,7 +40,6 @@
               </ion-toolbar>
             </div>
       
-            <!-- Lista de ejercicios -->
             <div class="col-lg-9 mt-0">
               <div class="container py-5">
                 <div class="row">
@@ -52,20 +51,38 @@
                         <ion-card-title>{{ exercise.name }}</ion-card-title>
                         <ion-card-subtitle>{{ exercise.type }}</ion-card-subtitle>
                       </ion-card-header>
-      
+            
                       <ion-card-content>
                         <p>{{ exercise.description }}</p>
                         <p><i class="fas fa-fire" style="color: orange;"></i> {{ exercise.kcal }} KCAL PER REPS</p>
                       </ion-card-content>
-      
+            
                       <ion-item>
-                        <ion-button [routerLink]="['/exercise-detail', exercise.id]" expand="block">View Details</ion-button>
+                        <ion-button (click)="openExerciseModal(exercise)" expand="block">View Details</ion-button>
                       </ion-item>
                     </ion-card>
                   </div>
                 </div>
               </div>
             </div>
+            
+            <!-- Modal de ejercicio -->
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>{{ selectedExercise?.name }}</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button color="transparent" (click)="closeExerciseModal()">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>{{ selectedExercise?.description }}</p>
+                  <p><i class="fas fa-fire" style="color: orange;"></i> {{ selectedExercise?.kcal }} KCAL PER REPS</p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>           
           </div>
         </div>
       </ion-content>
