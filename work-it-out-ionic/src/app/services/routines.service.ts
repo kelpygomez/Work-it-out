@@ -26,7 +26,7 @@ export class RoutineService {
 
   getRoutines(userId: number): Observable<Routine[]> {
     console.log('User ID:', userId); // Agregar console log para el userId
-    return this.http.get<Routine[]>(`${this.apiUrl}user/${userId}`, this.getRequestOptions());
+    return this.http.get<Routine[]>(`${this.apiUrl}user/${userId}`);
   }
   
   updateRoutine(routine: Routine): Observable<Routine> {
