@@ -8,112 +8,15 @@
     </fieldset>
   </div>
 
-
-  <div class="demo sport row" >
-
-      <!-- ROUTINE MAKER -->
-      <div class="sport__div col-xl-12">
-        
-        <picture class="responsive-img">
-          <img src="../../../assets/img/routine-maker.jpg" alt="Routine maker" >
-        </picture>     
-        
-        <div class="sport-info">
-          <ion-content class="ion-padding">
-            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Routine Maker</ion-button>
-            <p>
-              Discover our Routine Maker feature, allowing you to create personalized workout routines tailored to your fitness goals and preferences.
-            </p>
-            <ion-modal [isOpen]="isModalOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-title>HOW TO MAKE YOUR OWN ROUTINES?</ion-title>
-                    <ion-buttons slot="end">
-                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-                <ion-content class="ion-padding">
-                  <p>
-
-                  </p>
-                </ion-content>
-              </ng-template>
-            </ion-modal>
-          </ion-content>
-        </div>
-      </div>
-
-      <!-- LIST OF EXERCISES -->
-      <div class="sport__div col-xl-6">
-        
-        <picture class="responsive-img">
-          <img src="../../../assets/img/exercises.jpg" alt="List of exercises" >
-        </picture>     
-        
-        <div class="sport-info">
-          <ion-content class="ion-padding">
-            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">List of exercises</ion-button>
-            <p>
-              Explore our extensive list of exercises covering all muscle groups and fitness levels, providing you with endless workout options.
-            </p>
-            <ion-modal [isOpen]="isModalOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-title>THE LIST OF EXERCISES</ion-title>
-                    <ion-buttons slot="end">
-                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-                <ion-content class="ion-padding">
-                  <p>
-                    
-                  </p>
-                </ion-content>
-              </ng-template>
-            </ion-modal>
-          </ion-content>
-        </div>
-      </div>
-      
-      <!-- TRACKING CALENDAR -->
-      <div class="sport__div col-xl-12">
-        
-        <picture class="responsive-img">
-          <img src="../../../assets/img/training-person.webp" alt="Tracking calendar" >
-        </picture>     
-        
-        <div class="sport-info">
-          <ion-content class="ion-padding">
-            <ion-button class="sport-info__link" color="dark" expand="block" (click)="setOpen(true)">Tracking calendar</ion-button>
-            <p>
-              Manage your fitness journey with our Tracking Calendar feature, helping you keep track of your workouts, progress, and achievements.
-            </p>
-            <ion-modal [isOpen]="isModalOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-title>HOW TO USE OUR TRACKING CALENDAR?</ion-title>
-                    <ion-buttons slot="end">
-                      <ion-button color="transparent" (click)="setOpen(false)">Close</ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-                <ion-content class="ion-padding">
-                  <p>
-                    
-                  </p>
-                </ion-content>
-              </ng-template>
-            </ion-modal>
-          </ion-content>
-        </div>
-      </div>
-      
-    </div>
+<!--VIDEO PROMOCIONAL QUE SE REPRODUZCA SOLO PERO TENGA UN BOTON DE 'REPRODUCIR'-->
+  <!-- VIDEO PROMOCIONAL -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="tu_video.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    <button class="play-button">Reproducir</button>
+  </div>
 
   
   <div class="slider">
