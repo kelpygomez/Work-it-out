@@ -24,7 +24,7 @@
           <ion-card-content>
             <ion-list lines="full">
               <ion-item *ngFor="let exercise of availableExercises">
-                <ion-label>{{ exercise.name }}</ion-label>
+                <ion-label>{{ exercise.name }} {{ exercise.id }}</ion-label>
                 <button color="primary" (click)="addExerciseToRoutine(exercise.id)">Add</button>
               </ion-item>
             </ion-list>
@@ -41,7 +41,7 @@
           </ion-card-header>
           <ion-card-content>
             <ion-list lines="full">
-              <ion-item *ngFor="let exercise_added of routineExercises">
+              <ion-item *ngFor="let exercise_added of routine.exercises">
                 <ion-label>{{ exercise_added.name }}</ion-label>
                 <ion-button color="danger" (click)="removeExerciseFromRoutine(exercise_added.id)">Remove</ion-button>
               </ion-item>

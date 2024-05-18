@@ -12,17 +12,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import RetrieveAPIView, ListAPIView
 from .serializers import RoutineSerializer, RoutineListSerializer
-
-class RoutineList(generics.ListAPIView):
-    serializer_class = RoutineSerializer
-    permission_classes = [AllowAny]
-
-    def get_queryset(self):
-        user = self.request.user.profile
-        return Routine.objects.filter(user=user)
-
     
-class NewRoutineList(ListAPIView):
+class RoutineList(ListAPIView):
     serializer_class = RoutineListSerializer
 
     def get_queryset(self):
@@ -31,9 +22,22 @@ class NewRoutineList(ListAPIView):
         profile = get_object_or_404(Profile, user=user)
         return Routine.objects.filter(user=profile)
 
-class RoutineDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Routine.objects.all()
-    serializer_class = RoutineSerializer
+class RoutineDetail(RetrieveAPIView):
+    serializer_class = RoutineListSerializer
+
+    def get(self, request, routine_id):
+        routine = get_object_or_404(Routine, id=routine_id)
+        serializer = self.serializer_class(routine)
+        return Response(serializer.data)
+
+class EditRoutineAPIView(APIView):
+
+    def post(self, request):
+        routine_form = RoutineSerializer(instance=request.routine, data=request.data)
+        if routine_form.is_valid():
+            routine_form.save()
+            return Response(status=status.HTTP_200_OK)
+        return Response({'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
 
 class RoutineCreateAPIView(APIView):
     permission_classes = [AllowAny]
