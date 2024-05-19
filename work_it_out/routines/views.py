@@ -1,7 +1,7 @@
 import json
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from rest_framework import generics, status
+from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import Routine
@@ -11,8 +11,8 @@ from exercises.models import Exercise
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import RetrieveAPIView, ListAPIView
-from .serializers import RoutineSerializer, RoutineListSerializer
-    
+from .serializers import RoutineSerializer, RoutineListSerializer, UpdateRoutineSerializer
+
 class RoutineList(ListAPIView):
     serializer_class = RoutineListSerializer
 
@@ -32,13 +32,29 @@ class RoutineDetail(RetrieveAPIView):
 
 class EditRoutineAPIView(APIView):
 
-    def post(self, request):
-        routine_form = RoutineSerializer(instance=request.routine, data=request.data)
+    def post(self, request, *args, **kwargs):
+        # Imprime los datos recibidos desde Angular
+        print("Data received from Angular:", request.data)
+
+        # Intenta obtener la rutina usando el ID proporcionado en la solicitud
+        try:
+            routine = Routine.objects.get(id=request.data.get('id'))
+        except Routine.DoesNotExist:
+            # Si la rutina no se encuentra, imprime un mensaje y devuelve un error 404
+            print("Routine not found")
+            return Response({'error': 'Routine not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        # Valida y guarda la rutina con los datos recibidos
+        routine_form = UpdateRoutineSerializer(instance=routine, data=request.data)
         if routine_form.is_valid():
             routine_form.save()
-            return Response(status=status.HTTP_200_OK)
+            print("Routine updated successfully")
+            return Response({'success': 'Routine updated successfully'}, status=status.HTTP_200_OK)
+        
+        # Si los datos no son válidos, imprime un mensaje y devuelve un error 400
+        print("Invalid data:", routine_form.errors)
         return Response({'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
-
+    
 class RoutineCreateAPIView(APIView):
     permission_classes = [AllowAny]
     serializer_class = RoutineSerializer

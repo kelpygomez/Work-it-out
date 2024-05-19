@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Routine
 from exercises.serializers import ExerciseListSerializer
+from exercises.models import Exercise
 
 class RoutineListSerializer(serializers.Serializer):
     id = serializers.IntegerField()
@@ -17,12 +18,17 @@ class RoutineListSerializer(serializers.Serializer):
         representation = super().to_representation(instance)
         representation['exercises'] = ExerciseListSerializer(self.get_associated_exercises(instance), many=True).data
         return representation
-
-
+    
+class UpdateRoutineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Routine
+        fields = ['name', 'description']
 
 class RoutineSerializer(serializers.ModelSerializer):
     types = serializers.CharField(read_only=True)
     total_kcal = serializers.IntegerField(read_only=True)
+    
     class Meta:
         model = Routine
         fields = ['id', 'name', 'total_kcal', 'description', 'types', 'exercises']
+

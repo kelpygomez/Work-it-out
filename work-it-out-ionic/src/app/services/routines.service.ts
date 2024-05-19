@@ -29,8 +29,8 @@ export class RoutineService {
     return this.http.get<Routine[]>(`${this.apiUrl}user/${userId}`);
   }
   
-  updateRoutine(routine: Routine): Observable<Routine> {
-    return this.http.put<Routine>(`${this.apiUrl}edit/${routine.id}/`, routine);
+  updateRoutine(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}edit/${data.id}/`, data);
   }
 
   getRoutine(routine_id: number): Observable<Routine> {

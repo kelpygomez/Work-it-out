@@ -137,7 +137,12 @@ export class RoutineMakerPage implements OnInit {
 
     // Agrega un método para guardar los cambios en la rutina
     saveChanges() {
-      this.routineService.updateRoutine(this.routine).subscribe(
+      const data = {
+        id: this.routine.id,
+        name: this.routine.name,
+        description: this.routine.description
+      };
+      this.routineService.updateRoutine(data).subscribe(
         () => {
           Swal.fire({
             title: 'Success!',
@@ -145,6 +150,7 @@ export class RoutineMakerPage implements OnInit {
             icon: 'success',
             confirmButtonColor: "#1d965b",
           });
+          this.loadRoutine();
           this.router.navigateByUrl("/routines-list");
           console.log('Changes saved successfully');
         },

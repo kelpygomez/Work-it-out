@@ -1,5 +1,3 @@
-<!-- routines-list.page.html -->
-
 <ion-header>
   <ion-toolbar>
     <ion-title>List of Routines</ion-title>
@@ -7,15 +5,31 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let routine of routines">
-      <ion-label>
-        <h2>{{ routine.name }}</h2>
-        <p>{{ routine.description }}</p>
-        <p>Type: {{ routine.types }}</p>
-        <p>Total kcal: {{ routine.total_kcal }}</p>
-        <ion-button routerLink="/routine-maker/{{ routine.id }}" expand="block">View Details</ion-button>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div class="container-fluid bg-dark rounded p-3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 mb-3" *ngFor="let routine of routines">
+        <div class="card bg-success text-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5 class="card-title">{{ routine.name }}</h5>
+                <p class="card-text">{{ routine.description }}</p>
+                <p class="card-text">Type: {{ routine.types }}</p>
+                <p class="card-text">Total kcal: {{ routine.total_kcal }}</p>
+              </div>
+              <img src="../../../assets/img/img_routine_default.png" alt="Routine Image" class="img-fluid" style="max-width: 100px;">
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <a routerLink="/routine-maker/{{ routine.id }}" class="btn btn-light me-2" role="button">View Details</a>
+              <button class="btn btn-danger">Delete Routine</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+
+
+
