@@ -1,5 +1,4 @@
 .container-fluid {
-    background-color: black;
     padding: 20px;
     border-radius: 8px;
   }
@@ -9,6 +8,10 @@
     border-radius: 8px;
   }
   
+  .card-custom-width{
+    width: 450px;
+    background-color: #3d3c3d;
+  }
   .card-body {
     display: flex;
     flex-direction: column;
@@ -17,6 +20,7 @@
   .card-title, .card-text {
     text-align: left;
     padding-left: 40px;
+    padding-right: 25px;
   }
   
   .card-body .d-flex.justify-content-between {

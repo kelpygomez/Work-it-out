@@ -1,92 +1,44 @@
 <ion-content [fullscreen]="true">
   <div class="container-fluid h-100">
-    <div class="row h-100">
-      <!-- Barra de búsqueda y filtros -->
-      <div class="col-lg-3 sidebar">
-        <ion-toolbar class="search-bar-container">
-          <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterExercises($event.target.value ?? '')"></ion-searchbar>
-        </ion-toolbar>
+    <div class="toolbar-container">
+      <ion-toolbar class="filter-bar-container ml-1 mt-3">
+        <ion-select placeholder="Filter by Type" [(ngModel)]="selectedType" (ionChange)="filterExercisesByType()">
+          <ion-select-option value="LEG">Leg</ion-select-option>
+          <ion-select-option value="BI">Biceps</ion-select-option>
+          <ion-select-option value="TRI">Triceps</ion-select-option>
+          <ion-select-option value="CHE">Chest</ion-select-option>
+          <ion-select-option value="BA">Back</ion-select-option>
+          <ion-select-option value="SHO">Shoulders</ion-select-option>
+        </ion-select>
+      </ion-toolbar>
 
-        <ion-toolbar class="filter-bar-container">
-          <ion-select placeholder="Filter by Type" [(ngModel)]="selectedType" (ionChange)="filterExercisesByType()">
-            <ion-select-option value="LEG">Leg</ion-select-option>
-            <ion-select-option value="BI">Biceps</ion-select-option>
-            <ion-select-option value="TRI">Triceps</ion-select-option>
-            <ion-select-option value="CHE">Chest</ion-select-option>
-            <ion-select-option value="BA">Back</ion-select-option>
-            <ion-select-option value="SHO">Shoulders</ion-select-option>
-          </ion-select>
-        </ion-toolbar>
-      </div>
+      <ion-toolbar class="search-bar-container">
+        <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterExercises($event.target.value ?? '')"></ion-searchbar>
+      </ion-toolbar>
+    </div>
 
-      <ion-content [fullscreen]="true">
-        <div class="container-fluid h-100">
-          <div class="row h-100">
-            <!-- Barra de búsqueda y filtros -->
-            <div class="col-lg-3 sidebar">
-              <ion-toolbar class="search-bar-container">
-                <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterExercises($event.target.value ?? '')"></ion-searchbar>
-              </ion-toolbar>
-      
-              <ion-toolbar class="filter-bar-container ml-1 mt-3">
-                <ion-select placeholder="Filter by Type" [(ngModel)]="selectedType" (ionChange)="filterExercisesByType()">
-                  <ion-select-option value="LEG">Leg</ion-select-option>
-                  <ion-select-option value="BI">Biceps</ion-select-option>
-                  <ion-select-option value="TRI">Triceps</ion-select-option>
-                  <ion-select-option value="CHE">Chest</ion-select-option>
-                  <ion-select-option value="BA">Back</ion-select-option>
-                  <ion-select-option value="SHO">Shoulders</ion-select-option>
-                </ion-select>
-              </ion-toolbar>
-            </div>
-      
-            <div class="col-lg-9 mt-0">
-              <div class="container py-5">
-                <div class="row">
-                  <div class="col-lg-8 mx-auto">
-                    <!-- Listado de tarjetas de ejercicios -->
-                    <ion-card *ngFor="let exercise of filteredExercises" class="mb-5">
-                      <img [src]="exercise.image" alt="Product Image" width="200">
-                      <ion-card-header>
-                        <ion-card-title>{{ exercise.name }}</ion-card-title>
-                        <ion-card-subtitle>{{ exercise.type }}</ion-card-subtitle>
-                      </ion-card-header>
-            
-                      <ion-card-content>
-                        <p>{{ exercise.description }}</p>
-                        <p><i class="fas fa-fire" style="color: orange;"></i> {{ exercise.kcal }} KCAL PER REPS</p>
-                      </ion-card-content>
-            
-                      <ion-item>
-                        <ion-button (click)="openExerciseModal(exercise)" expand="block">View Details</ion-button>
-                      </ion-item>
-                    </ion-card>
-                  </div>
+    <div class="container-fluid bg-white rounded p-3">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3" *ngFor="let exercise of filteredExercises">
+          <div class="card text-white h-100 card-custom-width">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="card-title">{{ exercise.name }}</h5>
+                  <p class="card-text">Type: {{ exercise.type }} <i class="fas fa-male"></i></p>
+                  <p class="card-text">Total kcal: {{ exercise.kcal }} <i class="fas fa-fire"></i></p>
+                  <p class="card-text">Required material: {{ exercise.required_material }} <i class="fas fa-dumbbell"></i></p>
                 </div>
+                <img [src]="exercise.image" alt="Exercise Image" class="img-fluid" style="max-width: 90px;">
+              </div>
+              <div class="d-flex justify-content-center mt-3">
+                <button class="button-detail" (click)="openExerciseModal(exercise)" expand="block">View Details</button>
               </div>
             </div>
-            
-            <!-- Modal de ejercicio -->
-            <ion-modal [isOpen]="isModalOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-title>{{ selectedExercise?.name }}</ion-title>
-                    <ion-buttons slot="end">
-                      <ion-button color="transparent" (click)="closeExerciseModal()">Close</ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-                <ion-content class="ion-padding">
-                  <p>{{ selectedExercise?.description }}</p>
-                  <p><i class="fas fa-fire" style="color: orange;"></i> {{ selectedExercise?.kcal }} KCAL PER REPS</p>
-                </ion-content>
-              </ng-template>
-            </ion-modal>           
           </div>
         </div>
-      </ion-content>
-      
+      </div>
     </div>
   </div>
 </ion-content>
+

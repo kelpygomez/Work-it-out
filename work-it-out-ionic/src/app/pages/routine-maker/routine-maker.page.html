@@ -1,54 +1,54 @@
-<!-- routine-maker.page.html -->
-<div style="margin-bottom: auto; height: 100vh; margin-top: 10vh;"  class="container-lg">
-  <div *ngIf="isLoading">
-    <app-loading-spinner></app-loading-spinner>
+<ion-content>
+  <div class="container">
+    <div class="loading-container" *ngIf="isLoading">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <div class="form-container">
+      <label class="form-label" for="routine-name">Name of the routine:</label>
+      <input class="form-input" type="text" id="routine-name" [(ngModel)]="routine.name">
+      <label class="form-label" for="routine-description">Routine's description:</label>
+      <textarea class="form-textarea" id="routine-description" [(ngModel)]="routine.description"></textarea>
+      <button class="form-button" (click)="saveChanges()">Save changes</button>
+    </div>
+    <div class="row mt-5"> <!-- Agregamos la clase "row" para crear una fila -->
+      <div class="col-md-6"> <!-- Cada columna ocupa la mitad del ancho en dispositivos medianos y superiores -->
+        <div class="card-available">
+          <div class="card-header">
+            <h2 class="card-title">Available Exercises</h2>
+          </div>
+          <div class="card-content">
+            <ul class="exercise-list">
+              <li class="exercise-item" *ngFor="let exercise of availableExercises">
+                <span>{{ exercise.name }}</span>
+                <button class="add-button" (click)="addExerciseToRoutine(exercise.id)">+</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6"> <!-- Cada columna ocupa la mitad del ancho en dispositivos medianos y superiores -->
+        <div class="card-routine">
+          <div class="card-header">
+            <h2 class="card-title">{{ routine.name }}</h2>
+            
+          </div>
+          <div class="card-content">
+            <ul class="exercise-list">
+              <li class="exercise-item" *ngFor="let exercise_added of routine.exercises">
+                <span>{{ exercise_added.name }}</span>
+                <button class="remove-button" (click)="removeExerciseFromRoutine(exercise_added.id)">-</button>
+              </li>
+            </ul>
+            <div class="additional-info">
+              <div class="info-item">Type: {{ routine.types }} <i class="fas fa-male"></i></div>
+              <div class="info-item">Required Material: Dumbbell <i class="fas fa-fire"></i></div>
+              <div class="info-item">Total Kcal: {{ routine.total_kcal }} <i class="fas fa-dumbbell"></i></div>
+              <!-- Agregamos un botón con un enlace a /tracker -->
+              <a href="/tracker" class="btn btn-primary mt-3">Go tracker to register your routine</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <ion-grid>
-    <div>
-      <label for="routine-name">Name of the routine:</label>
-      <input type="text" id="routine-name" [(ngModel)]="routine.name">
-    </div>
-    <div>
-      <label for="routine-description">Routine's description:</label>
-      <textarea id="routine-description" [(ngModel)]="routine.description"></textarea>
-    </div>
-    <button (click)="saveChanges()">Save changes</button>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              Available Exercises
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list lines="full">
-              <ion-item *ngFor="let exercise of availableExercises">
-                <ion-label>{{ exercise.name }} {{ exercise.id }}</ion-label>
-                <button color="primary" (click)="addExerciseToRoutine(exercise.id)">Add</button>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              {{ routine.name }}
-            </ion-card-title>
-            <ion-card-subtitle>Total Kcal: {{ routine.total_kcal }}</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list lines="full">
-              <ion-item *ngFor="let exercise_added of routine.exercises">
-                <ion-label>{{ exercise_added.name }}</ion-label>
-                <ion-button color="danger" (click)="removeExerciseFromRoutine(exercise_added.id)">Remove</ion-button>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
+</ion-content>

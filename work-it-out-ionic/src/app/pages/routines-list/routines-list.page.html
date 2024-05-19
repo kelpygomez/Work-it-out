@@ -1,23 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>List of Routines</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="container-fluid bg-dark rounded p-3">
+  <div class="container-fluid bg-white rounded p-3">
     <div class="row justify-content-center">
       <div class="col-12 col-md-4 mb-3" *ngFor="let routine of routines">
-        <div class="card bg-success text-white h-100">
+        <div class="card text-white h-100 card-custom-width">
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <div>
                 <h5 class="card-title">{{ routine.name }}</h5>
-                <p class="card-text">{{ routine.description }}</p>
-                <p class="card-text">Type: {{ routine.types }}</p>
-                <p class="card-text">Total kcal: {{ routine.total_kcal }}</p>
+                <p class="card-text">Type: {{ routine.types }} <i class="fas fa-male"></i></p>
+                <p class="card-text">Total kcal: {{ routine.total_kcal }} <i class="fas fa-fire"></i></p>
+                <p class="card-text">Required material: Dumbbell <i class="fas fa-dumbbell"></i></p>
               </div>
-              <img src="../../../assets/img/img_routine_default.png" alt="Routine Image" class="img-fluid" style="max-width: 100px;">
+              <img src="../../../assets/img/img_routine_default.png" alt="Routine Image" class="img-fluid" style="max-width: 90px;">
             </div>
             <div class="d-flex justify-content-center mt-3">
               <a routerLink="/routine-maker/{{ routine.id }}" class="btn btn-light me-2" role="button">View Details</a>

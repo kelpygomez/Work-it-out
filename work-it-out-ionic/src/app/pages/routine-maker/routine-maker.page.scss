@@ -2,3 +2,155 @@ $green: #0aff8a;
 $dark-green: #1d965b;
 $grey: #3d3c3d;
 $shadow: rgba(0, 0, 0, .25);
+
+/* Estilos para el contenedor principal */
+.container {
+    margin-top: 10vh; /* Margen superior del 10% del viewport height */
+    display: flex; /* Flexbox para centrar elementos verticalmente */
+    flex-direction: column; /* Columna para alinear elementos verticalmente */
+    align-items: center; /* Centrar elementos horizontalmente */
+    width: 100%;
+    max-width: 1600px;
+  }
+  
+  /* Estilos para el contenedor del spinner de carga */
+  .loading-container {
+    margin-bottom: 20px; /* Margen inferior para separar del formulario */
+  }
+  
+  /* Estilos para el contenedor del formulario */
+  .form-container {
+    width: 90%; /* Ancho completo */
+    max-width: 1400px; /* Ancho máximo*/
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde delgado gris */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para las etiquetas del formulario */
+  .form-label {
+    display: block; /* Mostrar como bloque para separar en líneas */
+    margin-bottom: 5px; /* Margen inferior para separar etiquetas */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  /* Estilos para inputs y textarea del formulario */
+  .form-input,
+  .form-textarea {
+    width: 100%; /* Ancho completo */
+    padding: 8px; /* Espaciado interno */
+    margin-bottom: 10px; /* Margen inferior */
+    border: 1px solid #ccc; /* Borde delgado gris */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para el botón del formulario */
+  .form-button {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    background-color: $dark-green; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor apuntador al pasar el ratón */
+  }
+  
+//   /* Estilos para el contenedor de la rejilla */
+//   .grid-container {
+//     display: grid; /* Mostrar como rejilla */
+//     grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+//     gap: 20px; /* Espacio entre elementos */
+//   }
+  
+  /* Estilos para las tarjetas */
+  .card-available {
+    border: 1px solid #ccc; /* Borde delgado gris */
+    border-radius: 5px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar contenido que se desborde */
+    width: 650px;
+  }
+
+   .card-routine {
+    border: 1px solid #ccc; /* Borde delgado gris */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 800px;
+  }
+  
+  /* Estilos para el encabezado de la tarjeta */
+  .card-header {
+    background-color: $dark-green; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    padding: 10px; /* Espaciado interno */
+  }
+  
+  /* Estilos para el título de la tarjeta */
+  .card-title {
+    margin: 0; /* Eliminar margen del título */
+  }
+  
+  /* Estilos para el subtítulo de la tarjeta */
+  .card-subtitle {
+    margin: 5px 0; /* Margen superior e inferior */
+  }
+  
+  /* Estilos para el contenido de la tarjeta */
+  .card-content {
+    padding: 10px; /* Espaciado interno */
+  }
+  
+  /* Estilos para la lista de ejercicios */
+  .exercise-list {
+    list-style: none; /* Sin viñetas */
+    padding: 0; /* Eliminar relleno */
+  }
+  
+  /* Estilos para los elementos de la lista de ejercicios */
+  .exercise-item {
+    display: flex; /* Mostrar como flexbox */
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center; /* Centrar verticalmente */
+    padding: 10px; /* Espaciado interno */
+    border-bottom: 1px solid #ccc; /* Borde inferior delgado gris */
+  }
+  
+  /* Estilos para el botón de agregar ejercicio */
+  .add-button,
+  .remove-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 50%; /* Hace los botones redondos */
+    cursor: pointer;
+    font-size: 18px; /* Tamaño de la fuente */
+    width: 30px; /* Ancho */
+    height: 30px; /* Altura */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .remove-button {
+    background-color: red;
+    color: white;
+  }
+
+  .additional-info {
+    background-color: #f0f0f0; /* Fondo gris */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 20px; /* Margen superior */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .info-item {
+    margin-bottom: 5px; /* Margen inferior */
+    padding-left: 30px;
+  }
+  
+  .btn-primary {
+    background-color: $dark-green; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como bloque en línea */
+  }
