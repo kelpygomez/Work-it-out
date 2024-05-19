@@ -27,12 +27,14 @@
         <ng-template #noMonday>
           <p>You haven't select a routine yet!!</p>
 		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
+			<label>Select Routine</label>
+			<div class="select-wrapper">
+				<div class="select-wrapper">
+					<select [(ngModel)]="selectedRoutineId">
+					  <option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+					</select>
+				  </div>
+			</div>
 		  </ion-item>
 		  <!-- Botón para agregar rutina al lunes -->
 		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'monday')">Add to Monday</ion-button>

@@ -317,33 +317,45 @@
     border-bottom-right-radius: var(--radius);
   }
 
-  /* Estilos para ion-select */
-ion-select {
-  /* Ancho */
-  width: 100%;
-  max-width: 100px; /* Cambia el valor según tus necesidades */
-  /* Espaciado y alineación */
-  margin: 10px 0;
-  height: 40px;
+//* Estilos para el label */
+.select-label {
+  display: block;
+  font-size: 16px;
+  color: grey;
+  margin-bottom: 8px;
 }
 
-/* Estilos para ion-select-option */
-ion-select-option {
-  /* Fuente */
-  font-size: 16px; /* Tamaño de fuente */
-  color: #fff; /* Color del texto blanco */
+/* Estilos para el contenedor de select */
+.select-wrapper {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 
-  /* Fondo y borde */
-  background-color: #555; /* Fondo gris */
-  border: 1px solid #555; /* Borde gris */
+/* Estilos para select dentro del contenedor */
+.select-wrapper select {
+  background-color: #fff;
+  border: 1px solid #555;
+  color: grey;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Estilos para option dentro del contenedor */
+.select-wrapper select option {
+  background-color: grey;
+  color: grey;
+  font-size: 16px;
 }
 
 /* Estilos cuando se selecciona una opción */
-ion-select-option.selected {
-  background-color: #1d965b; /* Fondo verde oscuro cuando se selecciona */
+.select-wrapper select option:checked {
+  background-color: #1d965b;
 }
 
 /* Estilos cuando se pasa el ratón por encima de una opción */
-ion-select-option:hover {
-  background-color: #444; /* Fondo gris oscuro al pasar el ratón */
+.select-wrapper select option:hover {
+  background-color: #444;
 }
