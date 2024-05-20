@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,14 +9,24 @@ import Swal from 'sweetalert2';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage implements OnInit, AfterViewInit {
   loginForm: FormGroup;
-  
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { 
+  pageloaded: boolean;
+
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+    this.pageloaded = false;
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
+  }
+
+  ngOnInit() { }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.pageloaded = true;
+    }, 1000); // Simula un retraso en la carga de la página
   }
 
   login() {
@@ -28,10 +38,9 @@ export class LoginPage implements OnInit {
           localStorage.setItem('user', JSON.stringify(data));
           Swal.fire({
             title: 'Success!',
-            text: 'Login succesfull',
+            text: 'Login successful',
             icon: 'success',
             confirmButtonColor: "#1d965b",
-  
           }); // Assuming the response contains user data
           this.router.navigate(['/home']);
         },
@@ -41,8 +50,5 @@ export class LoginPage implements OnInit {
         }
       );
     }
-  }
-
-  ngOnInit() {
   }
 }

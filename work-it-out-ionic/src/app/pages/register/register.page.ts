@@ -1,7 +1,7 @@
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,15 +9,17 @@ import Swal from 'sweetalert2';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage implements OnInit, AfterViewInit {
   pageloaded: boolean;
-
   registerForm: FormGroup;
   passwordError: boolean;
   submitted = false;
 
-
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.pageloaded = false;
     this.passwordError = false;
 
@@ -29,6 +31,14 @@ export class RegisterPage implements OnInit {
     });
   }
 
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.pageloaded = true;
+    }, 1000); // Simula un retraso en la carga de la página
+  }
+
   register() {
     if (!this.registerForm.valid) {
       Swal.fire({
@@ -38,17 +48,16 @@ export class RegisterPage implements OnInit {
       });
       return; // No enviar el formulario si no está completo
     }
-  
+
     const user = this.registerForm.value;
     this.authService.register(user).subscribe(
       (data) => {
         console.log(data);
         Swal.fire({
           title: 'Success!',
-          text: 'Register succesfull',
+          text: 'Register successful',
           icon: 'success',
-          confirmButtonColor: "#1d965b",
-
+          confirmButtonColor: '#1d965b',
         });
         this.router.navigate(['/login']);
       },
@@ -57,15 +66,5 @@ export class RegisterPage implements OnInit {
         // Handle errors
       }
     );
-  }
-  
-  
-
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
-    this.pageloaded = true;
   }
 }

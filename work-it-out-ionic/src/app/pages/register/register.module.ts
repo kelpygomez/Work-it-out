@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageRoutingModule } from './register-routing.module';
 
 import { RegisterPage } from './register.page';
+import { LoadingSpinnerPageModule } from 'src/app/components/loading-spinner/loading-spinner.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { RegisterPage } from './register.page';
     ReactiveFormsModule,
     IonicModule,
     RegisterPageRoutingModule,
+    LoadingSpinnerPageModule
   ],
   declarations: [RegisterPage],
 })

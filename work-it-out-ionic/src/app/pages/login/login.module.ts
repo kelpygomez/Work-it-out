@@ -7,13 +7,15 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoadingSpinnerPageModule } from 'src/app/components/loading-spinner/loading-spinner.module';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     LoginPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoadingSpinnerPageModule
   ],
   declarations: [LoginPage]
 })

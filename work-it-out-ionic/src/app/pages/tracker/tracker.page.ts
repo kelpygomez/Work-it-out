@@ -36,6 +36,11 @@ export class TrackerPage {
     this.loadWeek();
   }
 
+  ionViewWillEnter() {
+    // Se ejecuta cada vez que la página se carga o vuelve a cargarse
+    this.loadRoutines();
+    this.loadWeek();
+  }
 
   getUserId() {
     // Obtener el token de autenticación
