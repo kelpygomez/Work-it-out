@@ -106,3 +106,13 @@ def remove_exercise_from_routine(request, routine_id):
         return JsonResponse({'message': 'Exercise removed from routine successfully'}, status=200)
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+def delete_routine(request, pk):
+    if request.method == 'POST':
+        routine = get_object_or_404(Routine, id=pk)
+        routine.delete()
+        return JsonResponse({'message': 'Routine deleted successfully'}, status=200)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+

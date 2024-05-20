@@ -18,7 +18,14 @@ export class TrackerPage {
   monday_date: "", tuesday_date:"", wednesday_date:"", thursday_date: "", friday_date: "", saturday_date:"",
   sunday_date: "", week_number:0, user: null};
   routines: Routine[] = [];
-  selectedRoutineId = 0;
+  selectedRoutineId1 = 0;
+  selectedRoutineId2 = 0;
+  selectedRoutineId3 = 0;
+  selectedRoutineId4 = 0;
+  selectedRoutineId5 = 0;
+  selectedRoutineId6 = 0;
+  selectedRoutineId7 = 0;
+
 
   constructor(private alertController: AlertController, private authService: AuthService, private routineService: RoutineService, private trackerService: TrackerService) { }
 
@@ -149,16 +156,69 @@ export class TrackerPage {
     }
   }
 
-  async addRoutine(weekDay: string) {
-    // Verifica si se ha seleccionado una rutina
-    if (!this.selectedRoutineId) {
+  async addRoutineMonday() {
+    if (!this.selectedRoutineId1) {
       this.presentAlert('Error', 'Please select a routine.');
       return;
     }
   
-    // Agrega la rutina seleccionada al día de la semana correspondiente
-    this.addRoutineToWeek(this.selectedRoutineId, weekDay);
+    this.addRoutineToWeek(this.selectedRoutineId1, 'monday');
   }
+  
+  async addRoutineTuesday() {
+    if (!this.selectedRoutineId2) {
+      this.presentAlert('Error', 'Please select a routine.');
+      return;
+    }
+  
+    this.addRoutineToWeek(this.selectedRoutineId2, 'tuesday');
+  }
+  
+  async addRoutineWednesday() {
+    if (!this.selectedRoutineId3) {
+      this.presentAlert('Error', 'Please select a routine.');
+      return;
+    }
+  
+    this.addRoutineToWeek(this.selectedRoutineId3, 'wednesday');
+  }
+  
+  async addRoutineThursday() {
+    if (!this.selectedRoutineId4) {
+      this.presentAlert('Error', 'Please select a routine.');
+      return;
+    }
+  
+    this.addRoutineToWeek(this.selectedRoutineId4, 'thursday');
+  }
+  
+  async addRoutineFriday() {
+    if (!this.selectedRoutineId5) {
+      this.presentAlert('Error', 'Please select a routine.');
+      return;
+    }
+  
+    this.addRoutineToWeek(this.selectedRoutineId5, 'friday');
+  }
+  
+  async addRoutineSaturday() {
+    if (!this.selectedRoutineId6) {
+      this.presentAlert('Error', 'Please select a routine.');
+      return;
+    }
+  
+    this.addRoutineToWeek(this.selectedRoutineId6, 'saturday');
+  }
+  
+  async addRoutineSunday() {
+    if (!this.selectedRoutineId7) {
+      this.presentAlert('Error', 'Please select a routine.');
+      return;
+    }
+  
+    this.addRoutineToWeek(this.selectedRoutineId7, 'sunday');
+  }
+  
 
   async presentAlert(header: string, message: string) {
     const alert = await this.alertController.create({

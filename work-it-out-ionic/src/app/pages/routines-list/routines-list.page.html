@@ -15,7 +15,7 @@
             </div>
             <div class="d-flex justify-content-center mt-3">
               <a routerLink="/routine-maker/{{ routine.id }}" class="btn btn-light me-2" role="button">View Details</a>
-              <button class="btn btn-danger">Delete Routine</button>
+              <button class="btn btn-danger" (click)="deleteRoutine(routine.id)">Delete Routine</button>
             </div>
           </div>
         </div>

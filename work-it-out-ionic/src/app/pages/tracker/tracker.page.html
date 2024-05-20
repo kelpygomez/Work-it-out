@@ -26,18 +26,15 @@
         
         <ng-template #noMonday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<label>Select Routine</label>
+		  <div class="custom-item">
+			<label>Routines</label>
 			<div class="select-wrapper">
-				<div class="select-wrapper">
-					<select [(ngModel)]="selectedRoutineId">
-					  <option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
-					</select>
-				  </div>
+			  <select [(ngModel)]="selectedRoutineId1">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
 			</div>
-		  </ion-item>
-		  <!-- Botón para agregar rutina al lunes -->
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'monday')">Add to Monday</ion-button>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId1, 'monday')">Add to Monday</button>
         </ng-template>
 			</div>
 		</div>
@@ -61,15 +58,15 @@
         
         <ng-template #noTuesday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
-		  </ion-item>
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'tuesday')">Add to Tuesday</ion-button>
+		  <div class="custom-item">
+			<label>Routines</label>
+			<div class="select-wrapper">
+			  <select [(ngModel)]="selectedRoutineId2">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
+			</div>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId2, 'tuesday')">Add to Tuesday</button>
         </ng-template>
 			</div>
 		</div>
@@ -93,15 +90,15 @@
         
         <ng-template #noWednesday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
-		  </ion-item>
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'wednesday')">Add to Wednesday</ion-button>
+		  <div class="custom-item">
+			<label>Routines</label>
+			<div class="select-wrapper">
+			  <select [(ngModel)]="selectedRoutineId3">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
+			</div>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId3, 'wednesday')">Add to Wednesday</button>
         </ng-template>
 			</div>
 		</div>
@@ -125,15 +122,15 @@
         
         <ng-template #noThursday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
-		  </ion-item>
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'thursday')">Add to Thursday</ion-button>
+		  <div class="custom-item">
+			<label>Routines</label>
+			<div class="select-wrapper">
+			  <select [(ngModel)]="selectedRoutineId4">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
+			</div>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId4, 'thursday')">Add to Thursday</button>
         </ng-template>
 			</div>
 		</div>
@@ -157,15 +154,15 @@
         
         <ng-template #noFriday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
-		  </ion-item>
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'friday')">Add to Friday</ion-button>
+		  <div class="custom-item">
+			<label>Routines</label>
+			<div class="select-wrapper">
+			  <select [(ngModel)]="selectedRoutineId5">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
+			</div>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId5, 'friday')">Add to Friday</button>
         </ng-template>
 			</div>
 		</div>
@@ -189,15 +186,15 @@
         
         <ng-template #noSaturday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
-		  </ion-item>
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'saturday')">Add to Saturday</ion-button>
+		  <div class="custom-item">
+			<label>Routines</label>
+			<div class="select-wrapper">
+			  <select [(ngModel)]="selectedRoutineId6">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
+			</div>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId6, 'saturday')">Add to Saturday</button>
         </ng-template>
 			</div>
 		</div>
@@ -221,15 +218,15 @@
         
         <ng-template #noSunday>
           <p>You haven't select a routine yet!!</p>
-		  <ion-item>
-			<ion-label>Select Routine</ion-label>
-			<ion-select [(ngModel)]="selectedRoutineId">
-			  <ion-select-option *ngFor="let routine of routines" [value]="routine.id">
-				{{ routine.name }}
-			  </ion-select-option>
-			</ion-select>
-		  </ion-item>
-		  <ion-button expand="block" (click)="addRoutineToWeek(selectedRoutineId, 'sunday')">Add to Sunday</ion-button>
+		  <div class="custom-item">
+			<label>Routines</label>
+			<div class="select-wrapper">
+			  <select [(ngModel)]="selectedRoutineId7">
+				<option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+			  </select>
+			</div>
+		  </div>
+		  <button expand="block" (click)="addRoutineToWeek(selectedRoutineId7, 'sunday')">Add to Sunday</button>
         </ng-template>
 			</div>
 		</div>

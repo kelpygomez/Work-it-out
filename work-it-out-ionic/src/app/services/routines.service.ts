@@ -48,4 +48,8 @@ export class RoutineService {
   removeExerciseFromRoutine(routineId: number, exerciseId: number): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}${routineId}/remove-exercise/`, { exercise_id: exerciseId }, this.getRequestOptions());
   }
+
+  deleteRoutine(routineId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}delete/${routineId}/`, {}, this.getRequestOptions());
+  }
 }

@@ -67,4 +67,18 @@ export class RoutinesListPage implements OnInit {
       console.error('User ID not available.');
     }
   }
+
+  deleteRoutine(routineId: number): void {
+    this.routineService.deleteRoutine(routineId).subscribe(
+      response => {
+        console.log('Routine deleted successfully:', response);
+        this.loadRoutines();
+        // Aquí puedes actualizar la UI, por ejemplo, eliminar el elemento de una lista
+      },
+      error => {
+        console.error('Error deleting routine:', error);
+        // Maneja el error, por ejemplo, mostrando un mensaje al usuario
+      }
+    );
+  }
 }
