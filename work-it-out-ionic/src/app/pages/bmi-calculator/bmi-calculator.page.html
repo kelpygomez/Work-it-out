@@ -13,7 +13,7 @@
         <ion-label position="floating">Height (cm)</ion-label>
         <ion-input type="number" [(ngModel)]="heightValue"></ion-input>
       </ion-item>
-      <ion-button expand="full" color="success" (click)="calculateBMI()">Calculate</ion-button>
+      <ion-button expand="full" color="dark" (click)="calculateBMI()">Calculate</ion-button>
     </ion-card-content>
     <div class="result" *ngIf="bmi">
         <p>Your BMI is {{ bmi.toFixed(2) }}</p>
@@ -23,6 +23,14 @@
 </div>  
 
 <div class="info">
-  <h2>Additional Information</h2>
-  <p>Here you can add additional information or text.</p>
+  <p>Body Mass Index (BMI) is a measure of body fat based on height and weight. It is commonly used to classify individuals into different weight categories, such as underweight, normal weight, overweight, and obesity.</p>
+  <p>A BMI calculator helps you determine your BMI by inputting your weight and height. Once calculated, your BMI can give you an indication of your overall health status.</p>
+  <p>Here's how BMI categories are typically interpreted:</p>
+  <ul>
+    <li>Underweight: BMI less than 18.5</li>
+    <li>Normal weight: BMI between 18.5 and 24.9</li>
+    <li>Overweight: BMI between 25 and 29.9</li>
+    <li>Obesity: BMI 30 or greater</li>
+  </ul>
+  <p>It's important to note that while BMI is a useful screening tool, it may not be accurate for all individuals, particularly those with a high muscle mass. It's always best to consult with a healthcare professional for personalized health advice.</p>
 </div>

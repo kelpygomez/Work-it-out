@@ -1,6 +1,9 @@
+$grey: #3d3c3d;
+
 ion-footer {
     text-align: center; /* Centra el contenido del footer */
-    background-color: white;
+    background-color: $grey;
+    margin-top: 10%;
 }
 
 ion-buttons {

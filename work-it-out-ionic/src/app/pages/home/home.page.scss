@@ -137,7 +137,6 @@ ion-content {
   flex-flow: row nowrap;
   align-items: flex-end;
   justify-content: center;
-  background-color:#0aff8993;
 }
 
 .slider__nav {
@@ -146,7 +145,7 @@ ion-content {
   margin: 2rem 12px;
   border-radius: 50%;
   z-index: 10;
-  outline: 6px solid #ccc;
+  outline: 6px solid white;
   outline-offset: -6px;
   box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   cursor: pointer;
@@ -185,6 +184,7 @@ ion-content {
   transition: left 0.4s;
   display: flex;
   flex-flow: row nowrap;
+  background-color: $green;
 }
 
 .slider__contents {
@@ -211,7 +211,7 @@ ion-content {
 }
 
 .slider__txt {
-  color: #999;
+  color: black;
   margin-bottom: 3rem;
   max-width: 300px;
 }
@@ -227,6 +227,153 @@ ion-content {
   }
 }
 
+.newsletter-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.subscribed-container {
+  padding: 20px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.newsletter-container, .subscribed-container {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('../../../assets/img/newspaper.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 50px 20px;
+  margin: 20px;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.newsletter-container form, .subscribed-container p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.newsletter-container label {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.newsletter-container input[type="email"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+
+.newsletter-container input[type="email"]:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+}
+
+.newsletter-container button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-container button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.newsletter-container button:not(:disabled):hover {
+  background-color: darkgreen;
+}
+
+.subscribed-container p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+ion-footer {
+  background-color: $grey;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer-column h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 10px 0;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: $green;
+}
+
+.social-links li a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 5px 0;
+  color: white;
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+}
 /* Media queries */
 
  /* Extra small devices (phones, 600px and down) */

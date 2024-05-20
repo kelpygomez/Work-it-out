@@ -24,7 +24,7 @@
     }
   }
 
-  $dark-green: #1d965b;
+  $grey: #3d3c3d;
   $green: #0aff8a;
   $background: #f7f7f7;
   $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
@@ -252,9 +252,9 @@
       @for $i from 1 through $items {
         &--step#{$i} {
           $color: nth($colors, ((($i - 1) % 4) + 1));
-          background-color: $dark-green; /* Asigna el color dark-green a todas las tarjetas */
+          background-color: $grey; /* Asigna el color dark-green a todas las tarjetas */
           .head::after {
-            border-color: $dark-green; /* También puedes aplicar el color al borde si es necesario */
+            border-color: $grey; /* También puedes aplicar el color al borde si es necesario */
           }
         }
       }
@@ -274,7 +274,7 @@
 
   
   button {
-    background: grey;
+    background: $grey;
     border: solid 2px black;
     padding: .375em 1.125em;
     font-size: 1rem;
@@ -282,8 +282,9 @@
   
   .button-arounder {
     font-size: 2rem;
-    background: hsl(190deg, 30%, 15%);
+    background: $grey;
     color: hsl(190deg, 10%, 95%);
+    padding: 10px;
     
     box-shadow: 0 0px 0px hsla(190deg, 15%, 5%, .2);
     transform: translateY(0);

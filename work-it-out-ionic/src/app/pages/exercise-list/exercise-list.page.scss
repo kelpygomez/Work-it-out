@@ -48,12 +48,12 @@
   }
   
   .card {
-    margin: 10px;
+    margin: 20px 15px; /* Margen superior e inferior de 20px y margen izquierdo y derecho de 15px */
     border-radius: 8px;
   }
   
   .card-custom-width{
-    width: 450px;
+    width: 370px;
     background-color: #3d3c3d;
   }
   .card-body {
@@ -93,3 +93,5 @@
     color: #fff; /* Cambio de color del texto al pasar el ratón */
     border-color: #fff; /* Cambio de color del borde al pasar el ratón */
 }
+
+

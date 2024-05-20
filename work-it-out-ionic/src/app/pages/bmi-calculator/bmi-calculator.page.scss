@@ -1,3 +1,8 @@
+$green: #0aff8a;
+$dark-green: #1d965b;
+$grey: #3d3c3d;
+$light-grey: #c0c0c0;
+$shadow: rgba(0, 0, 0, .25);
 .container {
   display: flex;
   justify-content: flex-start; /* Alinea los elementos al principio del contenedor */
@@ -8,21 +13,22 @@
 }
 
 .calculator-card {
-  background-color: aquamarine;
+  background-color: $green;
   width: 40%;
   padding: 20px;
 }
 
 .info {
-  background-color: aquamarine;
+  background-color: $green;
   width: 55%;
   position: absolute; /* Establece la posición absoluta */
   top: 0; /* Coloca el elemento en la parte superior del contenedor */
   right: 0; /* Coloca el elemento en el lado derecho del contenedor */
   height: 100%; /* Hace que el elemento ocupe toda la altura del contenedor */
 
-  h2{
+  p{
     margin-top: 5%;
+    margin-left: 2%;
   }
 }
 
