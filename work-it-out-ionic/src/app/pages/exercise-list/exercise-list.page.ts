@@ -24,11 +24,11 @@ export class ExerciseListPage implements OnInit {
 
   ngOnInit() {
     // Llamar a la API para obtener la lista de ejercicios al inicializar la página
-    this.http.get<any[]>('http://localhost:8000/exercises/').subscribe(
+    this.http.get<any[]>('http://gym.workitout.arkania.es/exercises/').subscribe(
       (data: any[]) => {
         // Iterar sobre los ejercicios y ajustar la URL de la imagen
         data.forEach((exercise) => {
-          exercise.image = 'http://localhost:8000' + exercise.image;
+          exercise.image = 'http://gym.workitout.arkania.es' + exercise.image;
         });
         this.exercises = data;
         this.filteredExercises = data; // Inicializar la lista filtrada con todos los ejercicios
