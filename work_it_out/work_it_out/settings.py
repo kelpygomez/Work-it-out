@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+&kqks&_@pcj0ewk%s4al1))544bfit=)0p*f&(506ho1bg_8^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://localhost:8000']
+ALLOWED_HOSTS = ['http://localhost:8000', 'api.workitout.arkania.es', ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
