@@ -119,6 +119,7 @@ export class TrackerPage {
           confirmButtonColor: "#1d965b",
 
         });
+        this.loadWeek();
       },
       (error: any) => {
         console.error('Error adding routine to the week:', error);
@@ -136,6 +137,7 @@ export class TrackerPage {
           confirmButtonColor: "#1d965b",
 
         });
+        this.loadWeek();
       },
       (error: any) => {
         console.error('Error removing the routine from the week:', error);
