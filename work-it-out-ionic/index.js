@@ -2,12 +2,12 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-// Servir archivos estáticos de la aplicación Angular desde /work-it-out-ionic/deploy
-app.use("", express.static(path.join(__dirname, "work-it-out-ionic", "deploy")));
+// Servir archivos estáticos de la aplicación Ionic desde /www
+app.use("", express.static(path.join(__dirname, "work-it-out-ionic", "www")));
 
-// Redirigir todas las solicitudes a Angular (excepto las que comiencen con /api)
+// Redirigir todas las solicitudes a Ionic (excepto las que comiencen con /api)
 app.get(/^\/(?!api).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, "work-it-out-ionic", "deploy", "index.html"));
+    res.sendFile(path.join(__dirname, "work-it-out-ionic", "www", "index.html"));
 });
 
 // Escuchar en el puerto 3000
