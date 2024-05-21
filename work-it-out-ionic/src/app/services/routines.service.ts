@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class RoutineService {
-  private apiUrl = 'http://localhost:8000/routines/'; 
+  private apiUrl = 'http://api.workitout.arkania.es/routines/'; 
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

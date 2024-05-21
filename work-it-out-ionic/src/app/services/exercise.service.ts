@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExerciseService {
-  private apiUrl = 'http://localhost:8000/exercises/';
+  private apiUrl = 'http://api.workitout.arkania.es/exercises/';
 
   constructor(private http: HttpClient) {}
 
