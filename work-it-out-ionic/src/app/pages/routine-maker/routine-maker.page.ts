@@ -70,23 +70,6 @@ export class RoutineMakerPage implements OnInit {
     );
   }
 
-//   loadRoutineExercises() {
-//     // Obtener detalles completos de los ejercicios en la rutina
-//     this.routineExercises = [];
-//     this.routine.exercises.forEach(exerciseId => {
-//         this.exerciseService.getExerciseDetail(exerciseId.toString()).subscribe( // Convertir ID a string
-//             (exercise: Exercise) => {
-//                 this.routineExercises.push(exercise);
-//                 console.log('Routine exercise:', exercise);
-//             },
-//             (error: any) => {
-//                 console.error('Error fetching routine exercise:', error);
-//             }
-//         );
-//     });
-// }
-
-
   addExerciseToRoutine(exerciseId: number) {
     this.routineService.addExerciseToRoutine(this.routineId, exerciseId).subscribe(
       () => {
