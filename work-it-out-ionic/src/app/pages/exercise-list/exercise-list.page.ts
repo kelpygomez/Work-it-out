@@ -71,12 +71,12 @@ export class ExerciseListPage implements OnInit {
   }
 
   exerciseTypes = [
-    { value: 'LEG', label: 'Leg' },
-    { value: 'BI', label: 'Biceps' },
-    { value: 'TRI', label: 'Triceps' },
-    { value: 'CHE', label: 'Chest' },
-    { value: 'BA', label: 'Back' },
-    { value: 'SHO', label: 'Shoulders' }
+    { value: 'Leg', label: 'Leg' },
+    { value: 'Biceps', label: 'Biceps' },
+    { value: 'Triceps', label: 'Triceps' },
+    { value: 'Chest', label: 'Chest' },
+    { value: 'Back', label: 'Back' },
+    { value: 'Shoulders', label: 'Shoulders' }
   ];
   selectedType!: string; // Tipo seguido de !
   
