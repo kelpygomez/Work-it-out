@@ -3,12 +3,24 @@
     <div class="toolbar-container">
       <ion-toolbar class="filter-bar-container ml-1 mt-3">
         <ion-select placeholder="Filter by Type" [(ngModel)]="selectedType" (ionChange)="filterExercisesByType()">
-          <ion-select-option value="LEG">Leg</ion-select-option>
-          <ion-select-option value="BI">Biceps</ion-select-option>
-          <ion-select-option value="TRI">Triceps</ion-select-option>
-          <ion-select-option value="CHE">Chest</ion-select-option>
-          <ion-select-option value="BA">Back</ion-select-option>
-          <ion-select-option value="SHO">Shoulders</ion-select-option>
+          <ion-select-option value="Legs">Leg</ion-select-option>
+          <ion-select-option value="Biceps">Biceps</ion-select-option>
+          <ion-select-option value="Triceps">Triceps</ion-select-option>
+          <ion-select-option value="Chest">Chest</ion-select-option>
+          <ion-select-option value="Back">Back</ion-select-option>
+          <ion-select-option value="Shoulders">Shoulders</ion-select-option>
+        </ion-select>
+      </ion-toolbar>
+
+      <ion-toolbar class="filter-bar-container ml-1 mt-3">
+        <ion-select placeholder="Filter by Material" [(ngModel)]="selectedMaterial" (ionChange)="filterExercisesByMaterial()">
+          <ion-select-option value="Barbell">Barbell</ion-select-option>
+          <ion-select-option value="Weight Plates">Weight Plates</ion-select-option>
+          <ion-select-option value="Dumbbells">Dumbbells</ion-select-option>
+          <ion-select-option value="Bosu Ball">Bosu Ball</ion-select-option>
+          <ion-select-option value="Cable Machine">Cable Machine</ion-select-option>
+          <ion-select-option value="Kettlebells">Kettlebells</ion-select-option>
+          <ion-select-option value="TRX">TRX</ion-select-option>
         </ion-select>
       </ion-toolbar>
 

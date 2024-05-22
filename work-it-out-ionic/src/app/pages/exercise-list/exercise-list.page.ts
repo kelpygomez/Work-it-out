@@ -78,13 +78,22 @@ export class ExerciseListPage implements OnInit {
     { value: 'Back', label: 'Back' },
     { value: 'Shoulders', label: 'Shoulders' }
   ];
-  selectedType!: string; // Tipo seguido de !
+  selectedType!: string;
+  selectedMaterial!: string;
   
   filterExercisesByType() {
     if (!this.selectedType) {
       this.filteredExercises = this.exercises;
     } else {
       this.filteredExercises = this.exercises.filter(exercise => exercise.type === this.selectedType);
+    }
+  }
+
+  filterExercisesByMaterial() {
+    if (!this.selectedMaterial) {
+      this.filteredExercises = this.exercises;
+    } else {
+      this.filteredExercises = this.exercises.filter(exercise => exercise.required_material === this.selectedMaterial);
     }
   }
 }
