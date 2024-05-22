@@ -1,4 +1,4 @@
-#!/home/alu/Work-it-out/.venv/bin/python
+#!/usr/share/nginx/work-it-out/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
