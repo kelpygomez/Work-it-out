@@ -138,8 +138,6 @@ export class RoutineMakerPage implements OnInit {
             icon: 'success',
             confirmButtonColor: "#1d965b",
           });
-          this.loadRoutine();
-          this.router.navigateByUrl("/routines-list");
           console.log('Changes saved successfully');
         },
         (error: any) => {
