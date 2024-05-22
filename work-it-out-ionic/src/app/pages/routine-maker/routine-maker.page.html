@@ -45,7 +45,7 @@
             </ion-toolbar>
           </div>
             <ul class="exercise-list">
-              <li class="exercise-item" *ngFor="let exercise of availableExercises">
+              <li class="exercise-item" *ngFor="let exercise of filteredExercises">
                 <span>{{ exercise.name }}</span>
                 <button class="add-button" (click)="addExerciseToRoutine(exercise.id)">+</button>
               </li>
