@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6"> <!-- Cada columna ocupa la mitad del ancho en dispositivos medianos y superiores -->
+      <div class="col-md-6"> 
         <div class="card-routine">
           <div class="card-header">
             <h2 class="card-title">{{ routine.name }}</h2>
@@ -70,12 +70,10 @@
               <div class="info-item">Type: {{ routine.types }} <i class="fas fa-male"></i></div>
               <div class="info-item">Required Material: Dumbbell <i class="fas fa-fire"></i></div>
               <div class="info-item">Total Kcal: {{ routine.total_kcal }} <i class="fas fa-dumbbell"></i></div>
-              <!-- Agregamos un botón con un enlace a /tracker -->
               <a href="/tracker" class="btn btn-primary mt-3">Go tracker to register your routine</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </ion-content>
