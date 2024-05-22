@@ -17,7 +17,6 @@ export class HeaderPage implements OnInit {
   constructor(private authService: AuthService, private router: Router, private routineService: RoutineService) { }
 
   ngOnInit() {
-    this.getUserId();
   }
   
   getUserId() {
@@ -45,7 +44,7 @@ export class HeaderPage implements OnInit {
   }
 
   createEmptyRoutine() {
-    console.log(this.userId);
+    this.getUserId();
     this.routineService.createRoutine(this.userId).subscribe(
       (data: Routine) => {
         this.routine = data;
