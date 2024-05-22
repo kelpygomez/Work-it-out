@@ -18,6 +18,8 @@ export class RoutineMakerPage implements OnInit {
   routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', exercises: [] };
   availableExercises: Exercise[] = [];
   routineExercises: Exercise[] = [];
+  filteredExercises: any[] = [];
+  searchTerm: string = '';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private routineService: RoutineService, private exerciseService: ExerciseService, private router: Router) { }
   isLoading: boolean = true;
@@ -73,6 +75,7 @@ export class RoutineMakerPage implements OnInit {
   addExerciseToRoutine(exerciseId: number) {
     this.routineService.addExerciseToRoutine(this.routineId, exerciseId).subscribe(
       () => {
+        this.saveChanges();
         this.loadRoutine(); // Recargar rutina después de agregar ejercicio
         this.loadExercises(); // Recargar ejercicios disponibles
         Swal.fire({
@@ -92,8 +95,9 @@ export class RoutineMakerPage implements OnInit {
   removeExerciseFromRoutine(exerciseId: number) {
     this.routineService.removeExerciseFromRoutine(this.routineId, exerciseId).subscribe(
       () => {
+        this.saveChanges();
         this.loadRoutine(); // Recargar rutina después de quitar ejercicio
-        this.loadExercises(); // Recargar ejercicios disponibles
+        this.loadExercises();
         Swal.fire({
           title: "Are you sure?",
           icon: "warning",
@@ -141,5 +145,29 @@ export class RoutineMakerPage implements OnInit {
           console.error('Error saving changes:', error);
         }
       );
+    }
+
+    filterExercises(searchTerm: string) {
+      this.searchTerm = searchTerm;
+      this.filteredExercises = this.availableExercises.filter(exercise =>
+        exercise.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        exercise.type.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        exercise.description.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  
+    selectedType!: string;
+    selectedMaterial!: string;
+    
+    filterExercisesSelect() {
+      this.filteredExercises = this.availableExercises;
+    
+      if (this.selectedType) {
+        this.filteredExercises = this.filteredExercises.filter(exercise => exercise.type === this.selectedType);
+      }
+    
+      if (this.selectedMaterial) {
+        this.filteredExercises = this.filteredExercises.filter(exercise => exercise.required_material === this.selectedMaterial);
+      }
     }
 }

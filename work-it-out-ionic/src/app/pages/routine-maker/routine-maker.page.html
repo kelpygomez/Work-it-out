@@ -17,6 +17,33 @@
             <h2 class="card-title">Available Exercises</h2>
           </div>
           <div class="card-content">
+            <ion-toolbar class="filter-bar-container ml-1 mt-3">
+              <ion-select placeholder="Filter by Type" [(ngModel)]="selectedType" (ionChange)="filterExercisesSelect()">
+                <ion-select-option value="Leg">Leg</ion-select-option>
+                <ion-select-option value="Biceps">Biceps</ion-select-option>
+                <ion-select-option value="Triceps">Triceps</ion-select-option>
+                <ion-select-option value="Chest">Chest</ion-select-option>
+                <ion-select-option value="Back">Back</ion-select-option>
+                <ion-select-option value="Shoulders">Shoulders</ion-select-option>
+              </ion-select>
+            </ion-toolbar>
+      
+            <ion-toolbar class="filter-bar-container ml-1 mt-3">
+              <ion-select placeholder="Filter by Material" [(ngModel)]="selectedMaterial" (ionChange)="filterExercisesSelect()">
+                <ion-select-option value="Barbell">Barbell</ion-select-option>
+                <ion-select-option value="Weight Plates">Weight Plates</ion-select-option>
+                <ion-select-option value="Dumbbells">Dumbbells</ion-select-option>
+                <ion-select-option value="Bosu Ball">Bosu Ball</ion-select-option>
+                <ion-select-option value="Cable Machine">Cable Machine</ion-select-option>
+                <ion-select-option value="Kettlebells">Kettlebells</ion-select-option>
+                <ion-select-option value="TRX">TRX</ion-select-option>
+              </ion-select>
+            </ion-toolbar>
+      
+            <ion-toolbar class="search-bar-container">
+              <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterExercises($event.target.value ?? '')"></ion-searchbar>
+            </ion-toolbar>
+          </div>
             <ul class="exercise-list">
               <li class="exercise-item" *ngFor="let exercise of availableExercises">
                 <span>{{ exercise.name }}</span>
