@@ -65,6 +65,7 @@ export class RoutineMakerPage implements OnInit {
       (data: Exercise[]) => {
         // Filtrar ejercicios disponibles que no están en la rutina
         this.availableExercises = data.filter(exercise => !this.routine.exercises.find(e => e.id === exercise.id));
+        this.filteredExercises = this.availableExercises;
       },
       (error: any) => {
         console.error('Error fetching exercises:', error);
