@@ -45,6 +45,7 @@ export class HeaderPage implements OnInit {
   }
 
   createEmptyRoutine() {
+    console.log(this.userId);
     this.routineService.createRoutine(this.userId).subscribe(
       (data: Routine) => {
         this.routine = data;
