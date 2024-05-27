@@ -1,7 +1,4 @@
-$green: #0aff8a;
-$dark-green: #1d965b;
 $grey: #3d3c3d;
-$shadow: rgba(0, 0, 0, .25);
 
 /* Estilos para el contenedor principal */
 .container {
@@ -20,7 +17,7 @@ $shadow: rgba(0, 0, 0, .25);
   
   /* Estilos para el contenedor del formulario */
   .form-container {
-    width: 90%; /* Ancho completo */
+    width: 80%; /* Ancho completo */
     max-width: 1400px; /* Ancho máximo*/
     padding: 20px; /* Espaciado interno */
     border: 1px solid #ccc; /* Borde delgado gris */
@@ -48,7 +45,7 @@ $shadow: rgba(0, 0, 0, .25);
   .form-button {
     width: 100%; /* Ancho completo */
     padding: 10px; /* Espaciado interno */
-    background-color: $dark-green; /* Color de fondo azul */
+    background-color: $grey; /* Color de fondo azul */
     color: #fff; /* Color de texto blanco */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -67,7 +64,7 @@ $shadow: rgba(0, 0, 0, .25);
     border: 1px solid #ccc; /* Borde delgado gris */
     border-radius: 5px; /* Bordes redondeados */
     overflow: hidden; /* Ocultar contenido que se desborde */
-    width: 650px;
+    width: 600px;
   }
 
    .card-routine {
@@ -78,7 +75,7 @@ $shadow: rgba(0, 0, 0, .25);
   
   /* Estilos para el encabezado de la tarjeta */
   .card-header {
-    background-color: $dark-green; /* Color de fondo azul */
+    background-color: $grey; /* Color de fondo azul */
     color: #fff; /* Color de texto blanco */
     padding: 10px; /* Espaciado interno */
   }
@@ -138,6 +135,7 @@ $shadow: rgba(0, 0, 0, .25);
     padding: 10px; /* Espaciado interno */
     margin-top: 20px; /* Margen superior */
     border-radius: 5px; /* Bordes redondeados */
+    width: 40%;
   }
   
   .info-item {
@@ -146,11 +144,15 @@ $shadow: rgba(0, 0, 0, .25);
   }
   
   .btn-primary {
-    background-color: $dark-green; /* Color de fondo azul */
+    background-color: $grey; /* Color de fondo azul */
     color: #fff; /* Color de texto blanco */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
     padding: 10px 20px; /* Espaciado interno */
     text-decoration: none; /* Sin subrayado */
     display: inline-block; /* Mostrar como bloque en línea */
+  }
+
+  .card-routine{
+    width: 600px;
   }

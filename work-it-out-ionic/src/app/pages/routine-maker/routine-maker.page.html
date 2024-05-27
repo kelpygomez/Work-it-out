@@ -10,8 +10,8 @@
       <textarea class="form-textarea" id="routine-description" [(ngModel)]="routine.description"></textarea>
       <button class="form-button" (click)="saveChanges()">Save changes</button>
     </div>
-    <div class="row mt-5"> <!-- Agregamos la clase "row" para crear una fila -->
-      <div class="col-md-6"> <!-- Cada columna ocupa la mitad del ancho en dispositivos medianos y superiores -->
+    <div class="row mt-5">
+      <div class="col-md-6">
         <div class="card-available">
           <div class="card-header">
             <h2 class="card-title">Available Exercises</h2>
@@ -44,36 +44,36 @@
               <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterExercises($event.target.value ?? '')"></ion-searchbar>
             </ion-toolbar>
           </div>
-            <ul class="exercise-list">
-              <li class="exercise-item" *ngFor="let exercise of filteredExercises">
-                <span>{{ exercise.name }}</span>
-                <button class="add-button" (click)="addExerciseToRoutine(exercise.id)">+</button>
-              </li>
-            </ul>
-          </div>
+          <ul class="exercise-list">
+            <li class="exercise-item" *ngFor="let exercise of filteredExercises">
+              <span>{{ exercise.name }}</span>
+              <button class="toggle-button" (click)="toggleExercise(exercise)">
+                {{ isExerciseInRoutine(exercise.id) ? '-' : '+' }}
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="col-md-6"> 
+      <div class="col-md-2 ml-1"> 
         <div class="card-routine">
           <div class="card-header">
             <h2 class="card-title">{{ routine.name }}</h2>
-            
           </div>
           <div class="card-content">
             <ul class="exercise-list">
               <li class="exercise-item" *ngFor="let exercise_added of routine.exercises">
                 <span>{{ exercise_added.name }}</span>
-                <button class="remove-button" (click)="removeExerciseFromRoutine(exercise_added.id)">-</button>
+                <button class="remove-button" (click)="toggleExercise(exercise_added)">-</button>
               </li>
             </ul>
             <div class="additional-info">
               <div class="info-item">Type: {{ routine.types }} <i class="fas fa-male"></i></div>
-              <div class="info-item">Required Material: Dumbbell <i class="fas fa-fire"></i></div>
               <div class="info-item">Total Kcal: {{ routine.total_kcal }} <i class="fas fa-dumbbell"></i></div>
-              <a href="/tracker" class="btn btn-primary mt-3">Go tracker to register your routine</a>
+              <a href="/tracker" class="btn btn-primary mt-3">Track routine in Calendar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </ion-content>
