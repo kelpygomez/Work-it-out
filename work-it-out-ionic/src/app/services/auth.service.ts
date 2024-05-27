@@ -5,13 +5,13 @@ import { jwtDecode } from 'jwt-decode';
 import { tap } from 'rxjs/operators';
 import { Profile } from '../interfaces/profile.interface';
 
-const URLAPI = "http://api.workitout.arkania.es/";
+const URLAPI = "https://api.workitout.arkania.es/";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://api.workitout.arkania.es/'; 
+  private apiUrl = 'https://api.workitout.arkania.es/'; 
   constructor(private http: HttpClient) {}
 
   login(user: any): Observable<any> {

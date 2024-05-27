@@ -7,7 +7,7 @@ import { Week } from '../interfaces/tracker.interface';
   providedIn: 'root'
 })
 export class TrackerService {
-  private apiUrl = 'http://api.workitout.arkania.es/weeks/'; 
+  private apiUrl = 'https://api.workitout.arkania.es/weeks/'; 
 
   constructor(private http: HttpClient) {}
 
