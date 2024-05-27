@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class EditProfilePage implements OnInit {
 
   userId: number | undefined;
-  profile: Profile = { id:0 , username: '', email: '' , birthdate: '', height: 0, weight:0, status: '' };
+  profile: Profile = { id:0 , username: '', email: '' , birthdate: '', height: 0, weight:0, status: '', photo:'' };
   validationErrors: any = {};
   constructor(private authService: AuthService) { }
 
@@ -89,21 +89,31 @@ export class EditProfilePage implements OnInit {
   
     return isValid;
   }
-  
-  
+
+  profileImage = ''
+
+  onFileChange(event: any) {
+    this.profileImage = event.target.files[0];
+  }
+
   saveChanges() {
     if (!this.isValidProfile()) {
-      // Si hay errores de validación, no continuar
       return;
     }
-    this.authService.updateProfile(this.profile).subscribe(
+
+    const formData = new FormData();
+    formData.append('profile', JSON.stringify(this.profile));
+    if (this.profileImage) {
+      formData.append('profile_image', this.profileImage);
+    }
+
+    this.authService.updateProfile(formData).subscribe(
       () => {
         Swal.fire({
           title: 'Success!',
           text: 'Your profile has been updated.',
           icon: 'success',
           confirmButtonColor: "#1d965b",
-
         });
         console.log('Changes saved successfully');
       },

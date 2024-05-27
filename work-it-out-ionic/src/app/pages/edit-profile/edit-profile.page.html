@@ -21,15 +21,21 @@
               [style.border-color]="validationErrors.height ? 'red' : ''">
             <div *ngIf="validationErrors.height" style="color: red;">{{ validationErrors.height }}</div>
           </div>
+          <div>
+            <label for="profile-image">Profile Image:</label>
+            <input type="file" id="profile-image" (change)="onFileChange($event)">
+            <div *ngIf="profile.photo">
+              <img [src]="profile.image" alt="Profile Image" style="max-width: 100px; margin-top: 10px;">
+            </div>
+          </div>
         </div>
-        <!-- Botón "Return to profile" con un ícono de flecha -->
         <button class="btn btn-dark btn-return-profile" [routerLink]="['/profile']" [queryParams]="{reload: true}">
           <ion-icon name="arrow-back"></ion-icon> Return to profile
         </button>
-        <!-- Botón "Save changes" -->
         <button class="btn btn-save-changes" (click)="saveChanges()">Save changes</button>
       </div>
     </div>
   </div>
 </ion-content>
+
 

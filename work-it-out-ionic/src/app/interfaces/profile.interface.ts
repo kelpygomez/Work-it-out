@@ -6,4 +6,5 @@ export interface Profile {
   weight: number;
   height: number;
   status: string;
+  photo:string;
 }
