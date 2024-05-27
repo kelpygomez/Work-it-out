@@ -71,8 +71,8 @@ export class AuthService {
     return this.http.get<Profile[]>(`${this.apiUrl}account/profile/${userId}`);
 
   }
-  updateProfile(profile: Profile): Observable<any> {
-    return this.http.put<Profile>(`${this.apiUrl}account/edit_profile/${profile.id}/`, profile);
+  updateProfile(profile: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}account/edit_profile/${profile.id}/`, profile);
   }
 
   getAmountRoutines(userId: number): Observable<any> {

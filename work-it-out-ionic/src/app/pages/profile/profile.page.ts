@@ -11,7 +11,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class ProfilePage implements OnInit {
 
   userId: number | undefined;
-  profile: Profile = { id: 0, username: '', email: '', birthdate: '', height: 0, weight: 0, status: '' };
+  profile: Profile = { id: 0, username: '', email: '', birthdate: '', height: 0, weight: 0, status: '', photo:"" };
   routines_amount = 0;
 
   constructor(private authService: AuthService, private router: Router) { }
