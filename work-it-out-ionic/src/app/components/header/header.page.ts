@@ -13,7 +13,7 @@ import { Routine } from '../../interfaces/routine.interface';
 export class HeaderPage implements OnInit {
   user: User | null = null;
   userId = 0;
-  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', exercises: [] };
+  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', exercises: [], required_materials:'' };
   constructor(private authService: AuthService, private router: Router, private routineService: RoutineService) { }
 
   ngOnInit() {

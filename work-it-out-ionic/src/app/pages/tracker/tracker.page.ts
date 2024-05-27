@@ -33,13 +33,11 @@ export class TrackerPage {
     // Obtener el ID del usuario al iniciar el componente
     this.getUserId();
     this.loadRoutines();
-    this.loadWeek();
   }
 
   ionViewWillEnter() {
     // Se ejecuta cada vez que la página se carga o vuelve a cargarse
     this.loadRoutines();
-    this.loadWeek();
   }
 
   getUserId() {

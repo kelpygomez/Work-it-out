@@ -8,7 +8,8 @@ class RoutineListSerializer(serializers.Serializer):
     name = serializers.CharField()
     description = serializers.CharField()
     types = serializers.CharField()  # Usamos la propiedad 'types' del modelo
-    total_kcal = serializers.IntegerField()  # Usamos la propiedad 'total_kcal' del modelo
+    total_kcal = serializers.IntegerField()
+    required_materials = serializers.CharField()  # Usamos la propiedad 'total_kcal' del modelo
     exercises = ExerciseListSerializer(many=True, read_only=True)
 
     def get_associated_exercises(self, routine):

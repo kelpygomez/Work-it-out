@@ -7,6 +7,7 @@ export interface Routine {
     total_kcal: number;
     description: string;
     types: string;
+    required_materials: string;
     exercises: Exercise[]; // Asegúrate de tener el modelo de ejercicio definido correctamente
   }
   

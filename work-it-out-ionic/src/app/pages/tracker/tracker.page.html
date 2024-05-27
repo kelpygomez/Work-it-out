@@ -19,10 +19,15 @@
 			<div class="body">
 				<ng-container *ngIf="week.monday; else noMonday">
 					<p>
+						<ul>
+							<li *ngFor="let exercise of week.monday.exercises">
+							  {{ exercise.name }}
+							</li>
+						  </ul>
 						{{ week.monday.description }}<br>
 						<strong>Type:</strong> {{ week.monday.types }} <i class="fas fa-male"></i><br>
-						<strong>Total kcal:</strong> {{ week.monday.total_kcal }} <i class="fas fa-fire"></i>
-					</p>
+						<strong>Total kcal:</strong> {{ week.monday.total_kcal }} <i class="fas fa-fire"></i><br>
+						<strong>Required materials:</strong> {{ week.monday.required_materials }}<br>
 					<button (click)="removeRoutineFromWeek('monday')">Remove Routine</button>
 				</ng-container>
         
@@ -181,8 +186,13 @@
 			<p>
 				{{ week.saturday.description }}<br>
 				<strong>Type:</strong> {{ week.saturday.types }} <i class="fas fa-male"></i><br>
-				<strong>Total kcal:</strong> {{ week.saturday.total_kcal }} <i class="fas fa-fire"></i>
-			</p>
+				<strong>Total kcal:</strong> {{ week.saturday.total_kcal }} <i class="fas fa-fire"></i><br>
+				<strong>Exercises:</strong>
+				<ul>
+				  <li *ngFor="let exercise of week.saturday.exercises">
+					{{ exercise.name }}
+				  </li>
+				</ul>
 			<button (click)="removeRoutineFromWeek('saturday')">Remove Routine</button>
         </ng-container>
         

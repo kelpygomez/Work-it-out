@@ -17,6 +17,11 @@ class Routine(models.Model):
         return total_calories
     
     @property
+    def required_materials(self):
+        required_materials = set(exercise.required_material for exercise in self.exercises.all())
+        return "/".join(required_materials) if required_materials else "Nothing"
+    
+    @property
     def types(self):
         # Obtener los tipos únicos de los ejercicios asociados a la rutina
         types = set(exercise.type for exercise in self.exercises.all())

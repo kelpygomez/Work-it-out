@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Week
-from routines.serializers import RoutineSerializer
+from routines.serializers import RoutineListSerializer
 
 class WeekSerializer(serializers.ModelSerializer):
     # Agrega los campos de fecha de la semana al serializador
@@ -12,13 +12,13 @@ class WeekSerializer(serializers.ModelSerializer):
     saturday_date = serializers.DateField()
     sunday_date = serializers.DateField()
 
-    monday = RoutineSerializer()
-    tuesday = RoutineSerializer()
-    wednesday = RoutineSerializer()
-    thursday = RoutineSerializer()
-    friday = RoutineSerializer()
-    saturday = RoutineSerializer()
-    sunday = RoutineSerializer()
+    monday = RoutineListSerializer()
+    tuesday = RoutineListSerializer()
+    wednesday = RoutineListSerializer()
+    thursday = RoutineListSerializer()
+    friday = RoutineListSerializer()
+    saturday = RoutineListSerializer()
+    sunday = RoutineListSerializer()
 
 
     class Meta:

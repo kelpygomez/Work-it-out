@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class RoutineMakerPage implements OnInit {
   userId: number = 0;
   routineId: number = 0;
-  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', exercises: [] };
+  routine: Routine = { id: 0, name: '', total_kcal: 0, description: '', types: '', required_materials:'', exercises: [] };
   availableExercises: Exercise[] = [];
   routineExercises: Exercise[] = [];
   filteredExercises: any[] = [];
