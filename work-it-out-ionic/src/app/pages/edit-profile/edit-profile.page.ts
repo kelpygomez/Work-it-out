@@ -97,10 +97,6 @@ export class EditProfilePage implements OnInit {
   }
 
   saveChanges() {
-    if (!this.isValidProfile()) {
-      return;
-    }
-
     const formData = new FormData();
     formData.append('id', String(this.profile.id));
     formData.append('username', this.profile.username);
@@ -114,7 +110,7 @@ export class EditProfilePage implements OnInit {
       formData.append('photo', this.profileImage);
     }
 
-    this.authService.updateProfile(formData).subscribe(
+    this.authService.updateProfile(this.profile.id, formData).subscribe(
       () => {
         Swal.fire({
           title: 'Success!',

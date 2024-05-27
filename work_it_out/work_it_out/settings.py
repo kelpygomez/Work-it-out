@@ -27,8 +27,10 @@ SECRET_KEY = 'django-insecure-+&kqks&_@pcj0ewk%s4al1))544bfit=)0p*f&(506ho1bg_8^
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'http://localhost:8000',
-    'api.workitout.arkania.es',
+    'api.workitout.arkania.es'
+    
 ]
 
 REST_FRAMEWORK = {

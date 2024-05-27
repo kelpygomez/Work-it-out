@@ -59,6 +59,10 @@ export class ProfilePage implements OnInit {
       // Obtener las rutinas asociadas al usuario
       this.authService.getProfileData(this.userId).subscribe(
         (data: Profile) => {
+          // Ajustar la URL de la imagen
+          if (data.photo) {
+            data.photo = 'http://127.0.0.1:8000' + data.photo;
+          }
           this.profile = data;
           console.log('Profile loaded:', this.profile);
         },
@@ -70,6 +74,7 @@ export class ProfilePage implements OnInit {
       console.error('User ID not available.');
     }
   }
+  
   getAmountRoutines() {
     // Verificar que el userId esté definido
     if (this.userId) {

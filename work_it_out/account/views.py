@@ -46,7 +46,7 @@ class EditProfile(generics.RetrieveUpdateDestroyAPIView):
 class EditProfileAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request):
+    def post(self, request, pk):
         user_form = UserSerializer(instance=request.user, data=request.data)
         profile_data = request.data.copy()
         if 'photo' in request.FILES:
