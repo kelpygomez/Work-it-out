@@ -49,8 +49,8 @@ class EditProfileAPIView(APIView):
     def post(self, request):
         user_form = UserSerializer(instance=request.user, data=request.data)
         profile_data = request.data.copy()
-        if 'profile_image' in request.FILES:
-            profile_data['photo'] = request.FILES['profile_image']
+        if 'photo' in request.FILES:
+            profile_data['photo'] = request.FILES['photo']
         profile_form = ProfileSerializer(
             instance=request.user.profile, data=profile_data, partial=True
         )

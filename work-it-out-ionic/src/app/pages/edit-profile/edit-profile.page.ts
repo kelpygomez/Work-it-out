@@ -102,9 +102,16 @@ export class EditProfilePage implements OnInit {
     }
 
     const formData = new FormData();
-    formData.append('profile', JSON.stringify(this.profile));
+    formData.append('id', String(this.profile.id));
+    formData.append('username', this.profile.username);
+    formData.append('email', this.profile.email);
+    formData.append('birthdate', this.profile.birthdate);
+    formData.append('height', String(this.profile.height));
+    formData.append('weight', String(this.profile.weight));
+    formData.append('status', this.profile.status);
+
     if (this.profileImage) {
-      formData.append('profile_image', this.profileImage);
+      formData.append('photo', this.profileImage);
     }
 
     this.authService.updateProfile(formData).subscribe(
