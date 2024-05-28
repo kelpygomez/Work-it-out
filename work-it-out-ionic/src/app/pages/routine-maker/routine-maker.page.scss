@@ -63,8 +63,9 @@ $grey: #3d3c3d;
   .card-available {
     border: 1px solid #ccc; /* Borde delgado gris */
     border-radius: 5px; /* Bordes redondeados */
-    overflow: hidden; /* Ocultar contenido que se desborde */
+    overflow: scroll; /* Ocultar contenido que se desborde */
     width: 600px;
+    height: 500px;
   }
 
    .card-routine {
@@ -135,7 +136,6 @@ $grey: #3d3c3d;
     padding: 10px; /* Espaciado interno */
     margin-top: 20px; /* Margen superior */
     border-radius: 5px; /* Bordes redondeados */
-    width: 40%;
   }
   
   .info-item {

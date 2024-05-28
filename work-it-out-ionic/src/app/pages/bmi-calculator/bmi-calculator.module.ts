@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BmiCalculatorPageRoutingModule } from './bmi-calculator-routing.module';
 
 import { BmiCalculatorPage } from './bmi-calculator.page';
+import { LoadingSpinnerPageModule } from 'src/app/components/loading-spinner/loading-spinner.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BmiCalculatorPageRoutingModule
+    BmiCalculatorPageRoutingModule,
+    LoadingSpinnerPageModule
   ],
   declarations: [BmiCalculatorPage]
 })

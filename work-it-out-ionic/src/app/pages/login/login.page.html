@@ -7,21 +7,27 @@
   <!-- Main Content -->
   <section *ngIf="pageloaded">
     <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
-   <div class="signin"> 
-    <div class="content"> 
-    <h2>Login</h2> 
-      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-      <div class="inputBox"> 
-        <input type="text" style="padding: 15px" formControlName="username" placeholder="USERNAME" />
+    <div class="signin"> 
+      <div class="content"> 
+        <h2>Login</h2> 
+        <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="inputBox"> 
+            <input type="text" style="padding: 15px" formControlName="username" placeholder="USERNAME" />
+            <div *ngIf="submitted && f['username'].errors" class="error-message">
+              {{ getErrorMessage('username') }}
+            </div>
+          </div> 
+          <div class="inputBox"> 
+            <input type="password" style="padding: 15px" formControlName="password" placeholder="PASSWORD" />
+            <div *ngIf="submitted && f['password'].errors" class="error-message">
+              {{ getErrorMessage('password') }}
+            </div>
+          </div> 
+          <div class="inputBox"> 
+            <input type="submit" style="padding: 15px" value="Login"> 
+          </div> 
+        </form>
       </div> 
-      <div class="inputBox"> 
-        <input type="password" style="padding: 15px" formControlName="password" placeholder="PASSWORD" />
-      </div> 
-      <div class="inputBox"> 
-       <input type="submit" style="padding: 15px" value="Login"> 
-      </div> 
-    </form>
-    </div> 
-   </div> 
+    </div>
   </section>
 </ion-content>

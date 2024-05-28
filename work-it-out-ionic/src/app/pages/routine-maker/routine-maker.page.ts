@@ -88,6 +88,7 @@ export class RoutineMakerPage implements OnInit {
         this.saveChanges();
         this.loadRoutine();
         this.loadExercises();
+        location.reload();
       },
       (error: any) => {
         console.error('Error adding exercise to routine:', error);
@@ -101,6 +102,7 @@ export class RoutineMakerPage implements OnInit {
         this.saveChanges();
         this.loadRoutine();
         this.loadExercises();
+        location.reload();
       },
       (error: any) => {
         console.error('Error removing exercise from routine:', error);

@@ -7,28 +7,40 @@
   <!-- Main Content -->
   <section *ngIf="pageloaded">
     <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
-   <div class="signin"> 
-    <div class="content"> 
-    <h2>Register</h2> 
-    <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
-      <div class="inputBox"> 
-        <input type="text" style="padding: 15px" formControlName="username" placeholder="USERNAME" />
+    <div class="signin"> 
+      <div class="content"> 
+        <h2>Register</h2> 
+        <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="inputBox"> 
+            <input type="text" style="padding: 15px" formControlName="username" placeholder="USERNAME" />
+            <div *ngIf="submitted && f['username'].errors" class="error-message">
+              {{ getErrorMessage('username') }}
+            </div>
+          </div> 
+          <div class="inputBox"> 
+            <input type="text" style="padding: 15px" formControlName="email" placeholder="EMAIL" />
+            <div *ngIf="submitted && f['email'].errors" class="error-message">
+              {{ getErrorMessage('email') }}
+            </div>
+          </div> 
+          <div class="inputBox"> 
+            <input type="password" style="padding: 15px" formControlName="password" placeholder="PASSWORD" />
+            <div *ngIf="submitted && f['password'].errors" class="error-message">
+              {{ getErrorMessage('password') }}
+            </div>
+          </div> 
+          <div class="inputBox"> 
+            <input type="password" style="padding: 15px" formControlName="confirmPassword" placeholder=" REPEAT PASSWORD" />
+            <div *ngIf="submitted && f['confirmPassword'].errors" class="error-message">
+              {{ getErrorMessage('confirmPassword') }}
+            </div>
+          </div> 
+          <div class="inputBox"> 
+            <input type="submit" style="padding: 15px" value="Register"> 
+          </div> 
+        </form>
       </div> 
-      <div class="inputBox"> 
-        <input type="text" style="padding: 15px" formControlName="email" placeholder="EMAIL" />
-      </div> 
-      <div class="inputBox"> 
-        <input type="password" style="padding: 15px" formControlName="password" placeholder="PASSWORD" />
-      </div> 
-      <div class="inputBox"> 
-        <input type="password" style="padding: 15px" formControlName="confirmPassword" placeholder=" REPEAT PASSWORD" />
-      </div> 
-      <div class="inputBox"> 
-        <input type="submit" style="padding: 15px" value="Register"> 
-      </div> 
-    </form>
-    
     </div> 
-   </div> 
+    
   </section>
 </ion-content>

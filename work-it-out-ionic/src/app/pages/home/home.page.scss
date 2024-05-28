@@ -101,6 +101,7 @@ ion-content {
   width: 100%;
   max-width: 800px; 
   margin: 0 auto;
+  margin-top: 3%;
 }
 
 .video-container video {
@@ -108,7 +109,7 @@ ion-content {
   height: auto;
 }
 
-.play-button {
+.play {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -121,7 +122,7 @@ ion-content {
   cursor: pointer;
 }
 
-.play-button:hover {
+.play:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 

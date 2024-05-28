@@ -61,7 +61,7 @@ export class ProfilePage implements OnInit {
         (data: Profile) => {
           // Ajustar la URL de la imagen
           if (data.photo) {
-            data.photo = 'http://127.0.0.1:8000' + data.photo;
+            data.photo = "https://api.workitout.arkania.es/" + data.photo;
           }
           this.profile = data;
           console.log('Profile loaded:', this.profile);

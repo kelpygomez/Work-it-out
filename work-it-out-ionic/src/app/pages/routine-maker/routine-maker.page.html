@@ -8,7 +8,7 @@
       <input class="form-input" type="text" id="routine-name" [(ngModel)]="routine.name">
       <label class="form-label" for="routine-description">Routine's description:</label>
       <textarea class="form-textarea" id="routine-description" [(ngModel)]="routine.description"></textarea>
-      <button class="form-button" (click)="saveChanges()">Save changes</button>
+      <button class="form-button" (click)="saveChanges()">Save name and description</button>
     </div>
     <div class="row mt-5">
       <div class="col-md-6">
@@ -47,7 +47,7 @@
           <ul class="exercise-list">
             <li class="exercise-item" *ngFor="let exercise of filteredExercises">
               <span>{{ exercise.name }}</span>
-              <button class="toggle-button" (click)="toggleExercise(exercise)">
+              <button class="add-button" (click)="toggleExercise(exercise)">
                 {{ isExerciseInRoutine(exercise.id) ? '-' : '+' }}
               </button>
             </li>
@@ -68,7 +68,8 @@
             </ul>
             <div class="additional-info">
               <div class="info-item">Type: {{ routine.types }} <i class="fas fa-male"></i></div>
-              <div class="info-item">Total Kcal: {{ routine.total_kcal }} <i class="fas fa-dumbbell"></i></div>
+              <div class="info-item">Required materials: {{ routine.required_materials }}</div>
+              <div class="info-item">Total Kcal: {{ routine.total_kcal }} <i class="fas fa-fire"></i></div>
               <a href="/tracker" class="btn btn-primary mt-3">Track routine in Calendar</a>
             </div>
           </div>

@@ -1,9 +1,9 @@
 <ion-content>
-<section id=timeline>
-	<div class="title">
-		<h1>Current week: </h1>
-		<h1 id="subtitle">From {{week.monday_date}} to {{week.sunday_date}}</h1>
-	</div>
+<section id="timeline">
+  <div class="title">
+    <h1 class="main-title">Current Week:</h1>
+    <h2 id="subtitle">From {{week.monday_date}} to {{week.sunday_date}}</h2>
+  </div>
 	<div class="buttons-container-1">
 		<button class="button-arounder" (click)="loadPreviousWeek()">PREVIOUS WEEK</button>
 		<button class="button-arounder" (click)="loadUpcomingWeek()">NEXT WEEK</button>
@@ -18,13 +18,12 @@
 			</div>
 			<div class="body">
 				<ng-container *ngIf="week.monday; else noMonday">
-					<p>
+					<p>{{ week.monday.description }}<br></p>
 						<ul>
 							<li *ngFor="let exercise of week.monday.exercises">
-							  {{ exercise.name }}
+								{{ exercise.name }}
 							</li>
-						  </ul>
-						{{ week.monday.description }}<br>
+						</ul>
 						<strong>Type:</strong> {{ week.monday.types }} <i class="fas fa-male"></i><br>
 						<strong>Total kcal:</strong> {{ week.monday.total_kcal }} <i class="fas fa-fire"></i><br>
 						<strong>Required materials:</strong> {{ week.monday.required_materials }}<br>
@@ -55,16 +54,20 @@
 	</div>
 	<div class="body">
 		<ng-container *ngIf="week.tuesday; else noTuesday">
-			<p>
-				{{ week.tuesday.description }}<br>
-				<strong>Type:</strong> {{ week.tuesday.types }} <i class="fas fa-male"></i><br>
-				<strong>Total kcal:</strong> {{ week.tuesday.total_kcal }} <i class="fas fa-fire"></i>
-			</p>
-			<button (click)="removeRoutineFromWeek('tuesday')">Remove Routine</button>
+			<p>{{ week.tuesday.description }}<br></p>
+			<ul>
+				<li *ngFor="let exercise of week.tuesday.exercises">
+					{{ exercise.name }}
+				</li>
+			</ul>
+			<strong>Type:</strong> {{ week.tuesday.types }} <i class="fas fa-male"></i><br>
+			<strong>Total kcal:</strong> {{ week.tuesday.total_kcal }} <i class="fas fa-fire"></i><br>
+			<strong>Required materials:</strong> {{ week.tuesday.required_materials }}<br>
+		<button (click)="removeRoutineFromWeek('tuesday')">Remove Routine</button>
         </ng-container>
         
         <ng-template #noTuesday>
-          <p>You haven't select a routine yet!!</p>
+          <p>You haven't selected a routine yet.</p>
 		  <div class="custom-item">
 			  <label>Routines</label>
 			  <div class="select-wrapper">
@@ -87,16 +90,20 @@
 	</div>
 	<div class="body">
 		<ng-container *ngIf="week.wednesday; else noWednesday">
-			<p>
-				{{ week.wednesday.description }}<br>
-				<strong>Type:</strong> {{ week.wednesday.types }} <i class="fas fa-male"></i><br>
-				<strong>Total kcal:</strong> {{ week.wednesday.total_kcal }} <i class="fas fa-fire"></i>
-			</p>
-			<button (click)="removeRoutineFromWeek('wednesday')">Remove Routine</button>
+			<p>{{ week.wednesday.description }}<br></p>
+			<ul>
+				<li *ngFor="let exercise of week.wednesday.exercises">
+					{{ exercise.name }}
+				</li>
+			</ul>
+			<strong>Type:</strong> {{ week.wednesday.types }} <i class="fas fa-male"></i><br>
+			<strong>Total kcal:</strong> {{ week.wednesday.total_kcal }} <i class="fas fa-fire"></i><br>
+			<strong>Required materials:</strong> {{ week.wednesday.required_materials }}<br>
+		<button (click)="removeRoutineFromWeek('wednesday')">Remove Routine</button>
         </ng-container>
         
         <ng-template #noWednesday>
-			<p>You haven't select a routine yet!!</p>
+			<p>You haven't selected a routine yet.</p>
 			<div class="custom-item">
 				<label>Routines</label>
 				<div class="select-wrapper">
@@ -119,16 +126,20 @@
 			</div>
 			<div class="body">
 				<ng-container *ngIf="week.thursday; else noThursday">
-					<p>
-						{{ week.thursday.description }}<br>
-						<strong>Type:</strong> {{ week.thursday.types }} <i class="fas fa-male"></i><br>
-						<strong>Total kcal:</strong> {{ week.thursday.total_kcal }} <i class="fas fa-fire"></i>
-					</p>
-					<button (click)="removeRoutineFromWeek('thursday')">Remove Routine</button>
+					<p>{{ week.thursday.description }}<br></p>
+					<ul>
+						<li *ngFor="let exercise of week.thursday.exercises">
+							{{ exercise.name }}
+						</li>
+					</ul>
+					<strong>Type:</strong> {{ week.thursday.types }} <i class="fas fa-male"></i><br>
+					<strong>Total kcal:</strong> {{ week.thursday.total_kcal }} <i class="fas fa-fire"></i><br>
+					<strong>Required materials:</strong> {{ week.thursday.required_materials }}<br>
+				<button (click)="removeRoutineFromWeek('thursday')">Remove Routine</button>
 				</ng-container>
 				
 				<ng-template #noThursday>
-					<p>You haven't select a routine yet!!</p>
+					<p>You haven't selected a routine yet.</p>
 					<div class="custom-item">
 						<label>Routines</label>
 						<div class="select-wrapper">
@@ -151,16 +162,20 @@
 			</div>
 			<div class="body">
 				<ng-container *ngIf="week.friday; else noFriday">
-					<p>
-            {{ week.friday.description }}<br>
-            <strong>Type:</strong> {{ week.friday.types }} <i class="fas fa-male"></i><br>
-            <strong>Total kcal:</strong> {{ week.friday.total_kcal }} <i class="fas fa-fire"></i>
-		</p>
-		<button (click)="removeRoutineFromWeek('friday')">Remove Routine</button>
+					<p>{{ week.friday.description }}<br></p>
+					<ul>
+						<li *ngFor="let exercise of week.friday.exercises">
+							{{ exercise.name }}
+						</li>
+					</ul>
+					<strong>Type:</strong> {{ week.friday.types }} <i class="fas fa-male"></i><br>
+					<strong>Total kcal:</strong> {{ week.friday.total_kcal }} <i class="fas fa-fire"></i><br>
+					<strong>Required materials:</strong> {{ week.friday.required_materials }}<br>
+				<button (click)="removeRoutineFromWeek('friday')">Remove Routine</button>
         </ng-container>
         
         <ng-template #noFriday>
-			<p>You haven't select a routine yet!!</p>
+			<p>You haven't selected a routine yet.</p>
 			<div class="custom-item">
 				<label>Routines</label>
 				<div class="select-wrapper">
@@ -183,21 +198,20 @@
 	</div>
 	<div class="body">
 		<ng-container *ngIf="week.saturday; else noSaturday">
-			<p>
-				{{ week.saturday.description }}<br>
-				<strong>Type:</strong> {{ week.saturday.types }} <i class="fas fa-male"></i><br>
-				<strong>Total kcal:</strong> {{ week.saturday.total_kcal }} <i class="fas fa-fire"></i><br>
-				<strong>Exercises:</strong>
-				<ul>
-				  <li *ngFor="let exercise of week.saturday.exercises">
+			<p>{{ week.saturday.description }}<br></p>
+			<ul>
+				<li *ngFor="let exercise of week.saturday.exercises">
 					{{ exercise.name }}
-				  </li>
-				</ul>
-			<button (click)="removeRoutineFromWeek('saturday')">Remove Routine</button>
+				</li>
+			</ul>
+			<strong>Type:</strong> {{ week.saturday.types }} <i class="fas fa-male"></i><br>
+			<strong>Total kcal:</strong> {{ week.saturday.total_kcal }} <i class="fas fa-fire"></i><br>
+			<strong>Required materials:</strong> {{ week.saturday.required_materials }}<br>
+		<button (click)="removeRoutineFromWeek('saturday')">Remove Routine</button>
         </ng-container>
         
         <ng-template #noSaturday>
-			<p>You haven't select a routine yet!!</p>
+			<p>You haven't selected a routine yet.</p>
 			<div class="custom-item">
 				<label>Routines</label>
 				<div class="select-wrapper">
@@ -220,16 +234,20 @@
 			</div>
 			<div class="body">
 				<ng-container *ngIf="week.sunday; else noSunday">
-					<p>
-						{{ week.sunday.description }}<br>
-						<strong>Type:</strong> {{ week.sunday.types }} <i class="fas fa-male"></i><br>
-						<strong>Total kcal:</strong> {{ week.sunday.total_kcal }} <i class="fas fa-fire"></i>
-					</p>
-					<button (click)="removeRoutineFromWeek('sunday')">Remove Routine</button>
+					<p>{{ week.sunday.description }}<br></p>
+					<ul>
+						<li *ngFor="let exercise of week.sunday.exercises">
+							{{ exercise.name }}
+						</li>
+					</ul>
+					<strong>Type:</strong> {{ week.sunday.types }} <i class="fas fa-male"></i><br>
+					<strong>Total kcal:</strong> {{ week.sunday.total_kcal }} <i class="fas fa-fire"></i><br>
+					<strong>Required materials:</strong> {{ week.sunday.required_materials }}<br>
+				<button (click)="removeRoutineFromWeek('sunday')">Remove Routine</button>
 				</ng-container>
 				
 				<ng-template #noSunday>
-					<p>You haven't select a routine yet!!</p>
+					<p>You haven't selected a routine yet.</p>
 					<div class="custom-item">
 						<label>Routines</label>
 						<div class="select-wrapper">

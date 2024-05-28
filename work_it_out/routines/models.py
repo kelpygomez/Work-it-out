@@ -19,7 +19,7 @@ class Routine(models.Model):
     @property
     def required_materials(self):
         required_materials = set(exercise.required_material for exercise in self.exercises.all())
-        return "/".join(required_materials) if required_materials else "Nothing"
+        return "/".join(required_materials) if required_materials else "Undetermined"
     
     @property
     def types(self):

@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
   isModalOpen = false;
   newsletterForm: FormGroup;
   isSubscribed: boolean = false;
@@ -37,5 +36,14 @@ export class HomePage implements OnInit {
 
   get email() {
     return this.newsletterForm.get('email');
+  }
+
+  toggleVideo() {
+    const video: HTMLVideoElement = document.getElementById('promoVideo') as HTMLVideoElement;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
   }
 }

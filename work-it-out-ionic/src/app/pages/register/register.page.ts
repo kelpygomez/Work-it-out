@@ -26,8 +26,10 @@ export class RegisterPage implements OnInit, AfterViewInit {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
+    }, {
+      validators: this.passwordsMatchValidator.bind(this)
     });
   }
 
@@ -39,12 +41,26 @@ export class RegisterPage implements OnInit, AfterViewInit {
     }, 1000); // Simula un retraso en la carga de la página
   }
 
+  passwordsMatchValidator(form: FormGroup) {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    if (password && confirmPassword) {
+      if (password.value !== confirmPassword.value) {
+        confirmPassword.setErrors({ passwordsMismatch: true });
+      } else {
+        confirmPassword.setErrors(null);
+      }
+    }
+  }
+
   register() {
+    this.submitted = true;
+
     if (!this.registerForm.valid) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'All fields are required!',
+        text: 'Please fix the errors in the form!',
       });
       return; // No enviar el formulario si no está completo
     }
@@ -53,12 +69,6 @@ export class RegisterPage implements OnInit, AfterViewInit {
     this.authService.register(user).subscribe(
       (data) => {
         console.log(data);
-        Swal.fire({
-          title: 'Success!',
-          text: 'Register successful',
-          icon: 'success',
-          confirmButtonColor: '#1d965b',
-        });
         this.router.navigate(['/login']);
       },
       (error) => {
@@ -66,5 +76,25 @@ export class RegisterPage implements OnInit, AfterViewInit {
         // Handle errors
       }
     );
+  }
+
+  get f() {
+    return this.registerForm.controls;
+  }
+
+  getErrorMessage(field: string): string {
+    if (this.f[field].errors?.['required']) {
+      return `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
+    }
+    if (this.f[field].errors?.['email']) {
+      return 'Invalid email format';
+    }
+    if (this.f[field].errors?.['minlength']) {
+      return `${field.charAt(0).toUpperCase() + field.slice(1)} must be at least 6 characters`;
+    }
+    if (this.f[field].errors?.['passwordsMismatch']) {
+      return 'Passwords do not match';
+    }
+    return '';
   }
 }

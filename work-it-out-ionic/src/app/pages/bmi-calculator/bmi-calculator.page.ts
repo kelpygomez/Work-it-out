@@ -13,6 +13,7 @@ export class BmiCalculatorPage {
   heightValue!: number;
   bmi!: number | null;
 
+
   calculateBMI() {
     if (this.weightValue && this.heightValue) {
       const weight = this.weightValue;

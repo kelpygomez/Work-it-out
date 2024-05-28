@@ -12,8 +12,13 @@ import Swal from 'sweetalert2';
 export class LoginPage implements OnInit, AfterViewInit {
   loginForm: FormGroup;
   pageloaded: boolean;
+  submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router
+  ) {
     this.pageloaded = false;
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -29,26 +34,44 @@ export class LoginPage implements OnInit, AfterViewInit {
     }, 1000); // Simula un retraso en la carga de la página
   }
 
-  login() {
-    if (this.loginForm.valid) {
-      const user = this.loginForm.value;
-      this.authService.login(user).subscribe(
-        (data) => {
-          console.log('Login response:', data);
-          localStorage.setItem('user', JSON.stringify(data));
-          Swal.fire({
-            title: 'Success!',
-            text: 'Login successful',
-            icon: 'success',
-            confirmButtonColor: "#1d965b",
-          }); // Assuming the response contains user data
-          this.router.navigate(['/home']);
-        },
-        (error) => {
-          console.error('Error during login:', error);
-          // Handle the error here, such as displaying a message to the user
-        }
-      );
+  // Getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
+
+  getErrorMessage(field: string): string {
+    if (this.f[field].hasError('required')) {
+      return `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
     }
+    return '';
+  }
+
+  login() {
+    this.submitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    const user = this.loginForm.value;
+    this.authService.login(user).subscribe(
+      (data) => {
+        console.log('Login response:', data);
+        localStorage.setItem('user', JSON.stringify(data));
+        Swal.fire({
+          title: 'Success!',
+          text: 'Login successful',
+          icon: 'success',
+          confirmButtonColor: "#1d965b",
+        });
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.error('Error during login:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Invalid username or password!',
+        });
+      }
+    );
   }
 }

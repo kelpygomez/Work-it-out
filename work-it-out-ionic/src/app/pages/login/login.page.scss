@@ -152,6 +152,11 @@ input[type="submit"]:active
   opacity: 0.6;
 }
 
+.error-message {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
 @media (max-width: 900px)
 {
   section span 
